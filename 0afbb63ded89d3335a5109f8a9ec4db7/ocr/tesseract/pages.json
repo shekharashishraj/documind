@@ -1,0 +1,4195 @@
+[
+  {
+    "page": 0,
+    "text": "AMERICANY The American Rescue Plan: Impacts on New York The Need for Action in New York The pandemic and the associated economic crisis have had a severe impact on New York. The need for action is clear: Since the pandemic began, more than 1,698,819 people have been infected with COVID-19 and more than 48,104 people have died. The unemployment rate is 8.7%, up from 3.9% before the pandemic. Since February 2020, more than 652,185 fewer people are employed. 1,673,000 adults \u2014 13% of all adults in the state \u2014 report not having enough food to eat. This includes 357,000 adults living with children, or 8% of all adults living with children, who report that the children in their household do not have enough to eat. An estimated 1,326,000 renters or 22% of renters are not caught up on rent. An estimated 5,311,000 adults or 38% of all adults statewide report having difficulty covering normal household expenses. The Effect of the American Rescue Plan on New York President Biden\u2019s American Rescue Plan will provide New York with: $12.825 billion in state fiscal relief $9.948 billion in local fiscal relief More than $9.174 billion in relief for K-12 schools Economic impact payments of up to $1,400 per person (above the $600 per person provided in December) for more than 11,344,500 adults and 4,403,300 children. This is 82% of all adults in the state and 82% of all children in the state. Additional relief of up to $1,600 per child through the Child Tax Credit to the families of 3,564,000 children, lifting 242,000 children out of poverty Additional relief of up to nearly $1,000 through the Earned Income Tax Credit to 915,000 childless workers, including many in frontline jobs Marketplace health insurance premiums that are $663 lower per month for a 60-year old couple earning $75,000 per year",
+    "blocks": [
+      {
+        "level": "line",
+        "text": "AMERICANY",
+        "bbox": {
+          "left": 405,
+          "top": 75,
+          "width": 464,
+          "height": 97
+        },
+        "block_num": 1,
+        "line_num": 1
+      },
+      {
+        "level": "line",
+        "text": "The American Rescue Plan: Impacts on New York",
+        "bbox": {
+          "left": 324,
+          "top": 244,
+          "width": 627,
+          "height": 26
+        },
+        "block_num": 2,
+        "line_num": 1
+      },
+      {
+        "level": "line",
+        "text": "The Need for Action in New York",
+        "bbox": {
+          "left": 151,
+          "top": 297,
+          "width": 419,
+          "height": 20
+        },
+        "block_num": 3,
+        "line_num": 1
+      },
+      {
+        "level": "line",
+        "text": "The pandemic and the associated economic crisis have had a severe impact on",
+        "bbox": {
+          "left": 152,
+          "top": 350,
+          "width": 915,
+          "height": 26
+        },
+        "block_num": 5,
+        "line_num": 1
+      },
+      {
+        "level": "line",
+        "text": "New York. The need for action is clear:",
+        "bbox": {
+          "left": 150,
+          "top": 382,
+          "width": 458,
+          "height": 34
+        },
+        "block_num": 5,
+        "line_num": 2
+      },
+      {
+        "level": "line",
+        "text": "Since the pandemic began, more than 1,698,819 people have been infected The unemployment rate is 8.7%, up from 3.9% before the pandemic. Since February 2020, more than 652,185 fewer people are employed. An estimated 1,326,000 renters or 22% of renters are not caught up on rent.",
+        "bbox": {
+          "left": 225,
+          "top": 441,
+          "width": 879,
+          "height": 324
+        },
+        "block_num": 6,
+        "line_num": 1
+      },
+      {
+        "level": "line",
+        "text": "with COVID-19 and more than 48,104 people have died. 1,673,000 adults \u2014 13% of all adults in the state \u2014 report not having enough An estimated 5,311,000 adults or 38% of all adults statewide report having",
+        "bbox": {
+          "left": 225,
+          "top": 478,
+          "width": 878,
+          "height": 326
+        },
+        "block_num": 6,
+        "line_num": 2
+      },
+      {
+        "level": "line",
+        "text": "food to eat. This includes 357,000 adults living with children, or 8% of all difficulty covering normal household expenses.",
+        "bbox": {
+          "left": 226,
+          "top": 629,
+          "width": 863,
+          "height": 211
+        },
+        "block_num": 6,
+        "line_num": 3
+      },
+      {
+        "level": "line",
+        "text": "adults living with children, who report that the children in their household do",
+        "bbox": {
+          "left": 226,
+          "top": 665,
+          "width": 898,
+          "height": 26
+        },
+        "block_num": 6,
+        "line_num": 4
+      },
+      {
+        "level": "line",
+        "text": "not have enough to eat.",
+        "bbox": {
+          "left": 225,
+          "top": 701,
+          "width": 269,
+          "height": 26
+        },
+        "block_num": 6,
+        "line_num": 5
+      },
+      {
+        "level": "line",
+        "text": "The Effect of the American Rescue Plan on New York",
+        "bbox": {
+          "left": 151,
+          "top": 867,
+          "width": 669,
+          "height": 20
+        },
+        "block_num": 7,
+        "line_num": 1
+      },
+      {
+        "level": "line",
+        "text": "President Biden\u2019s American Rescue Plan will provide New York with:",
+        "bbox": {
+          "left": 150,
+          "top": 919,
+          "width": 815,
+          "height": 26
+        },
+        "block_num": 9,
+        "line_num": 1
+      },
+      {
+        "level": "line",
+        "text": "$12.825 billion in state fiscal relief $9.948 billion in local fiscal relief More than $9.174 billion in relief for K-12 schools Economic impact payments of up to $1,400 per person (above the $600 per Additional relief of up to $1,600 per child through the Child Tax Credit to",
+        "bbox": {
+          "left": 225,
+          "top": 974,
+          "width": 879,
+          "height": 288
+        },
+        "block_num": 10,
+        "line_num": 1
+      },
+      {
+        "level": "line",
+        "text": "person provided in December) for more than 11,344,500 adults and the families of 3,564,000 children, lifting 242,000 children out of poverty",
+        "bbox": {
+          "left": 225,
+          "top": 1126,
+          "width": 858,
+          "height": 172
+        },
+        "block_num": 10,
+        "line_num": 2
+      },
+      {
+        "level": "line",
+        "text": "4,403,300 children. This is 82% of all adults in the state and 82% of all Additional relief of up to nearly $1,000 through the Earned Income Tax",
+        "bbox": {
+          "left": 225,
+          "top": 1162,
+          "width": 836,
+          "height": 175
+        },
+        "block_num": 10,
+        "line_num": 3
+      },
+      {
+        "level": "line",
+        "text": "children in the state. Credit to 915,000 childless workers, including many in frontline jobs",
+        "bbox": {
+          "left": 226,
+          "top": 1198,
+          "width": 804,
+          "height": 175
+        },
+        "block_num": 10,
+        "line_num": 4
+      },
+      {
+        "level": "line",
+        "text": "Marketplace health insurance premiums that are $663 lower per month for a",
+        "bbox": {
+          "left": 226,
+          "top": 1384,
+          "width": 887,
+          "height": 27
+        },
+        "block_num": 10,
+        "line_num": 5
+      },
+      {
+        "level": "line",
+        "text": "60-year old couple earning $75,000 per year",
+        "bbox": {
+          "left": 226,
+          "top": 1420,
+          "width": 516,
+          "height": 27
+        },
+        "block_num": 10,
+        "line_num": 6
+      }
+    ],
+    "words": [
+      {
+        "text": "AMERICANY",
+        "bbox": {
+          "left": 405,
+          "top": 75,
+          "width": 464,
+          "height": 97
+        },
+        "conf": 0,
+        "block_num": 1,
+        "line_num": 1,
+        "word_num": 1
+      },
+      {
+        "text": "The",
+        "bbox": {
+          "left": 324,
+          "top": 245,
+          "width": 47,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 2,
+        "line_num": 1,
+        "word_num": 1
+      },
+      {
+        "text": "American",
+        "bbox": {
+          "left": 380,
+          "top": 244,
+          "width": 121,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 2,
+        "line_num": 1,
+        "word_num": 2
+      },
+      {
+        "text": "Rescue",
+        "bbox": {
+          "left": 510,
+          "top": 245,
+          "width": 87,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 2,
+        "line_num": 1,
+        "word_num": 3
+      },
+      {
+        "text": "Plan:",
+        "bbox": {
+          "left": 605,
+          "top": 245,
+          "width": 63,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 2,
+        "line_num": 1,
+        "word_num": 4
+      },
+      {
+        "text": "Impacts",
+        "bbox": {
+          "left": 679,
+          "top": 245,
+          "width": 99,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 2,
+        "line_num": 1,
+        "word_num": 5
+      },
+      {
+        "text": "on",
+        "bbox": {
+          "left": 787,
+          "top": 250,
+          "width": 29,
+          "height": 14
+        },
+        "conf": 96,
+        "block_num": 2,
+        "line_num": 1,
+        "word_num": 6
+      },
+      {
+        "text": "New",
+        "bbox": {
+          "left": 825,
+          "top": 245,
+          "width": 54,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 2,
+        "line_num": 1,
+        "word_num": 7
+      },
+      {
+        "text": "York",
+        "bbox": {
+          "left": 888,
+          "top": 245,
+          "width": 63,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 2,
+        "line_num": 1,
+        "word_num": 8
+      },
+      {
+        "text": "The",
+        "bbox": {
+          "left": 151,
+          "top": 298,
+          "width": 47,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 3,
+        "line_num": 1,
+        "word_num": 1
+      },
+      {
+        "text": "Need",
+        "bbox": {
+          "left": 207,
+          "top": 298,
+          "width": 60,
+          "height": 19
+        },
+        "conf": 95,
+        "block_num": 3,
+        "line_num": 1,
+        "word_num": 2
+      },
+      {
+        "text": "for",
+        "bbox": {
+          "left": 277,
+          "top": 297,
+          "width": 36,
+          "height": 20
+        },
+        "conf": 95,
+        "block_num": 3,
+        "line_num": 1,
+        "word_num": 3
+      },
+      {
+        "text": "Action",
+        "bbox": {
+          "left": 321,
+          "top": 297,
+          "width": 81,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 3,
+        "line_num": 1,
+        "word_num": 4
+      },
+      {
+        "text": "in",
+        "bbox": {
+          "left": 412,
+          "top": 297,
+          "width": 22,
+          "height": 20
+        },
+        "conf": 95,
+        "block_num": 3,
+        "line_num": 1,
+        "word_num": 5
+      },
+      {
+        "text": "New",
+        "bbox": {
+          "left": 443,
+          "top": 298,
+          "width": 54,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 3,
+        "line_num": 1,
+        "word_num": 6
+      },
+      {
+        "text": "York",
+        "bbox": {
+          "left": 506,
+          "top": 298,
+          "width": 64,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 3,
+        "line_num": 1,
+        "word_num": 7
+      },
+      {
+        "text": "The",
+        "bbox": {
+          "left": 152,
+          "top": 350,
+          "width": 42,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 1,
+        "word_num": 1
+      },
+      {
+        "text": "pandemic",
+        "bbox": {
+          "left": 199,
+          "top": 350,
+          "width": 115,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 1,
+        "word_num": 2
+      },
+      {
+        "text": "and",
+        "bbox": {
+          "left": 322,
+          "top": 350,
+          "width": 45,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 1,
+        "word_num": 3
+      },
+      {
+        "text": "the",
+        "bbox": {
+          "left": 374,
+          "top": 350,
+          "width": 34,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 1,
+        "word_num": 4
+      },
+      {
+        "text": "associated",
+        "bbox": {
+          "left": 416,
+          "top": 350,
+          "width": 124,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 1,
+        "word_num": 5
+      },
+      {
+        "text": "economic",
+        "bbox": {
+          "left": 547,
+          "top": 351,
+          "width": 110,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 1,
+        "word_num": 6
+      },
+      {
+        "text": "crisis",
+        "bbox": {
+          "left": 666,
+          "top": 351,
+          "width": 61,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 1,
+        "word_num": 7
+      },
+      {
+        "text": "have",
+        "bbox": {
+          "left": 736,
+          "top": 350,
+          "width": 54,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 1,
+        "word_num": 8
+      },
+      {
+        "text": "had",
+        "bbox": {
+          "left": 799,
+          "top": 350,
+          "width": 44,
+          "height": 20
+        },
+        "conf": 95,
+        "block_num": 5,
+        "line_num": 1,
+        "word_num": 9
+      },
+      {
+        "text": "a",
+        "bbox": {
+          "left": 850,
+          "top": 357,
+          "width": 13,
+          "height": 13
+        },
+        "conf": 95,
+        "block_num": 5,
+        "line_num": 1,
+        "word_num": 10
+      },
+      {
+        "text": "severe",
+        "bbox": {
+          "left": 871,
+          "top": 357,
+          "width": 74,
+          "height": 13
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 1,
+        "word_num": 11
+      },
+      {
+        "text": "impact",
+        "bbox": {
+          "left": 954,
+          "top": 352,
+          "width": 78,
+          "height": 24
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 1,
+        "word_num": 12
+      },
+      {
+        "text": "on",
+        "bbox": {
+          "left": 1040,
+          "top": 357,
+          "width": 27,
+          "height": 13
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 1,
+        "word_num": 13
+      },
+      {
+        "text": "New",
+        "bbox": {
+          "left": 150,
+          "top": 387,
+          "width": 52,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 2,
+        "word_num": 1
+      },
+      {
+        "text": "York.",
+        "bbox": {
+          "left": 212,
+          "top": 386,
+          "width": 56,
+          "height": 20
+        },
+        "conf": 91,
+        "block_num": 5,
+        "line_num": 2,
+        "word_num": 2
+      },
+      {
+        "text": "The",
+        "bbox": {
+          "left": 281,
+          "top": 386,
+          "width": 41,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 2,
+        "word_num": 3
+      },
+      {
+        "text": "need",
+        "bbox": {
+          "left": 330,
+          "top": 382,
+          "width": 40,
+          "height": 34
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 2,
+        "word_num": 4
+      },
+      {
+        "text": "for",
+        "bbox": {
+          "left": 386,
+          "top": 382,
+          "width": 35,
+          "height": 34
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 2,
+        "word_num": 5
+      },
+      {
+        "text": "action",
+        "bbox": {
+          "left": 434,
+          "top": 387,
+          "width": 71,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 2,
+        "word_num": 6
+      },
+      {
+        "text": "is",
+        "bbox": {
+          "left": 515,
+          "top": 388,
+          "width": 17,
+          "height": 18
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 2,
+        "word_num": 7
+      },
+      {
+        "text": "clear:",
+        "bbox": {
+          "left": 541,
+          "top": 386,
+          "width": 67,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 5,
+        "line_num": 2,
+        "word_num": 8
+      },
+      {
+        "text": "Since",
+        "bbox": {
+          "left": 227,
+          "top": 441,
+          "width": 62,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 1
+      },
+      {
+        "text": "the",
+        "bbox": {
+          "left": 297,
+          "top": 441,
+          "width": 35,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 2
+      },
+      {
+        "text": "pandemic",
+        "bbox": {
+          "left": 340,
+          "top": 441,
+          "width": 112,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 3
+      },
+      {
+        "text": "began,",
+        "bbox": {
+          "left": 461,
+          "top": 441,
+          "width": 75,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 4
+      },
+      {
+        "text": "more",
+        "bbox": {
+          "left": 546,
+          "top": 448,
+          "width": 58,
+          "height": 13
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 5
+      },
+      {
+        "text": "than",
+        "bbox": {
+          "left": 612,
+          "top": 441,
+          "width": 50,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 6
+      },
+      {
+        "text": "1,698,819",
+        "bbox": {
+          "left": 673,
+          "top": 441,
+          "width": 112,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 7
+      },
+      {
+        "text": "people",
+        "bbox": {
+          "left": 794,
+          "top": 441,
+          "width": 77,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 8
+      },
+      {
+        "text": "have",
+        "bbox": {
+          "left": 879,
+          "top": 441,
+          "width": 54,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 9
+      },
+      {
+        "text": "been",
+        "bbox": {
+          "left": 941,
+          "top": 441,
+          "width": 55,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 10
+      },
+      {
+        "text": "infected",
+        "bbox": {
+          "left": 1004,
+          "top": 441,
+          "width": 93,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 11
+      },
+      {
+        "text": "with",
+        "bbox": {
+          "left": 225,
+          "top": 478,
+          "width": 52,
+          "height": 20
+        },
+        "conf": 93,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 1
+      },
+      {
+        "text": "COVID-19",
+        "bbox": {
+          "left": 285,
+          "top": 478,
+          "width": 129,
+          "height": 20
+        },
+        "conf": 91,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 2
+      },
+      {
+        "text": "and",
+        "bbox": {
+          "left": 424,
+          "top": 478,
+          "width": 41,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 3
+      },
+      {
+        "text": "more",
+        "bbox": {
+          "left": 473,
+          "top": 485,
+          "width": 58,
+          "height": 13
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 4
+      },
+      {
+        "text": "than",
+        "bbox": {
+          "left": 540,
+          "top": 478,
+          "width": 49,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 5
+      },
+      {
+        "text": "48,104",
+        "bbox": {
+          "left": 597,
+          "top": 478,
+          "width": 79,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 6
+      },
+      {
+        "text": "people",
+        "bbox": {
+          "left": 685,
+          "top": 478,
+          "width": 77,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 7
+      },
+      {
+        "text": "have",
+        "bbox": {
+          "left": 770,
+          "top": 478,
+          "width": 54,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 8
+      },
+      {
+        "text": "died.",
+        "bbox": {
+          "left": 833,
+          "top": 478,
+          "width": 54,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 9
+      },
+      {
+        "text": "The",
+        "bbox": {
+          "left": 226,
+          "top": 516,
+          "width": 44,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 1
+      },
+      {
+        "text": "unemployment",
+        "bbox": {
+          "left": 278,
+          "top": 516,
+          "width": 174,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 2
+      },
+      {
+        "text": "rate",
+        "bbox": {
+          "left": 460,
+          "top": 519,
+          "width": 43,
+          "height": 17
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 3
+      },
+      {
+        "text": "is",
+        "bbox": {
+          "left": 512,
+          "top": 516,
+          "width": 17,
+          "height": 20
+        },
+        "conf": 95,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 4
+      },
+      {
+        "text": "8.7%,",
+        "bbox": {
+          "left": 539,
+          "top": 516,
+          "width": 65,
+          "height": 25
+        },
+        "conf": 95,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 5
+      },
+      {
+        "text": "up",
+        "bbox": {
+          "left": 613,
+          "top": 523,
+          "width": 28,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 6
+      },
+      {
+        "text": "from",
+        "bbox": {
+          "left": 651,
+          "top": 516,
+          "width": 55,
+          "height": 20
+        },
+        "conf": 95,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 7
+      },
+      {
+        "text": "3.9%",
+        "bbox": {
+          "left": 715,
+          "top": 516,
+          "width": 58,
+          "height": 21
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 8
+      },
+      {
+        "text": "before",
+        "bbox": {
+          "left": 782,
+          "top": 516,
+          "width": 73,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 9
+      },
+      {
+        "text": "the",
+        "bbox": {
+          "left": 863,
+          "top": 516,
+          "width": 35,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 10
+      },
+      {
+        "text": "pandemic.",
+        "bbox": {
+          "left": 906,
+          "top": 516,
+          "width": 119,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 11
+      },
+      {
+        "text": "Since",
+        "bbox": {
+          "left": 227,
+          "top": 554,
+          "width": 62,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 1
+      },
+      {
+        "text": "February",
+        "bbox": {
+          "left": 298,
+          "top": 554,
+          "width": 104,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 2
+      },
+      {
+        "text": "2020,",
+        "bbox": {
+          "left": 410,
+          "top": 554,
+          "width": 64,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 3
+      },
+      {
+        "text": "more",
+        "bbox": {
+          "left": 483,
+          "top": 561,
+          "width": 59,
+          "height": 13
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 4
+      },
+      {
+        "text": "than",
+        "bbox": {
+          "left": 550,
+          "top": 554,
+          "width": 50,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 5
+      },
+      {
+        "text": "652,185",
+        "bbox": {
+          "left": 609,
+          "top": 554,
+          "width": 91,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 6
+      },
+      {
+        "text": "fewer",
+        "bbox": {
+          "left": 711,
+          "top": 554,
+          "width": 65,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 7
+      },
+      {
+        "text": "people",
+        "bbox": {
+          "left": 783,
+          "top": 554,
+          "width": 77,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 8
+      },
+      {
+        "text": "are",
+        "bbox": {
+          "left": 869,
+          "top": 561,
+          "width": 34,
+          "height": 13
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 9
+      },
+      {
+        "text": "employed.",
+        "bbox": {
+          "left": 912,
+          "top": 554,
+          "width": 119,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 10
+      },
+      {
+        "text": "1,673,000",
+        "bbox": {
+          "left": 229,
+          "top": 592,
+          "width": 112,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 1
+      },
+      {
+        "text": "adults",
+        "bbox": {
+          "left": 350,
+          "top": 592,
+          "width": 68,
+          "height": 20
+        },
+        "conf": 90,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 2
+      },
+      {
+        "text": "\u2014",
+        "bbox": {
+          "left": 426,
+          "top": 604,
+          "width": 15,
+          "height": 2
+        },
+        "conf": 90,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 3
+      },
+      {
+        "text": "13%",
+        "bbox": {
+          "left": 452,
+          "top": 592,
+          "width": 48,
+          "height": 21
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 4
+      },
+      {
+        "text": "of",
+        "bbox": {
+          "left": 509,
+          "top": 592,
+          "width": 27,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 5
+      },
+      {
+        "text": "all",
+        "bbox": {
+          "left": 541,
+          "top": 592,
+          "width": 27,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 6
+      },
+      {
+        "text": "adults",
+        "bbox": {
+          "left": 578,
+          "top": 592,
+          "width": 67,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 7
+      },
+      {
+        "text": "in",
+        "bbox": {
+          "left": 655,
+          "top": 592,
+          "width": 21,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 8
+      },
+      {
+        "text": "the",
+        "bbox": {
+          "left": 684,
+          "top": 592,
+          "width": 34,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 9
+      },
+      {
+        "text": "state",
+        "bbox": {
+          "left": 728,
+          "top": 595,
+          "width": 51,
+          "height": 17
+        },
+        "conf": 91,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 10
+      },
+      {
+        "text": "\u2014",
+        "bbox": {
+          "left": 787,
+          "top": 604,
+          "width": 15,
+          "height": 2
+        },
+        "conf": 90,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 11
+      },
+      {
+        "text": "report",
+        "bbox": {
+          "left": 809,
+          "top": 595,
+          "width": 69,
+          "height": 23
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 12
+      },
+      {
+        "text": "not",
+        "bbox": {
+          "left": 886,
+          "top": 595,
+          "width": 37,
+          "height": 17
+        },
+        "conf": 97,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 13
+      },
+      {
+        "text": "having",
+        "bbox": {
+          "left": 931,
+          "top": 592,
+          "width": 78,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 14
+      },
+      {
+        "text": "enough",
+        "bbox": {
+          "left": 1019,
+          "top": 592,
+          "width": 84,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 15
+      },
+      {
+        "text": "food",
+        "bbox": {
+          "left": 226,
+          "top": 629,
+          "width": 52,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 1
+      },
+      {
+        "text": "to",
+        "bbox": {
+          "left": 286,
+          "top": 632,
+          "width": 22,
+          "height": 17
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 2
+      },
+      {
+        "text": "eat.",
+        "bbox": {
+          "left": 317,
+          "top": 632,
+          "width": 38,
+          "height": 17
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 3
+      },
+      {
+        "text": "This",
+        "bbox": {
+          "left": 365,
+          "top": 629,
+          "width": 50,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 4
+      },
+      {
+        "text": "includes",
+        "bbox": {
+          "left": 425,
+          "top": 629,
+          "width": 95,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 5
+      },
+      {
+        "text": "357,000",
+        "bbox": {
+          "left": 529,
+          "top": 629,
+          "width": 93,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 6
+      },
+      {
+        "text": "adults",
+        "bbox": {
+          "left": 631,
+          "top": 629,
+          "width": 68,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 7
+      },
+      {
+        "text": "living",
+        "bbox": {
+          "left": 708,
+          "top": 629,
+          "width": 66,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 8
+      },
+      {
+        "text": "with",
+        "bbox": {
+          "left": 783,
+          "top": 629,
+          "width": 51,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 9
+      },
+      {
+        "text": "children,",
+        "bbox": {
+          "left": 842,
+          "top": 629,
+          "width": 101,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 10
+      },
+      {
+        "text": "or",
+        "bbox": {
+          "left": 952,
+          "top": 636,
+          "width": 24,
+          "height": 13
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 11
+      },
+      {
+        "text": "8%",
+        "bbox": {
+          "left": 985,
+          "top": 629,
+          "width": 36,
+          "height": 21
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 12
+      },
+      {
+        "text": "of",
+        "bbox": {
+          "left": 1030,
+          "top": 629,
+          "width": 27,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 13
+      },
+      {
+        "text": "all",
+        "bbox": {
+          "left": 1062,
+          "top": 629,
+          "width": 27,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 14
+      },
+      {
+        "text": "adults",
+        "bbox": {
+          "left": 226,
+          "top": 665,
+          "width": 68,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 4,
+        "word_num": 1
+      },
+      {
+        "text": "living",
+        "bbox": {
+          "left": 303,
+          "top": 665,
+          "width": 66,
+          "height": 26
+        },
+        "conf": 97,
+        "block_num": 6,
+        "line_num": 4,
+        "word_num": 2
+      },
+      {
+        "text": "with",
+        "bbox": {
+          "left": 378,
+          "top": 665,
+          "width": 51,
+          "height": 20
+        },
+        "conf": 97,
+        "block_num": 6,
+        "line_num": 4,
+        "word_num": 3
+      },
+      {
+        "text": "children,",
+        "bbox": {
+          "left": 437,
+          "top": 665,
+          "width": 101,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 4,
+        "word_num": 4
+      },
+      {
+        "text": "who",
+        "bbox": {
+          "left": 547,
+          "top": 665,
+          "width": 49,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 4,
+        "word_num": 5
+      },
+      {
+        "text": "report",
+        "bbox": {
+          "left": 604,
+          "top": 668,
+          "width": 70,
+          "height": 23
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 4,
+        "word_num": 6
+      },
+      {
+        "text": "that",
+        "bbox": {
+          "left": 681,
+          "top": 665,
+          "width": 43,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 4,
+        "word_num": 7
+      },
+      {
+        "text": "the",
+        "bbox": {
+          "left": 732,
+          "top": 665,
+          "width": 35,
+          "height": 20
+        },
+        "conf": 97,
+        "block_num": 6,
+        "line_num": 4,
+        "word_num": 8
+      },
+      {
+        "text": "children",
+        "bbox": {
+          "left": 776,
+          "top": 665,
+          "width": 94,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 4,
+        "word_num": 9
+      },
+      {
+        "text": "in",
+        "bbox": {
+          "left": 879,
+          "top": 665,
+          "width": 21,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 4,
+        "word_num": 10
+      },
+      {
+        "text": "their",
+        "bbox": {
+          "left": 908,
+          "top": 665,
+          "width": 53,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 4,
+        "word_num": 11
+      },
+      {
+        "text": "household",
+        "bbox": {
+          "left": 969,
+          "top": 665,
+          "width": 119,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 4,
+        "word_num": 12
+      },
+      {
+        "text": "do",
+        "bbox": {
+          "left": 1097,
+          "top": 665,
+          "width": 27,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 4,
+        "word_num": 13
+      },
+      {
+        "text": "not",
+        "bbox": {
+          "left": 225,
+          "top": 704,
+          "width": 37,
+          "height": 17
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 5,
+        "word_num": 1
+      },
+      {
+        "text": "have",
+        "bbox": {
+          "left": 270,
+          "top": 701,
+          "width": 54,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 5,
+        "word_num": 2
+      },
+      {
+        "text": "enough",
+        "bbox": {
+          "left": 333,
+          "top": 701,
+          "width": 85,
+          "height": 26
+        },
+        "conf": 94,
+        "block_num": 6,
+        "line_num": 5,
+        "word_num": 3
+      },
+      {
+        "text": "to",
+        "bbox": {
+          "left": 425,
+          "top": 704,
+          "width": 22,
+          "height": 17
+        },
+        "conf": 97,
+        "block_num": 6,
+        "line_num": 5,
+        "word_num": 4
+      },
+      {
+        "text": "eat.",
+        "bbox": {
+          "left": 456,
+          "top": 704,
+          "width": 38,
+          "height": 17
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 5,
+        "word_num": 5
+      },
+      {
+        "text": "An",
+        "bbox": {
+          "left": 225,
+          "top": 739,
+          "width": 35,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 1
+      },
+      {
+        "text": "estimated",
+        "bbox": {
+          "left": 269,
+          "top": 739,
+          "width": 110,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 2
+      },
+      {
+        "text": "1,326,000",
+        "bbox": {
+          "left": 391,
+          "top": 739,
+          "width": 112,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 3
+      },
+      {
+        "text": "renters",
+        "bbox": {
+          "left": 511,
+          "top": 742,
+          "width": 78,
+          "height": 17
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 4
+      },
+      {
+        "text": "or",
+        "bbox": {
+          "left": 598,
+          "top": 746,
+          "width": 24,
+          "height": 13
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 5
+      },
+      {
+        "text": "22%",
+        "bbox": {
+          "left": 630,
+          "top": 739,
+          "width": 52,
+          "height": 21
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 6
+      },
+      {
+        "text": "of",
+        "bbox": {
+          "left": 691,
+          "top": 739,
+          "width": 26,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 7
+      },
+      {
+        "text": "renters",
+        "bbox": {
+          "left": 722,
+          "top": 742,
+          "width": 78,
+          "height": 17
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 8
+      },
+      {
+        "text": "are",
+        "bbox": {
+          "left": 809,
+          "top": 746,
+          "width": 34,
+          "height": 13
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 9
+      },
+      {
+        "text": "not",
+        "bbox": {
+          "left": 851,
+          "top": 742,
+          "width": 37,
+          "height": 17
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 10
+      },
+      {
+        "text": "caught",
+        "bbox": {
+          "left": 896,
+          "top": 739,
+          "width": 77,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 11
+      },
+      {
+        "text": "up",
+        "bbox": {
+          "left": 981,
+          "top": 746,
+          "width": 28,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 12
+      },
+      {
+        "text": "on",
+        "bbox": {
+          "left": 1018,
+          "top": 746,
+          "width": 28,
+          "height": 13
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 13
+      },
+      {
+        "text": "rent.",
+        "bbox": {
+          "left": 1054,
+          "top": 742,
+          "width": 50,
+          "height": 17
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 1,
+        "word_num": 14
+      },
+      {
+        "text": "An",
+        "bbox": {
+          "left": 225,
+          "top": 778,
+          "width": 35,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 1
+      },
+      {
+        "text": "estimated",
+        "bbox": {
+          "left": 269,
+          "top": 778,
+          "width": 110,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 2
+      },
+      {
+        "text": "5,311,000",
+        "bbox": {
+          "left": 388,
+          "top": 778,
+          "width": 115,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 3
+      },
+      {
+        "text": "adults",
+        "bbox": {
+          "left": 512,
+          "top": 778,
+          "width": 68,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 4
+      },
+      {
+        "text": "or",
+        "bbox": {
+          "left": 589,
+          "top": 785,
+          "width": 23,
+          "height": 13
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 5
+      },
+      {
+        "text": "38%",
+        "bbox": {
+          "left": 621,
+          "top": 778,
+          "width": 51,
+          "height": 21
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 6
+      },
+      {
+        "text": "of",
+        "bbox": {
+          "left": 681,
+          "top": 778,
+          "width": 27,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 7
+      },
+      {
+        "text": "all",
+        "bbox": {
+          "left": 713,
+          "top": 778,
+          "width": 27,
+          "height": 20
+        },
+        "conf": 94,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 8
+      },
+      {
+        "text": "adults",
+        "bbox": {
+          "left": 749,
+          "top": 778,
+          "width": 68,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 9
+      },
+      {
+        "text": "statewide",
+        "bbox": {
+          "left": 826,
+          "top": 778,
+          "width": 109,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 10
+      },
+      {
+        "text": "report",
+        "bbox": {
+          "left": 943,
+          "top": 781,
+          "width": 69,
+          "height": 23
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 11
+      },
+      {
+        "text": "having",
+        "bbox": {
+          "left": 1020,
+          "top": 778,
+          "width": 78,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 2,
+        "word_num": 12
+      },
+      {
+        "text": "difficulty",
+        "bbox": {
+          "left": 226,
+          "top": 814,
+          "width": 107,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 1
+      },
+      {
+        "text": "covering",
+        "bbox": {
+          "left": 342,
+          "top": 814,
+          "width": 100,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 2
+      },
+      {
+        "text": "normal",
+        "bbox": {
+          "left": 451,
+          "top": 814,
+          "width": 81,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 3
+      },
+      {
+        "text": "household",
+        "bbox": {
+          "left": 540,
+          "top": 814,
+          "width": 120,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 4
+      },
+      {
+        "text": "expenses.",
+        "bbox": {
+          "left": 669,
+          "top": 821,
+          "width": 109,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 6,
+        "line_num": 3,
+        "word_num": 5
+      },
+      {
+        "text": "The",
+        "bbox": {
+          "left": 151,
+          "top": 868,
+          "width": 47,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 7,
+        "line_num": 1,
+        "word_num": 1
+      },
+      {
+        "text": "Effect",
+        "bbox": {
+          "left": 207,
+          "top": 867,
+          "width": 73,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 7,
+        "line_num": 1,
+        "word_num": 2
+      },
+      {
+        "text": "of",
+        "bbox": {
+          "left": 288,
+          "top": 867,
+          "width": 26,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 7,
+        "line_num": 1,
+        "word_num": 3
+      },
+      {
+        "text": "the",
+        "bbox": {
+          "left": 320,
+          "top": 868,
+          "width": 38,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 7,
+        "line_num": 1,
+        "word_num": 4
+      },
+      {
+        "text": "American",
+        "bbox": {
+          "left": 366,
+          "top": 867,
+          "width": 122,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 7,
+        "line_num": 1,
+        "word_num": 5
+      },
+      {
+        "text": "Rescue",
+        "bbox": {
+          "left": 497,
+          "top": 868,
+          "width": 86,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 7,
+        "line_num": 1,
+        "word_num": 6
+      },
+      {
+        "text": "Plan",
+        "bbox": {
+          "left": 591,
+          "top": 868,
+          "width": 55,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 7,
+        "line_num": 1,
+        "word_num": 7
+      },
+      {
+        "text": "on",
+        "bbox": {
+          "left": 655,
+          "top": 873,
+          "width": 30,
+          "height": 14
+        },
+        "conf": 96,
+        "block_num": 7,
+        "line_num": 1,
+        "word_num": 8
+      },
+      {
+        "text": "New",
+        "bbox": {
+          "left": 693,
+          "top": 868,
+          "width": 54,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 7,
+        "line_num": 1,
+        "word_num": 9
+      },
+      {
+        "text": "York",
+        "bbox": {
+          "left": 756,
+          "top": 868,
+          "width": 64,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 7,
+        "line_num": 1,
+        "word_num": 10
+      },
+      {
+        "text": "President",
+        "bbox": {
+          "left": 150,
+          "top": 919,
+          "width": 112,
+          "height": 20
+        },
+        "conf": 93,
+        "block_num": 9,
+        "line_num": 1,
+        "word_num": 1
+      },
+      {
+        "text": "Biden\u2019s",
+        "bbox": {
+          "left": 269,
+          "top": 919,
+          "width": 88,
+          "height": 20
+        },
+        "conf": 90,
+        "block_num": 9,
+        "line_num": 1,
+        "word_num": 2
+      },
+      {
+        "text": "American",
+        "bbox": {
+          "left": 364,
+          "top": 920,
+          "width": 113,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 9,
+        "line_num": 1,
+        "word_num": 3
+      },
+      {
+        "text": "Rescue",
+        "bbox": {
+          "left": 486,
+          "top": 920,
+          "width": 82,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 9,
+        "line_num": 1,
+        "word_num": 4
+      },
+      {
+        "text": "Plan",
+        "bbox": {
+          "left": 576,
+          "top": 919,
+          "width": 54,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 9,
+        "line_num": 1,
+        "word_num": 5
+      },
+      {
+        "text": "will",
+        "bbox": {
+          "left": 639,
+          "top": 919,
+          "width": 44,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 9,
+        "line_num": 1,
+        "word_num": 6
+      },
+      {
+        "text": "provide",
+        "bbox": {
+          "left": 687,
+          "top": 919,
+          "width": 91,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 9,
+        "line_num": 1,
+        "word_num": 7
+      },
+      {
+        "text": "New",
+        "bbox": {
+          "left": 785,
+          "top": 920,
+          "width": 52,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 9,
+        "line_num": 1,
+        "word_num": 8
+      },
+      {
+        "text": "York",
+        "bbox": {
+          "left": 848,
+          "top": 919,
+          "width": 53,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 9,
+        "line_num": 1,
+        "word_num": 9
+      },
+      {
+        "text": "with:",
+        "bbox": {
+          "left": 908,
+          "top": 919,
+          "width": 57,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 9,
+        "line_num": 1,
+        "word_num": 10
+      },
+      {
+        "text": "$12.825",
+        "bbox": {
+          "left": 226,
+          "top": 974,
+          "width": 91,
+          "height": 22
+        },
+        "conf": 92,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 1
+      },
+      {
+        "text": "billion",
+        "bbox": {
+          "left": 327,
+          "top": 974,
+          "width": 76,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 2
+      },
+      {
+        "text": "in",
+        "bbox": {
+          "left": 412,
+          "top": 974,
+          "width": 21,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 3
+      },
+      {
+        "text": "state",
+        "bbox": {
+          "left": 442,
+          "top": 977,
+          "width": 51,
+          "height": 17
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 4
+      },
+      {
+        "text": "fiscal",
+        "bbox": {
+          "left": 502,
+          "top": 974,
+          "width": 61,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 5
+      },
+      {
+        "text": "relief",
+        "bbox": {
+          "left": 572,
+          "top": 974,
+          "width": 64,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 6
+      },
+      {
+        "text": "$9.948",
+        "bbox": {
+          "left": 226,
+          "top": 1013,
+          "width": 77,
+          "height": 22
+        },
+        "conf": 92,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 1
+      },
+      {
+        "text": "billion",
+        "bbox": {
+          "left": 313,
+          "top": 1013,
+          "width": 75,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 2
+      },
+      {
+        "text": "in",
+        "bbox": {
+          "left": 397,
+          "top": 1013,
+          "width": 21,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 3
+      },
+      {
+        "text": "local",
+        "bbox": {
+          "left": 427,
+          "top": 1013,
+          "width": 55,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 4
+      },
+      {
+        "text": "fiscal",
+        "bbox": {
+          "left": 491,
+          "top": 1013,
+          "width": 61,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 5
+      },
+      {
+        "text": "relief",
+        "bbox": {
+          "left": 560,
+          "top": 1013,
+          "width": 65,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 6
+      },
+      {
+        "text": "More",
+        "bbox": {
+          "left": 226,
+          "top": 1052,
+          "width": 61,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 1
+      },
+      {
+        "text": "than",
+        "bbox": {
+          "left": 296,
+          "top": 1051,
+          "width": 49,
+          "height": 20
+        },
+        "conf": 93,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 2
+      },
+      {
+        "text": "$9.174",
+        "bbox": {
+          "left": 354,
+          "top": 1051,
+          "width": 78,
+          "height": 22
+        },
+        "conf": 92,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 3
+      },
+      {
+        "text": "billion",
+        "bbox": {
+          "left": 441,
+          "top": 1051,
+          "width": 75,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 4
+      },
+      {
+        "text": "in",
+        "bbox": {
+          "left": 525,
+          "top": 1051,
+          "width": 21,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 5
+      },
+      {
+        "text": "relief",
+        "bbox": {
+          "left": 554,
+          "top": 1051,
+          "width": 64,
+          "height": 20
+        },
+        "conf": 94,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 6
+      },
+      {
+        "text": "for",
+        "bbox": {
+          "left": 624,
+          "top": 1051,
+          "width": 33,
+          "height": 20
+        },
+        "conf": 94,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 7
+      },
+      {
+        "text": "K-12",
+        "bbox": {
+          "left": 665,
+          "top": 1051,
+          "width": 58,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 8
+      },
+      {
+        "text": "schools",
+        "bbox": {
+          "left": 732,
+          "top": 1051,
+          "width": 86,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 9
+      },
+      {
+        "text": "Economic",
+        "bbox": {
+          "left": 226,
+          "top": 1089,
+          "width": 116,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 1
+      },
+      {
+        "text": "impact",
+        "bbox": {
+          "left": 352,
+          "top": 1089,
+          "width": 77,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 2
+      },
+      {
+        "text": "payments",
+        "bbox": {
+          "left": 437,
+          "top": 1092,
+          "width": 111,
+          "height": 23
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 3
+      },
+      {
+        "text": "of",
+        "bbox": {
+          "left": 557,
+          "top": 1089,
+          "width": 26,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 4
+      },
+      {
+        "text": "up",
+        "bbox": {
+          "left": 588,
+          "top": 1096,
+          "width": 28,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 5
+      },
+      {
+        "text": "to",
+        "bbox": {
+          "left": 624,
+          "top": 1092,
+          "width": 22,
+          "height": 17
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 6
+      },
+      {
+        "text": "$1,400",
+        "bbox": {
+          "left": 655,
+          "top": 1089,
+          "width": 79,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 7
+      },
+      {
+        "text": "per",
+        "bbox": {
+          "left": 742,
+          "top": 1096,
+          "width": 37,
+          "height": 19
+        },
+        "conf": 97,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 8
+      },
+      {
+        "text": "person",
+        "bbox": {
+          "left": 786,
+          "top": 1096,
+          "width": 78,
+          "height": 19
+        },
+        "conf": 97,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 9
+      },
+      {
+        "text": "(above",
+        "bbox": {
+          "left": 873,
+          "top": 1089,
+          "width": 77,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 10
+      },
+      {
+        "text": "the",
+        "bbox": {
+          "left": 958,
+          "top": 1089,
+          "width": 35,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 11
+      },
+      {
+        "text": "$600",
+        "bbox": {
+          "left": 1002,
+          "top": 1088,
+          "width": 56,
+          "height": 23
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 12
+      },
+      {
+        "text": "per",
+        "bbox": {
+          "left": 1067,
+          "top": 1096,
+          "width": 37,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 13
+      },
+      {
+        "text": "person",
+        "bbox": {
+          "left": 225,
+          "top": 1133,
+          "width": 77,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 1
+      },
+      {
+        "text": "provided",
+        "bbox": {
+          "left": 310,
+          "top": 1126,
+          "width": 103,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 2
+      },
+      {
+        "text": "in",
+        "bbox": {
+          "left": 422,
+          "top": 1126,
+          "width": 21,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 3
+      },
+      {
+        "text": "December)",
+        "bbox": {
+          "left": 452,
+          "top": 1126,
+          "width": 127,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 4
+      },
+      {
+        "text": "for",
+        "bbox": {
+          "left": 589,
+          "top": 1126,
+          "width": 33,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 5
+      },
+      {
+        "text": "more",
+        "bbox": {
+          "left": 630,
+          "top": 1133,
+          "width": 58,
+          "height": 13
+        },
+        "conf": 97,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 6
+      },
+      {
+        "text": "than",
+        "bbox": {
+          "left": 696,
+          "top": 1126,
+          "width": 50,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 7
+      },
+      {
+        "text": "11,344,500",
+        "bbox": {
+          "left": 757,
+          "top": 1126,
+          "width": 127,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 8
+      },
+      {
+        "text": "adults",
+        "bbox": {
+          "left": 894,
+          "top": 1126,
+          "width": 67,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 9
+      },
+      {
+        "text": "and",
+        "bbox": {
+          "left": 971,
+          "top": 1126,
+          "width": 40,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 10
+      },
+      {
+        "text": "4,403,300",
+        "bbox": {
+          "left": 225,
+          "top": 1162,
+          "width": 116,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 1
+      },
+      {
+        "text": "children.",
+        "bbox": {
+          "left": 350,
+          "top": 1162,
+          "width": 100,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 2
+      },
+      {
+        "text": "This",
+        "bbox": {
+          "left": 460,
+          "top": 1162,
+          "width": 50,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 3
+      },
+      {
+        "text": "is",
+        "bbox": {
+          "left": 519,
+          "top": 1162,
+          "width": 18,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 4
+      },
+      {
+        "text": "82%",
+        "bbox": {
+          "left": 547,
+          "top": 1162,
+          "width": 50,
+          "height": 21
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 5
+      },
+      {
+        "text": "of",
+        "bbox": {
+          "left": 606,
+          "top": 1162,
+          "width": 27,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 6
+      },
+      {
+        "text": "all",
+        "bbox": {
+          "left": 638,
+          "top": 1162,
+          "width": 27,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 7
+      },
+      {
+        "text": "adults",
+        "bbox": {
+          "left": 675,
+          "top": 1162,
+          "width": 67,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 8
+      },
+      {
+        "text": "in",
+        "bbox": {
+          "left": 752,
+          "top": 1162,
+          "width": 21,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 9
+      },
+      {
+        "text": "the",
+        "bbox": {
+          "left": 781,
+          "top": 1162,
+          "width": 35,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 10
+      },
+      {
+        "text": "state",
+        "bbox": {
+          "left": 825,
+          "top": 1165,
+          "width": 51,
+          "height": 17
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 11
+      },
+      {
+        "text": "and",
+        "bbox": {
+          "left": 885,
+          "top": 1162,
+          "width": 41,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 12
+      },
+      {
+        "text": "82%",
+        "bbox": {
+          "left": 935,
+          "top": 1162,
+          "width": 51,
+          "height": 21
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 13
+      },
+      {
+        "text": "of",
+        "bbox": {
+          "left": 995,
+          "top": 1162,
+          "width": 27,
+          "height": 20
+        },
+        "conf": 94,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 14
+      },
+      {
+        "text": "all",
+        "bbox": {
+          "left": 1027,
+          "top": 1162,
+          "width": 27,
+          "height": 20
+        },
+        "conf": 94,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 15
+      },
+      {
+        "text": "children",
+        "bbox": {
+          "left": 226,
+          "top": 1198,
+          "width": 94,
+          "height": 20
+        },
+        "conf": 95,
+        "block_num": 10,
+        "line_num": 4,
+        "word_num": 1
+      },
+      {
+        "text": "in",
+        "bbox": {
+          "left": 329,
+          "top": 1198,
+          "width": 21,
+          "height": 20
+        },
+        "conf": 95,
+        "block_num": 10,
+        "line_num": 4,
+        "word_num": 2
+      },
+      {
+        "text": "the",
+        "bbox": {
+          "left": 358,
+          "top": 1198,
+          "width": 35,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 4,
+        "word_num": 3
+      },
+      {
+        "text": "state.",
+        "bbox": {
+          "left": 402,
+          "top": 1201,
+          "width": 57,
+          "height": 17
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 4,
+        "word_num": 4
+      },
+      {
+        "text": "Additional",
+        "bbox": {
+          "left": 225,
+          "top": 1236,
+          "width": 124,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 1
+      },
+      {
+        "text": "relief",
+        "bbox": {
+          "left": 357,
+          "top": 1236,
+          "width": 64,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 2
+      },
+      {
+        "text": "of",
+        "bbox": {
+          "left": 426,
+          "top": 1236,
+          "width": 27,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 3
+      },
+      {
+        "text": "up",
+        "bbox": {
+          "left": 458,
+          "top": 1243,
+          "width": 28,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 4
+      },
+      {
+        "text": "to",
+        "bbox": {
+          "left": 494,
+          "top": 1239,
+          "width": 22,
+          "height": 17
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 5
+      },
+      {
+        "text": "$1,600",
+        "bbox": {
+          "left": 525,
+          "top": 1236,
+          "width": 78,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 6
+      },
+      {
+        "text": "per",
+        "bbox": {
+          "left": 612,
+          "top": 1243,
+          "width": 37,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 7
+      },
+      {
+        "text": "child",
+        "bbox": {
+          "left": 657,
+          "top": 1236,
+          "width": 57,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 8
+      },
+      {
+        "text": "through",
+        "bbox": {
+          "left": 722,
+          "top": 1236,
+          "width": 90,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 9
+      },
+      {
+        "text": "the",
+        "bbox": {
+          "left": 820,
+          "top": 1236,
+          "width": 34,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 10
+      },
+      {
+        "text": "Child",
+        "bbox": {
+          "left": 863,
+          "top": 1236,
+          "width": 64,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 11
+      },
+      {
+        "text": "Tax",
+        "bbox": {
+          "left": 935,
+          "top": 1237,
+          "width": 44,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 12
+      },
+      {
+        "text": "Credit",
+        "bbox": {
+          "left": 988,
+          "top": 1236,
+          "width": 72,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 13
+      },
+      {
+        "text": "to",
+        "bbox": {
+          "left": 1067,
+          "top": 1239,
+          "width": 22,
+          "height": 17
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 1,
+        "word_num": 14
+      },
+      {
+        "text": "the",
+        "bbox": {
+          "left": 225,
+          "top": 1272,
+          "width": 35,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 1
+      },
+      {
+        "text": "families",
+        "bbox": {
+          "left": 269,
+          "top": 1272,
+          "width": 92,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 2
+      },
+      {
+        "text": "of",
+        "bbox": {
+          "left": 370,
+          "top": 1272,
+          "width": 26,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 3
+      },
+      {
+        "text": "3,564,000",
+        "bbox": {
+          "left": 402,
+          "top": 1272,
+          "width": 115,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 4
+      },
+      {
+        "text": "children,",
+        "bbox": {
+          "left": 525,
+          "top": 1272,
+          "width": 101,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 5
+      },
+      {
+        "text": "lifting",
+        "bbox": {
+          "left": 636,
+          "top": 1272,
+          "width": 69,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 6
+      },
+      {
+        "text": "242,000",
+        "bbox": {
+          "left": 714,
+          "top": 1272,
+          "width": 93,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 7
+      },
+      {
+        "text": "children",
+        "bbox": {
+          "left": 816,
+          "top": 1272,
+          "width": 95,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 8
+      },
+      {
+        "text": "out",
+        "bbox": {
+          "left": 919,
+          "top": 1275,
+          "width": 36,
+          "height": 17
+        },
+        "conf": 97,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 9
+      },
+      {
+        "text": "of",
+        "bbox": {
+          "left": 964,
+          "top": 1272,
+          "width": 26,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 10
+      },
+      {
+        "text": "poverty",
+        "bbox": {
+          "left": 995,
+          "top": 1275,
+          "width": 88,
+          "height": 23
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 2,
+        "word_num": 11
+      },
+      {
+        "text": "Additional",
+        "bbox": {
+          "left": 225,
+          "top": 1311,
+          "width": 124,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 1
+      },
+      {
+        "text": "relief",
+        "bbox": {
+          "left": 357,
+          "top": 1311,
+          "width": 64,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 2
+      },
+      {
+        "text": "of",
+        "bbox": {
+          "left": 426,
+          "top": 1311,
+          "width": 27,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 3
+      },
+      {
+        "text": "up",
+        "bbox": {
+          "left": 458,
+          "top": 1318,
+          "width": 28,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 4
+      },
+      {
+        "text": "to",
+        "bbox": {
+          "left": 494,
+          "top": 1314,
+          "width": 22,
+          "height": 17
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 5
+      },
+      {
+        "text": "nearly",
+        "bbox": {
+          "left": 524,
+          "top": 1311,
+          "width": 72,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 6
+      },
+      {
+        "text": "$1,000",
+        "bbox": {
+          "left": 605,
+          "top": 1311,
+          "width": 78,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 7
+      },
+      {
+        "text": "through",
+        "bbox": {
+          "left": 692,
+          "top": 1311,
+          "width": 90,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 8
+      },
+      {
+        "text": "the",
+        "bbox": {
+          "left": 790,
+          "top": 1311,
+          "width": 34,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 9
+      },
+      {
+        "text": "Earned",
+        "bbox": {
+          "left": 833,
+          "top": 1311,
+          "width": 82,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 10
+      },
+      {
+        "text": "Income",
+        "bbox": {
+          "left": 923,
+          "top": 1312,
+          "width": 86,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 11
+      },
+      {
+        "text": "Tax",
+        "bbox": {
+          "left": 1018,
+          "top": 1312,
+          "width": 43,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 3,
+        "word_num": 12
+      },
+      {
+        "text": "Credit",
+        "bbox": {
+          "left": 226,
+          "top": 1347,
+          "width": 71,
+          "height": 20
+        },
+        "conf": 95,
+        "block_num": 10,
+        "line_num": 4,
+        "word_num": 1
+      },
+      {
+        "text": "to",
+        "bbox": {
+          "left": 305,
+          "top": 1350,
+          "width": 22,
+          "height": 17
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 4,
+        "word_num": 2
+      },
+      {
+        "text": "915,000",
+        "bbox": {
+          "left": 336,
+          "top": 1347,
+          "width": 93,
+          "height": 25
+        },
+        "conf": 95,
+        "block_num": 10,
+        "line_num": 4,
+        "word_num": 3
+      },
+      {
+        "text": "childless",
+        "bbox": {
+          "left": 438,
+          "top": 1347,
+          "width": 100,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 4,
+        "word_num": 4
+      },
+      {
+        "text": "workers,",
+        "bbox": {
+          "left": 547,
+          "top": 1347,
+          "width": 99,
+          "height": 25
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 4,
+        "word_num": 5
+      },
+      {
+        "text": "including",
+        "bbox": {
+          "left": 656,
+          "top": 1347,
+          "width": 109,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 4,
+        "word_num": 6
+      },
+      {
+        "text": "many",
+        "bbox": {
+          "left": 774,
+          "top": 1354,
+          "width": 63,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 4,
+        "word_num": 7
+      },
+      {
+        "text": "in",
+        "bbox": {
+          "left": 846,
+          "top": 1347,
+          "width": 21,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 4,
+        "word_num": 8
+      },
+      {
+        "text": "frontline",
+        "bbox": {
+          "left": 876,
+          "top": 1347,
+          "width": 99,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 4,
+        "word_num": 9
+      },
+      {
+        "text": "jobs",
+        "bbox": {
+          "left": 980,
+          "top": 1347,
+          "width": 50,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 4,
+        "word_num": 10
+      },
+      {
+        "text": "Marketplace",
+        "bbox": {
+          "left": 226,
+          "top": 1385,
+          "width": 144,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 5,
+        "word_num": 1
+      },
+      {
+        "text": "health",
+        "bbox": {
+          "left": 378,
+          "top": 1385,
+          "width": 71,
+          "height": 20
+        },
+        "conf": 97,
+        "block_num": 10,
+        "line_num": 5,
+        "word_num": 2
+      },
+      {
+        "text": "insurance",
+        "bbox": {
+          "left": 458,
+          "top": 1385,
+          "width": 110,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 5,
+        "word_num": 3
+      },
+      {
+        "text": "premiums",
+        "bbox": {
+          "left": 576,
+          "top": 1385,
+          "width": 115,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 5,
+        "word_num": 4
+      },
+      {
+        "text": "that",
+        "bbox": {
+          "left": 700,
+          "top": 1385,
+          "width": 43,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 5,
+        "word_num": 5
+      },
+      {
+        "text": "are",
+        "bbox": {
+          "left": 752,
+          "top": 1392,
+          "width": 33,
+          "height": 13
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 5,
+        "word_num": 6
+      },
+      {
+        "text": "$663",
+        "bbox": {
+          "left": 795,
+          "top": 1384,
+          "width": 55,
+          "height": 23
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 5,
+        "word_num": 7
+      },
+      {
+        "text": "lower",
+        "bbox": {
+          "left": 860,
+          "top": 1385,
+          "width": 66,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 5,
+        "word_num": 8
+      },
+      {
+        "text": "per",
+        "bbox": {
+          "left": 933,
+          "top": 1392,
+          "width": 37,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 5,
+        "word_num": 9
+      },
+      {
+        "text": "month",
+        "bbox": {
+          "left": 978,
+          "top": 1385,
+          "width": 74,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 5,
+        "word_num": 10
+      },
+      {
+        "text": "for",
+        "bbox": {
+          "left": 1060,
+          "top": 1385,
+          "width": 33,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 5,
+        "word_num": 11
+      },
+      {
+        "text": "a",
+        "bbox": {
+          "left": 1102,
+          "top": 1392,
+          "width": 11,
+          "height": 13
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 5,
+        "word_num": 12
+      },
+      {
+        "text": "60-year",
+        "bbox": {
+          "left": 226,
+          "top": 1421,
+          "width": 88,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 6,
+        "word_num": 1
+      },
+      {
+        "text": "old",
+        "bbox": {
+          "left": 322,
+          "top": 1421,
+          "width": 36,
+          "height": 20
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 6,
+        "word_num": 2
+      },
+      {
+        "text": "couple",
+        "bbox": {
+          "left": 367,
+          "top": 1421,
+          "width": 76,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 6,
+        "word_num": 3
+      },
+      {
+        "text": "earning",
+        "bbox": {
+          "left": 452,
+          "top": 1421,
+          "width": 86,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 6,
+        "word_num": 4
+      },
+      {
+        "text": "$75,000",
+        "bbox": {
+          "left": 547,
+          "top": 1420,
+          "width": 93,
+          "height": 26
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 6,
+        "word_num": 5
+      },
+      {
+        "text": "per",
+        "bbox": {
+          "left": 648,
+          "top": 1428,
+          "width": 37,
+          "height": 19
+        },
+        "conf": 97,
+        "block_num": 10,
+        "line_num": 6,
+        "word_num": 6
+      },
+      {
+        "text": "year",
+        "bbox": {
+          "left": 692,
+          "top": 1428,
+          "width": 50,
+          "height": 19
+        },
+        "conf": 96,
+        "block_num": 10,
+        "line_num": 6,
+        "word_num": 7
+      }
+    ],
+    "dimensions": {
+      "width": 1275,
+      "height": 1650
+    }
+  }
+]

@@ -1,0 +1,198 @@
+[
+  {
+    "page": 0,
+    "text": "picture The American Rescue Plan: Impacts on New York The Need for Action in New York The pandemic and the associated economic crisis have had a severe impact on New York. The need for action is clear: Since the pandemic began, more than 1,698,819 people have been infected with COVID-19 and more than 48,104 people have died. The unemployment rate is 8.7%, up from 3.9% before the pandemic. Since February 2020, more than 652,185 fewer people are employed. 1,673,000 adults - 13% of all adults in the state - report not having enough food to eat. This includes 357,000 adults living with children, or 8% of all adults living with children, who report that the children in their household do not have enough to eat. An estimated 1,326,000 renters or 22% of renters are not caught up on rent. An estimated 5,311,000 adults or 38% of all adults statewide report having difficulty covering normal household expenses. The Effect of the American Rescue Plan on New York President Biden's American Rescue Plan will provide New York with: $12.825 billion in state fiscal relief $9.948 billion in local fiscal relief More than $9.174 billion in relief for K-12 schools Economic impact payments of up to $1,400 per person (above the $600 per person provided in December) for more than 11,344,500 adults and 4,403,300 children. This is 82% of all adults in the state and 82% of all children in the state. Additional relief of up to $1,600 per child through the Child Tax Credit to the families of 3,564,000 children, lifting 242,000 children out of poverty Additional relief of up to nearly $1,000 through the Earned Income Tax Credit to 915,000 childless workers, including many in frontline jobs Marketplace health insurance premiums that are $663 lower per month for a 60-year old couple earning $75,000 per year",
+    "blocks": [
+      {
+        "text": "picture",
+        "bbox": {
+          "l": 192.767578125,
+          "r": 417.59442138671875,
+          "t": 757.1791000366211,
+          "b": 704.3838195800781
+        },
+        "type": "PictureItem"
+      },
+      {
+        "text": "The American Rescue Plan: Impacts on New York",
+        "bbox": {
+          "l": 155.282,
+          "r": 460.157,
+          "t": 674.301,
+          "b": 662.172
+        },
+        "type": "SectionHeaderItem"
+      },
+      {
+        "text": "The Need for Action in New York",
+        "bbox": {
+          "l": 72.0,
+          "r": 276.919,
+          "t": 648.915,
+          "b": 636.785
+        },
+        "type": "SectionHeaderItem"
+      },
+      {
+        "text": "The pandemic and the associated economic crisis have had a severe impact on New York. The need for action is clear:",
+        "bbox": {
+          "l": 72.0,
+          "r": 516.356,
+          "t": 623.475,
+          "b": 594.163
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Since the pandemic began, more than 1,698,819 people have been infected with COVID-19 and more than 48,104 people have died.",
+        "bbox": {
+          "l": 90.006,
+          "r": 530.113,
+          "t": 580.332,
+          "b": 550.409
+        },
+        "type": "ListItem"
+      },
+      {
+        "text": "The unemployment rate is 8.7%, up from 3.9% before the pandemic.",
+        "bbox": {
+          "l": 90.034,
+          "r": 496.363,
+          "t": 544.572,
+          "b": 532.054
+        },
+        "type": "ListItem"
+      },
+      {
+        "text": "Since February 2020, more than 652,185 fewer people are employed.",
+        "bbox": {
+          "l": 90.034,
+          "r": 503.031,
+          "t": 526.216,
+          "b": 513.698
+        },
+        "type": "ListItem"
+      },
+      {
+        "text": "1,673,000 adults - 13% of all adults in the state - report not having enough food to eat. This includes 357,000 adults living with children, or 8% of all adults living with children, who report that the children in their household do not have enough to eat.",
+        "bbox": {
+          "l": 90.034,
+          "r": 543.537,
+          "t": 507.79,
+          "b": 443.127
+        },
+        "type": "ListItem"
+      },
+      {
+        "text": "An estimated 1,326,000 renters or 22% of renters are not caught up on rent.",
+        "bbox": {
+          "l": 90.048,
+          "r": 534.472,
+          "t": 437.345,
+          "b": 424.827
+        },
+        "type": "ListItem"
+      },
+      {
+        "text": "An estimated 5,311,000 adults or 38% of all adults statewide report having difficulty covering normal household expenses.",
+        "bbox": {
+          "l": 90.034,
+          "r": 530.973,
+          "t": 418.919,
+          "b": 389.066
+        },
+        "type": "ListItem"
+      },
+      {
+        "text": "The Effect of the American Rescue Plan on New York",
+        "bbox": {
+          "l": 72.0,
+          "r": 397.035,
+          "t": 375.675,
+          "b": 363.545
+        },
+        "type": "SectionHeaderItem"
+      },
+      {
+        "text": "President Biden's American Rescue Plan will provide New York with:",
+        "bbox": {
+          "l": 72.0,
+          "r": 467.774,
+          "t": 350.295,
+          "b": 338.263
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "$12.825 billion in state fiscal relief",
+        "bbox": {
+          "l": 89.992,
+          "r": 307.437,
+          "t": 324.432,
+          "b": 311.914
+        },
+        "type": "ListItem"
+      },
+      {
+        "text": "$9.948 billion in local fiscal relief",
+        "bbox": {
+          "l": 89.978,
+          "r": 301.957,
+          "t": 306.076,
+          "b": 293.558
+        },
+        "type": "ListItem"
+      },
+      {
+        "text": "More than $9.174 billion in relief for K-12 schools",
+        "bbox": {
+          "l": 89.964,
+          "r": 396.462,
+          "t": 287.72,
+          "b": 275.202
+        },
+        "type": "ListItem"
+      },
+      {
+        "text": "Economic impact payments of up to $1,400 per person (above the $600 per person provided in December) for more than 11,344,500 adults and 4,403,300 children. This is 82% of all adults in the state and 82% of all children in the state.",
+        "bbox": {
+          "l": 89.964,
+          "r": 533.238,
+          "t": 269.2950000000001,
+          "b": 204.63099999999997
+        },
+        "type": "ListItem"
+      },
+      {
+        "text": "Additional relief of up to $1,600 per child through the Child Tax Credit to the families of 3,564,000 children, lifting 242,000 children out of poverty",
+        "bbox": {
+          "l": 89.978,
+          "r": 526.733,
+          "t": 198.793,
+          "b": 168.87
+        },
+        "type": "ListItem"
+      },
+      {
+        "text": "Additional relief of up to nearly $1,000 through the Earned Income Tax Credit to 915,000 childless workers, including many in frontline jobs",
+        "bbox": {
+          "l": 89.978,
+          "r": 513.356,
+          "t": 163.08899999999994,
+          "b": 133.11
+        },
+        "type": "ListItem"
+      },
+      {
+        "text": "Marketplace health insurance premiums that are $663 lower per month for a 60-year old couple earning $75,000 per year",
+        "bbox": {
+          "l": 89.992,
+          "r": 537.965,
+          "t": 127.32799999999997,
+          "b": 97.40499999999997
+        },
+        "type": "ListItem"
+      }
+    ]
+  }
+]

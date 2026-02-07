@@ -1,0 +1,84 @@
+[
+  {
+    "page": 0,
+    "text": " \n \nThe American Rescue Plan: Impacts on New York \nThe Need for Action in New York \nThe pandemic and the associated economic crisis have had a severe impact on \nNew York. The need for action is clear: \n\u2022 Since the pandemic began, more than 1,698,819 people have been infected \nwith COVID-19 and more than 48,104 people have died.  \n\u2022 The unemployment rate is 8.7%, up from 3.9% before the pandemic. \n\u2022 Since February 2020, more than 652,185 fewer people are employed.  \n\u2022 1,673,000 adults \u2013 13% of all adults in the state \u2013 report not having enough \nfood to eat. This includes 357,000 adults living with children, or 8% of all \nadults living with children, who report that the children in their household do \nnot have enough to eat.  \n\u2022 An estimated 1,326,000 renters or 22% of renters are not caught up on rent. \n\u2022 An estimated 5,311,000 adults or 38% of all adults statewide report having \ndifficulty covering normal household expenses.  \nThe Effect of the American Rescue Plan on New York \nPresident Biden\u2019s American Rescue Plan will provide New York with: \n\u2022 $12.825 billion in state fiscal relief \n\u2022 $9.948 billion in local fiscal relief \n\u2022 More than $9.174 billion in relief for K-12 schools \n\u2022 Economic impact payments of up to $1,400 per person (above the $600 per \nperson provided in December) for more than 11,344,500 adults and \n4,403,300 children. This is 82% of all adults in the state and 82% of all \nchildren in the state.  \n\u2022 Additional relief of up to $1,600 per child through the Child Tax Credit to \nthe families of 3,564,000 children, lifting 242,000 children out of poverty \n\u2022 Additional relief of up to nearly $1,000 through the Earned Income Tax \nCredit to 915,000 childless workers, including many in frontline jobs \n\u2022 Marketplace health insurance premiums that are $663 lower per month for a \n60-year old couple earning $75,000 per year \n \n",
+    "blocks": [
+      {
+        "bbox": [
+          155.2816162109375,
+          112.19085693359375,
+          460.1574401855469,
+          131.53916931152344
+        ],
+        "text": "The American Rescue Plan: Impacts on New York",
+        "type": 1
+      },
+      {
+        "bbox": [
+          72.0,
+          137.5771484375,
+          276.9188232421875,
+          156.9254608154297
+        ],
+        "text": "The Need for Action in New York",
+        "type": 2
+      },
+      {
+        "bbox": [
+          72.0,
+          163.47848510742188,
+          516.3555908203125,
+          199.35118103027344
+        ],
+        "text": "The pandemic and the associated economic crisis have had a severe impact on \nNew York. The need for action is clear:",
+        "type": 3
+      },
+      {
+        "bbox": [
+          90.00624084472656,
+          206.9143524169922,
+          543.536865234375,
+          404.4936218261719
+        ],
+        "text": "\u2022 Since the pandemic began, more than 1,698,819 people have been infected \nwith COVID-19 and more than 48,104 people have died.  \n\u2022 The unemployment rate is 8.7%, up from 3.9% before the pandemic. \n\u2022 Since February 2020, more than 652,185 fewer people are employed.  \n\u2022 1,673,000 adults \u2013 13% of all adults in the state \u2013 report not having enough \nfood to eat. This includes 357,000 adults living with children, or 8% of all \nadults living with children, who report that the children in their household do \nnot have enough to eat.  \n\u2022 An estimated 1,326,000 renters or 22% of renters are not caught up on rent. \n\u2022 An estimated 5,311,000 adults or 38% of all adults statewide report having \ndifficulty covering normal household expenses.",
+        "type": 4
+      },
+      {
+        "bbox": [
+          72.0,
+          410.8171081542969,
+          397.0350036621094,
+          430.1654357910156
+        ],
+        "text": "The Effect of the American Rescue Plan on New York",
+        "type": 5
+      },
+      {
+        "bbox": [
+          72.0,
+          436.658447265625,
+          467.7738037109375,
+          455.2518615722656
+        ],
+        "text": "President Biden\u2019s American Rescue Plan will provide New York with:",
+        "type": 6
+      },
+      {
+        "bbox": [
+          89.96429443359375,
+          462.8150329589844,
+          537.9644165039062,
+          696.1552124023438
+        ],
+        "text": "\u2022 $12.825 billion in state fiscal relief \n\u2022 $9.948 billion in local fiscal relief \n\u2022 More than $9.174 billion in relief for K-12 schools \n\u2022 Economic impact payments of up to $1,400 per person (above the $600 per \nperson provided in December) for more than 11,344,500 adults and \n4,403,300 children. This is 82% of all adults in the state and 82% of all \nchildren in the state.  \n\u2022 Additional relief of up to $1,600 per child through the Child Tax Credit to \nthe families of 3,564,000 children, lifting 242,000 children out of poverty \n\u2022 Additional relief of up to nearly $1,000 through the Earned Income Tax \nCredit to 915,000 childless workers, including many in frontline jobs \n\u2022 Marketplace health insurance premiums that are $663 lower per month for a \n60-year old couple earning $75,000 per year",
+        "type": 7
+      }
+    ],
+    "images": [
+      {
+        "path": "0afbb63ded89d3335a5109f8a9ec4db7/byte_extraction/pymupdf/images/page_0_img_0_x76.jpeg",
+        "xref": 76
+      }
+    ]
+  }
+]

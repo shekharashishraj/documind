@@ -1,0 +1,32 @@
+## Page 1
+
+The American Rescue Plan: Impacts on New York 
+The Need for Action in New York 
+The pandemic and the associated economic crisis have had a severe impact on 
+New York. The need for action is clear: 
+• Since the pandemic began, more than 1,698,819 people have been infected 
+with COVID-19 and more than 48,104 people have died.  
+• The unemployment rate is 8.7%, up from 3.9% before the pandemic. 
+• Since February 2020, more than 652,185 fewer people are employed.  
+• 1,673,000 adults – 13% of all adults in the state – report not having enough 
+food to eat. This includes 357,000 adults living with children, or 8% of all 
+adults living with children, who report that the children in their household do 
+not have enough to eat.  
+• An estimated 1,326,000 renters or 22% of renters are not caught up on rent. 
+• An estimated 5,311,000 adults or 38% of all adults statewide report having 
+difficulty covering normal household expenses.  
+The Effect of the American Rescue Plan on New York 
+President Biden’s American Rescue Plan will provide New York with: 
+• $12.825 billion in state fiscal relief 
+• $9.948 billion in local fiscal relief 
+• More than $9.174 billion in relief for K-12 schools 
+• Economic impact payments of up to $1,400 per person (above the $600 per 
+person provided in December) for more than 11,344,500 adults and 
+4,403,300 children. This is 82% of all adults in the state and 82% of all 
+children in the state.  
+• Additional relief of up to $1,600 per child through the Child Tax Credit to 
+the families of 3,564,000 children, lifting 242,000 children out of poverty 
+• Additional relief of up to nearly $1,000 through the Earned Income Tax 
+Credit to 915,000 childless workers, including many in frontline jobs 
+• Marketplace health insurance premiums that are $663 lower per month for a 
+60-year old couple earning $75,000 per year

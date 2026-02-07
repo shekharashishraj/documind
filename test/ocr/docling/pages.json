@@ -1,0 +1,18 @@
+[
+  {
+    "page": 0,
+    "text": "Hello Documind test.",
+    "blocks": [
+      {
+        "text": "Hello Documind test.",
+        "bbox": {
+          "l": 50.0,
+          "r": 151.475,
+          "t": 799.898,
+          "b": 789.723
+        },
+        "type": "TextItem"
+      }
+    ]
+  }
+]

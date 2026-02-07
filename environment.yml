@@ -1,0 +1,17 @@
+name: documind
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.10,<3.13
+  - pip
+  - pip:
+    - langgraph>=0.2
+    - pymupdf>=1.24
+    - pytesseract>=0.3
+    - docling[vlm]>=2.0
+    - mistralai>=1.0
+    - openai>=1.0
+    - typer>=0.12
+    - pydantic>=2.0
+    - python-dotenv>=1.0

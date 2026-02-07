@@ -1,0 +1,39 @@
+{
+  "summary": "The document discusses the severe impact of the pandemic on New York, highlighting issues such as high unemployment and food insecurity. It outlines the support provided by the American Rescue Plan, including billions in fiscal relief, economic impact payments, and tax credits to alleviate poverty and stimulate recovery. The plan aims to reduce economic hardships and improve living conditions for New Yorkers.",
+  "domain": "Economics",
+  "intended_task": "Inform and guide policy and recovery efforts.",
+  "sub_tasks": [
+    "Economic recovery planning",
+    "Public health impact mitigation"
+  ],
+  "evidence_for_task": "The document provides detailed statistics on economic and health impacts in New York, as well as specific funding allocations and relief measures introduced by the American Rescue Plan.",
+  "preconditions": "Awareness of the economic and health effects of the COVID-19 pandemic, particularly in New York.",
+  "effects": "Increased funding for public services and direct economic impact payments to residents aim to alleviate poverty and stimulate the economy.",
+  "field_information": "The document includes statistics and financial allocations related to economic recovery.",
+  "contains": {
+    "images": true,
+    "tables": false,
+    "code": false,
+    "equations": false,
+    "other": []
+  },
+  "bbox_refs": "Bounding box details are in Step 1 pages.json; blocks on the economic and social impacts are most relevant.",
+  "original_document_source": "REPORT",
+  "task_classification": {
+    "primary": "CLASSIFICATION",
+    "reasoning": "The document classifies various impacts and responses related to the pandemic.",
+    "notes": "Focused on categorizing effects and responses to the crisis."
+  },
+  "metadata": {
+    "suggested_tags": [
+      "COVID-19",
+      "Economic Relief",
+      "New York",
+      "Public Health",
+      "American Rescue Plan"
+    ],
+    "language": "en",
+    "page_count": 1,
+    "other": {}
+  }
+}
