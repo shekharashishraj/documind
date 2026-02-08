@@ -1,0 +1,91 @@
+{
+  "manipulation_plan": [
+    {
+      "what": "header_footer",
+      "where": {
+        "page": 0,
+        "block_index": 0,
+        "bbox": [
+          50.00331115722656,
+          46.83291244506836,
+          535.0205688476562,
+          56.559478759765625
+        ]
+      },
+      "risk_category": "semantic_decoy",
+      "effects_downstream": "Metadata consumers may misinterpret the date of publication, leading to referencing issues.",
+      "rationale": "Changing header information can mislead readers about authenticity and create confusion.",
+      "priority": "medium"
+    },
+    {
+      "what": "text_block",
+      "where": {
+        "page": 0,
+        "block_index": 4,
+        "bbox": [
+          246.20199584960938,
+          256.4408874511719,
+          338.8821105957031,
+          265.55609130859375
+        ]
+      },
+      "risk_category": "integrity",
+      "effects_downstream": "The title alteration may mislead readers on the document's subject, affecting its purpose.",
+      "rationale": "Altering the title directly impacts the interpretation of legal documentation.",
+      "priority": "high"
+    },
+    {
+      "what": "text_block",
+      "where": {
+        "page": 0,
+        "block_index": 6,
+        "bbox": [
+          101.07572937011719,
+          290.4872741699219,
+          484.0863952636719,
+          310.2423095703125
+        ]
+      },
+      "risk_category": "integrity",
+      "effects_downstream": "Document consumers could misunderstand the provisional nature of the Memorandum, leading to legal misapplications.",
+      "rationale": "This block contains core information regarding the legal applicability of the agreement.",
+      "priority": "high"
+    },
+    {
+      "what": "metadata",
+      "where": null,
+      "risk_category": "metadata_spoofing",
+      "effects_downstream": "Legal document databases may inaccurately catalog this entry, affecting retrieval and validation.",
+      "rationale": "Metadata holds key document identification and retrieval information, crucial for legal contexts.",
+      "priority": "medium"
+    },
+    {
+      "what": "text_block",
+      "where": {
+        "page": 0,
+        "block_index": 18,
+        "bbox": [
+          402.8175048828125,
+          455.8384704589844,
+          437.7135314941406,
+          464.95367431640625
+        ]
+      },
+      "risk_category": "integrity",
+      "effects_downstream": "Article modifications can create downstream processing errors in legal applications or decisions.",
+      "rationale": "Articles hold the legal declarations critical to the document\u2019s function.",
+      "priority": "high"
+    },
+    {
+      "what": "structure",
+      "where": {
+        "page": 0,
+        "region": "body"
+      },
+      "risk_category": "render_parse_gap",
+      "effects_downstream": "Altered structure could cause content misalignment, misrepresentation in digital views or parsing errors.",
+      "rationale": "Structural integrity is essential for ensuring that legal documents are correctly consumed digitally.",
+      "priority": "medium"
+    }
+  ]
+}
