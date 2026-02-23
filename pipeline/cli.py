@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import os
 from pathlib import Path
 
@@ -10,6 +11,7 @@ from dotenv import load_dotenv
 
 from core.stage2.openai_analyzer import run_stage2_openai
 from core.stage3.openai_planner import run_stage3_openai
+from core.stage4.visible_executor import annotate_pdf
 from pipeline.graph import run_parse_pdf
 
 # Load .env from project root (directory containing .env) so MISTRAL_API_KEY etc. are set
@@ -17,6 +19,12 @@ _project_root = Path(__file__).resolve().parent.parent
 load_dotenv(_project_root / ".env")
 
 app = typer.Typer(add_completion=False)
+
+
+def _generate_hash_for_file(filepath: str) -> str:
+    """Generate MD5 hash of file for folder naming."""
+    with open(filepath, "rb") as f:
+        return hashlib.md5(f.read()).hexdigest()
 
 
 @app.command()
@@ -28,15 +36,18 @@ def run(
     vlm_only: bool = typer.Option(False, "--vlm-only", help="Run only VLM (mistral)"),
     stage2: bool = typer.Option(False, "--stage2", help="After Step 1, run Stage 2 GPT analysis (requires byte_extraction)"),
     stage3: bool = typer.Option(False, "--stage3", help="After Step 1 (and Stage 2 if needed), run Stage 3 manipulation planning. Implies --stage2."),
+    stage4: bool = typer.Option(False, "--stage4", help="After Stage 3, run Stage 4 visible executor to annotate PDF with red markers. Implies --stage2 and --stage3."),
 ) -> None:
-    """Run Step 1: parse PDF (byte_extraction, OCR, VLM). Optionally add --stage2 and/or --stage3 for GPT analysis and manipulation planning."""
+    """Run Step 1: parse PDF (byte_extraction, OCR, VLM). Optionally add --stage2, --stage3, and --stage4 for GPT analysis, manipulation planning, and visible PDF annotation."""
     pdf_path = Path(pdf)
     if not pdf_path.is_file():
         typer.echo(f"Not a file: {pdf_path}", err=True)
         raise typer.Exit(1)
 
+    # Generate hash-based folder name from PDF content
+    pdf_hash = _generate_hash_for_file(str(pdf_path.resolve()))
     pdfname = pdf_path.stem
-    base_dir = Path(out) / pdfname
+    base_dir = Path(out) / pdf_hash
 
     if byte_only and ocr_only and vlm_only:
         run_types = ["byte_extraction", "ocr", "vlm"]
@@ -55,10 +66,12 @@ def run(
     else:
         run_types = ["byte_extraction", "ocr", "vlm"]
 
-    if (stage2 or stage3) and "byte_extraction" not in run_types:
+    if (stage2 or stage3 or stage4) and "byte_extraction" not in run_types:
         run_types.append("byte_extraction")
-    if stage3:
+    if stage3 or stage4:
         stage2 = True  # Stage 3 requires Stage 2
+    if stage4:
+        stage3 = True  # Stage 4 requires Stage 3
 
     typer.echo(f"Output base: {base_dir}")
     typer.echo(f"Run types: {run_types}")
@@ -94,6 +107,20 @@ def run(
                 typer.echo(f"  usage: {result['usage']}")
         except Exception as e:
             typer.echo(f"Stage 3 failed: {e}", err=True)
+            raise typer.Exit(1)
+    if stage4:
+        try:
+            plan_path = base_dir / "stage3" / "openai" / "manipulation_plan.json"
+            if not plan_path.is_file():
+                typer.echo(f"Stage 3 plan not found: {plan_path}", err=True)
+                raise typer.Exit(1)
+            input_pdf = pdf_path.resolve()
+            output_pdf = base_dir / "stage4" / f"{pdfname}_annotated.pdf"
+            output_pdf.parent.mkdir(parents=True, exist_ok=True)
+            annotate_pdf(str(input_pdf), str(plan_path), str(output_pdf))
+            typer.echo(f"Stage 4: {output_pdf}")
+        except Exception as e:
+            typer.echo(f"Stage 4 failed: {e}", err=True)
             raise typer.Exit(1)
 
 
@@ -148,6 +175,37 @@ def stage3(
         raise typer.Exit(1)
     except Exception as e:
         typer.echo(f"Stage 3 failed: {e}", err=True)
+        raise typer.Exit(1)
+
+
+@app.command()
+def stage4(
+    pdf: str = typer.Argument(..., help="Path to source PDF file"),
+    base_dir: str = typer.Argument(..., help="Path to output dir (must contain stage3/openai/manipulation_plan.json)"),
+) -> None:
+    """Run Stage 4: Visible PDF executor. Annotates a copy of the PDF with visible red markers at planned injection targets.
+    Writes stage4/{pdf_name}_annotated.pdf. Requires Stage 3 manipulation_plan.json.
+    """
+    pdf_path = Path(pdf)
+    if not pdf_path.is_file():
+        typer.echo(f"Not a file: {pdf_path}", err=True)
+        raise typer.Exit(1)
+    base_path = Path(base_dir)
+    if not base_path.is_dir():
+        typer.echo(f"Not a directory: {base_path}", err=True)
+        raise typer.Exit(1)
+    plan_path = base_path / "stage3" / "openai" / "manipulation_plan.json"
+    if not plan_path.is_file():
+        typer.echo(f"Stage 3 plan not found: {plan_path}", err=True)
+        raise typer.Exit(1)
+    try:
+        pdfname = pdf_path.stem
+        output_pdf = base_path / "stage4" / f"{pdfname}_annotated.pdf"
+        output_pdf.parent.mkdir(parents=True, exist_ok=True)
+        annotate_pdf(str(pdf_path.resolve()), str(plan_path), str(output_pdf))
+        typer.echo(f"Wrote: {output_pdf}")
+    except Exception as e:
+        typer.echo(f"Stage 4 failed: {e}", err=True)
         raise typer.Exit(1)
 
 
