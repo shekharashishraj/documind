@@ -1,0 +1,56 @@
+# API Key Configuration - Quick Reference
+
+## 3 Supported Setup Methods
+
+### 1) Keyring (Recommended)
+
+```bash
+pip install keyring
+keyring set openai api_key sk-proj-YOUR_KEY
+python -m src.api_server
+```
+
+### 2) Environment Variable
+
+```bash
+export OPENAI_API_KEY=sk-proj-YOUR_KEY
+python -m src.api_server
+```
+
+### 3) `.env` file (local development only)
+
+```bash
+cp .env.example .env
+nano .env
+# OPENAI_API_KEY=sk-proj-YOUR_KEY
+python -m src.api_server
+```
+
+## Verify It Works
+
+Start API server:
+
+```bash
+cd /Users/sid/Documents/coral/pdfAgent
+python -m src.api_server
+```
+
+Use health endpoint:
+
+```bash
+curl http://localhost:8000/health
+```
+
+Upload endpoint:
+
+```bash
+curl -X POST http://localhost:8000/analyze-pdf \
+	-F "file=@/absolute/path/to/file.pdf" \
+	-F "query=What is the carbon footprint for 2018?"
+```
+
+## Notes
+
+- Never commit `.env`
+- Never share your API key
+- Monitor usage at: https://platform.openai.com/account/usage
