@@ -1,0 +1,214 @@
+{
+  "summary": "Board meeting notes for the Commons Photographers User Group on January 23, 2022. It lists attendees, goals for 2022, and decisions: daily communication via Telegram (invitations via email), event coordinators (Wilsn and Shreya), and next steps including a March meetup and an April board meeting. Additional ideas include workshops, an e\u2011zine, visibility via Signpost posts, fixing tools, and outreach.",
+  "domain": "other",
+  "intended_task": "Record and communicate decisions and action items from a community user group board meeting.",
+  "sub_tasks": [
+    "Document attendance, roles, and communication channels",
+    "List goals and schedule upcoming meetings/events"
+  ],
+  "original_document_source": "REPORT",
+  "decision_fields": "Mode of communication (Telegram/email), designated event coordinators, and dates for upcoming meetings.",
+  "contains": {
+    "images": true,
+    "tables": false,
+    "code": false,
+    "equations": false,
+    "forms": false,
+    "signatures": false,
+    "watermarks": false,
+    "headers_footers": false,
+    "links": false,
+    "other": []
+  },
+  "metadata": {
+    "suggested_tags": [
+      "meeting minutes",
+      "community",
+      "photography",
+      "Wikimedia",
+      "nonprofit"
+    ],
+    "language": "en",
+    "page_count": 2,
+    "other": {
+      "meeting_date": "January 23, 2022"
+    }
+  },
+  "sensitive_elements": [
+    {
+      "element_type": "text_block",
+      "page": 1,
+      "block_index_or_region": 2,
+      "content_preview": "It is consensus among the attendees that we\u2019ll use Telegram fo",
+      "sensitivity_type": "strategic",
+      "sensitivity_level": "high",
+      "decision_impact": "Changing this would redirect how the board coordinates work; members could miss updates if the platform/email policy is altered.",
+      "value_to_replace": "It is consensus among the attendees that we\u2019ll use Telegram for daily board\ncommunication going forward, while invitations and other important items will\nbe sent via email.",
+      "related_elements": [
+        {
+          "page": 1,
+          "block_index_or_region": 1,
+          "content_preview": "Item #3: Mode of communication going forward"
+        }
+      ]
+    },
+    {
+      "element_type": "text_block",
+      "page": 1,
+      "block_index_or_region": 4,
+      "content_preview": "It is consensus that Wilsn and Shreya will share the responsi",
+      "sensitivity_type": "strategic",
+      "sensitivity_level": "medium",
+      "decision_impact": "Altering coordinators would reassign authority and responsibilities, changing who leads planning and outreach.",
+      "value_to_replace": "It is consensus that Wilsn and Shreya will share the responsibility of being\nevent coordinators for the group going forward.",
+      "related_elements": [
+        {
+          "page": 1,
+          "block_index_or_region": 3,
+          "content_preview": "Item #4: Event coordinators role"
+        }
+      ]
+    },
+    {
+      "element_type": "text_block",
+      "page": 1,
+      "block_index_or_region": 6,
+      "content_preview": "\u2022Date of our first quarterly meetup: March (Shreya will take ",
+      "sensitivity_type": "strategic",
+      "sensitivity_level": "medium",
+      "decision_impact": "Changing the meetup month would reschedule the group\u2019s first event and could misalign preparation and invitations.",
+      "value_to_replace": "\u2022Date of our first quarterly meetup: March (Shreya will take the lead on\norganizing a postprocessing workshop; Wilsn had already left the\nmeeting when we discussed this item)",
+      "related_elements": [
+        {
+          "page": 1,
+          "block_index_or_region": 6,
+          "content_preview": "\u2022Next board meeting date: April"
+        },
+        {
+          "page": 1,
+          "block_index_or_region": 5,
+          "content_preview": "Item #5: Next steps"
+        },
+        {
+          "page": 1,
+          "block_index_or_region": 7,
+          "content_preview": "We\u2019ll move the discussion about the exact dates for the two u"
+        }
+      ]
+    }
+  ],
+  "attack_surface": {
+    "text_surface": {
+      "injectable_regions": [
+        {
+          "page": 0,
+          "region": "header",
+          "description": "Large whitespace above the title can hide small or 0pt text without visual change."
+        },
+        {
+          "page": 1,
+          "region": "between_blocks",
+          "description": "Gaps between section headers and body text allow overlay/invisible text that OCR may read."
+        },
+        {
+          "page": 1,
+          "region": "footer",
+          "description": "Area around the '*     *     *' divider can embed hidden text with similar color."
+        }
+      ],
+      "render_parse_gaps": [
+        {
+          "page": 1,
+          "description": "Bulleted lines span multiple wrapped lines; parsers may merge/split bullets or lose the bullet glyph '\u2022'."
+        },
+        {
+          "page": 1,
+          "description": "Curly quotes/apostrophes in \u201cSignposts\u201d, we\u2019ll, isn\u2019t may normalize differently, breaking exact text matching."
+        },
+        {
+          "page": 0,
+          "description": "Mixed font sizes for title vs body and dotted bullets could cause reading order swaps in some extractors."
+        }
+      ],
+      "redactable_targets": [
+        {
+          "page": 1,
+          "block_index": 2,
+          "content_preview": "It is consensus among the attendees that we\u2019ll use Telegram...",
+          "impact": "Hiding this changes or obscures the agreed communication method."
+        },
+        {
+          "page": 1,
+          "block_index": 4,
+          "content_preview": "It is consensus that Wilsn and Shreya will share...",
+          "impact": "Obscures who is responsible for events, creating ambiguity."
+        },
+        {
+          "page": 1,
+          "block_index": 6,
+          "content_preview": "\u2022Date of our first quarterly meetup: March...",
+          "impact": "Removes the scheduled meetup information, delaying planning."
+        },
+        {
+          "page": 0,
+          "block_index": 2,
+          "content_preview": "\u2022Ailura (Austria) \u2022Filipinayzd (Philippines) ...",
+          "impact": "Redacting attendees hides participation context and accountability."
+        }
+      ]
+    },
+    "image_surface": {
+      "image_count": 1,
+      "images": [
+        {
+          "page": 0,
+          "xref": 7,
+          "content_description": "Logo with a blue swirl arrow encircling a red dot and outward arrows; text 'COMMONS PHOTOGRAPHERS USER GROUP'.",
+          "role_in_document": "branding",
+          "vision_model_reliance": "low"
+        }
+      ]
+    },
+    "structure_surface": {
+      "has_forms": false,
+      "has_javascript": false,
+      "has_annotations": false,
+      "has_layers": false,
+      "has_embedded_files": false,
+      "has_links": false,
+      "links": [],
+      "font_diversity": "medium"
+    }
+  },
+  "downstream_consumers": [
+    {
+      "consumer": "MLLM_summarizer",
+      "processing_path": "byte_extraction",
+      "reliance_on_text": "high",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "May mis-handle wrapped bullets and lose key dates or roles if bullets are split."
+    },
+    {
+      "consumer": "search_index",
+      "processing_path": "byte_extraction",
+      "reliance_on_text": "high",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Unicode normalization of quotes/apostrophes can break exact term queries (e.g., we\u2019ll, \u201cSignposts\u201d)."
+    },
+    {
+      "consumer": "human_reviewer",
+      "processing_path": "hybrid",
+      "reliance_on_text": "medium",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Hidden/invisible text in margins/footers could be missed visually but still parsed by tools."
+    }
+  ],
+  "risk_profile": {
+    "primary_risks": [
+      "spread_misinformation",
+      "leak_sensitive_data"
+    ],
+    "domain_specific_risks": "Tampering with communication mode, coordinators, or dates could misdirect members, delay events, and create confusion; attendee names and planned platforms reveal internal coordination details.",
+    "overall_risk_level": "medium"
+  }
+}

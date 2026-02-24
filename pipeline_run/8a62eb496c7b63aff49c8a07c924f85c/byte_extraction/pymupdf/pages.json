@@ -1,0 +1,124 @@
+[
+  {
+    "page": 0,
+    "text": "                Political Party Time\n             Fundraiser in the News\n\n\n\n         A fundraiser for: Ready for Hillary\n\n          News source:\n                http://www.latimes.com/nation/politics/politicsnow/la-pn-hillary-\n               clinton-backers-los-angeles-events-\n             20131209,0,1036100.story#axzz2nBSatcAL\n\n\n\n\n            Event description: Dinner\n\n             Location: Home of Howard Gordon, Pacific Palisades, CA\n\n\n\n             Date/ time: Dec. 9, 2013\n\n             Cost:\n\n            Hosts and other lawmakers:\n              Host: Howard Gordon\n\n              Attended: George Nolfi, screenwriter\n              Rick Rosen, agent\n\n\n\n\n\n              Additional information:\n\n\n\n\n\n                           Political Party Time is brought to you by the Sunlight Foundation\n\n\nSource: Sunlight Foundation's Party Time www.politicalpartytime.org. The Sunlight Foundation collects these invitations from anonymous lobbyist sources.",
+    "blocks": [
+      {
+        "bbox": [
+          90.5,
+          77.30003356933594,
+          412.5440979003906,
+          159.02000427246094
+        ],
+        "text": "Political Party Time \nFundraiser in the News",
+        "type": 1
+      },
+      {
+        "bbox": [
+          95.30004119873047,
+          161.4199676513672,
+          565.5314331054688,
+          187.8199920654297
+        ],
+        "text": "A fundraiser for: Ready for Hillary",
+        "type": 2
+      },
+      {
+        "bbox": [
+          95.30004119873047,
+          190.2200164794922,
+          426.0733947753906,
+          288.6199951171875
+        ],
+        "text": "News source: \nhttp://www.latimes.com/nation/politics/politicsnow/la-pn-hillary-\nclinton-backers-los-angeles-events-\n20131209,0,1036100.story#axzz2nBSatcAL",
+        "type": 3
+      },
+      {
+        "bbox": [
+          95.30004119873047,
+          291.260009765625,
+          242.44850158691406,
+          317.6600036621094
+        ],
+        "text": "Event description: Dinner",
+        "type": 5
+      },
+      {
+        "bbox": [
+          95.30004119873047,
+          320.05999755859375,
+          408.9809265136719,
+          360.8600158691406
+        ],
+        "text": "Location: Home of Howard Gordon, Pacific Palisades, CA",
+        "type": 7
+      },
+      {
+        "bbox": [
+          95.30004119873047,
+          363.260009765625,
+          231.82550048828125,
+          389.6600036621094
+        ],
+        "text": "Date/ time: Dec. 9, 2013",
+        "type": 9
+      },
+      {
+        "bbox": [
+          95.30004119873047,
+          363.260009765625,
+          562.7958984375,
+          418.46002197265625
+        ],
+        "text": "Cost:",
+        "type": 10
+      },
+      {
+        "bbox": [
+          95.30004119873047,
+          420.8600158691406,
+          292.2063903808594,
+          557.6600341796875
+        ],
+        "text": "Hosts and other lawmakers: \nHost: Howard Gordon \n \nAttended: George Nolfi, screenwriter \nRick Rosen, agent",
+        "type": 12
+      },
+      {
+        "bbox": [
+          95.30004119873047,
+          560.0599975585938,
+          233.97589111328125,
+          600.8599853515625
+        ],
+        "text": "Additional information:",
+        "type": 14
+      },
+      {
+        "bbox": [
+          140.5625,
+          742.219970703125,
+          475.0775146484375,
+          756.2839965820312
+        ],
+        "text": "Political\t\r \u00a0Party\t\r \u00a0Time\t\r \u00a0is\t\r \u00a0brought\t\r \u00a0to\t\r \u00a0you\t\r \u00a0by\t\r \u00a0the\t\r \u00a0Sunlight\t\r \u00a0Foundation",
+        "type": 0
+      },
+      {
+        "bbox": [
+          15.794190406799316,
+          774.0780029296875,
+          598.3056030273438,
+          783.7799682617188
+        ],
+        "text": "Source: Sunlight Foundation's Party Time www.politicalpartytime.org. The Sunlight Foundation collects these invitations from anonymous lobbyist sources.",
+        "type": 17
+      }
+    ],
+    "images": [
+      {
+        "path": "8a62eb496c7b63aff49c8a07c924f85c/byte_extraction/pymupdf/images/page_0_img_0_x9.png",
+        "xref": 9
+      }
+    ]
+  }
+]

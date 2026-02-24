@@ -1,0 +1,100 @@
+[
+  {
+    "index": 0,
+    "markdown": "WIKIMEDIA\nCONFERENCE\n\n# Feedback Questionnaire \u2013 Wikimedia Conference 2018\n\n## Email\n\nDear participants of the Wikimedia Conference,\n\nThank you all for joining us here in Berlin and for your participation in the Wikimedia Conference!\n\nTo improve future Wikimedia Conferences and also share lessons learned with other Wikimedia event organizers, we appreciate your comments and feedback.\n\nPlease follow this link to fill in the feedback survey, which takes around 10 to 15 minutes:\n\nTake the Survey\n\nOr copy and paste the URL below into your internet browser:\n\nLINK\n\nBest regards,\n\nCornelius\n\nCornelius Kibelka\n\nProgram and Engagement Coordinator (PEC)\n\nfor the Wikimedia Conference\n\nDear participants of the Wikimedia Conference 2018,\n\nPlease take a few minutes to give us your valuable feedback on the conference! By filling in this feedback form, you will help to improve the quality and impact of the Wikimedia Conference in the future. We explicitly encourage you to express also critical feedback - if applicable - to gain a realistic picture of the strengths or weaknesses of the conference. The data from this survey will be processed statistically and the results will be published only in an aggregated form, which means that there will be no possibility to identify you or your individual answers. All responses are optional.",
+    "dimensions": {
+      "dpi": 200,
+      "height": 2342,
+      "width": 1656
+    },
+    "hyperlinks": [],
+    "header": null,
+    "footer": null,
+    "tables": [],
+    "images": []
+  },
+  {
+    "index": 1,
+    "markdown": "WIKIMEDIA\nCONFERENCE\n\n# BACKGROUND\n\nQ1.1: What is your age?\n\u2610 &lt;15\n\u2610 15-24\n\u2610 25-34\n\u2610 35-44\n\u2610 45-54\n\u2610 55-64\n\u2610 &gt;64\n\nQ1.2: What is your gender?\n[Text entry field]\n\nQ2: For how many years have you approximately been occupied with the Wikimedia movement?\n\u2610 &lt;1\n\u2610 1-3\n\u2610 4-6\n\u2610 7-9\n\u2610 10-12\n\u2610 &gt;12\n\nQ3: Are you:\n\u2610 Wikimedia volunteer or\n\u2610 paid staff (Wikimedia organization) or\n\u2610 other: _________________\n\nQ4: What is your main affiliation?\n\u2610 Wikimedia Chapter\n\u2610 Wikimedia Thematic Organization\n\u2610 Wikimedia User Group\n\u2610 Wikimedia Foundation\n\u2610 FDC/Simple APG committee\n\u2610 AffCom\n\u2610 other: _________________\n\u2610 Does not apply\n\nQ5: Have you attended last year's Wikimedia Conference in Berlin? [Filter Question for 'Look back' question block]\n- Yes\n- No\n\nQ6: How many times (including this year) have you attended the Wikimedia Conference (formerly known as Chapters' Meeting)?\n- 1st time\n- 2nd time\n- 3rd time\n- 4th time\n- 5th time\n- 6th or more\n\nQ7: Your travel and accommodation costs were covered by...\n- Your affiliation\n- Wikimedia Foundation\n- N/A\n\n# LOOK BACK\n\n[Filter: This block is only displayed if participants attended last year's conference, too (Q5)]",
+    "dimensions": {
+      "dpi": 200,
+      "height": 2342,
+      "width": 1656
+    },
+    "hyperlinks": [],
+    "header": null,
+    "footer": null,
+    "tables": [],
+    "images": []
+  },
+  {
+    "index": 2,
+    "markdown": "WIKIMEDIA\nCONFERENCE\n\nQ8.1: If you reflect on last year's Wikimedia Conference and your activities in the time between WMCON17 and WMCON18: To what extent do you agree or disagree to the following statements?\n\n|   | Strongly Agree | Agree | Disagree | Strongly Disagree  |\n| --- | --- | --- | --- | --- |\n|  The 2017 conference led to tangible outcomes for me and my work in the Wikimedia movement. | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  The 2017 conference played an important role in the Movement Strategy process. | \u25cb | \u25cb | \u25cb | \u25cb  |\n\nQ8.2 Did you pursue any concrete initiatives that you joined or started in the aftermath of last year's conference?\n\n- Yes\n- No\n\n[Filter: If yes, display:]\nQ8.3 Which initiative(s) did you pursue? (Please give examples)\n\n[Large text entry field]\n\n# CONTENT\n\nQ9: Regarding the 2018 Wikimedia Conference:\n\nTo what extent do you agree or disagree to the following statements?\n\n|   | The conference... | Strongly Agree | Agree | Disagree | Strongly Disagree  |\n| --- | --- | --- | --- | --- | --- |\n|  Q9.1 | ... improved my understanding of partnerships in the context of the Wikimedia movement. | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q9.2 | ... helped me to gain applicable knowledge / improved my capacities. | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q9.3 | ... made clear the significance of sharing and collaboration in the Wikimedia movement. | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q9.4 | ... was suitable for my background and experience. | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q9.5 | ... provided useful information for me and my organization. | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q9.6 | ... contributed to reaching a shared understanding of the future of our movement. | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q9.7 | ... gave me the opportunity to exchange ideas with others on movement issues. | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q9.8 | ... led to clearly defined next steps and documented outcomes. | \u25cb | \u25cb | \u25cb | \u25cb  |",
+    "dimensions": {
+      "dpi": 200,
+      "height": 2342,
+      "width": 1656
+    },
+    "hyperlinks": [],
+    "header": null,
+    "footer": null,
+    "tables": [],
+    "images": []
+  },
+  {
+    "index": 3,
+    "markdown": "WIKIMEDIA\nCONFERENCE\n\nQ10: From your perspective: What were the three main benefits of attending the conference?\n\n1: [Text entry field 1]\n2: [Text entry field 2]\n3: [Text entry field 3]\n\nQ11: Regarding your expectations before the conference:\n\nMy expectations towards the conference...\n\u2610 were exceeded\n\u2610 were met\n\u2610 were not entirely met\n\u2610 were not met\n\nPROGRAM\n\nQ12: How satisfied were you with the following aspects of the conference?\n\n|   |  | Very Satisfied | Satisfied | Less Satisfied | Not satisfied  |\n| --- | --- | --- | --- | --- | --- |\n|  Q12.1 | Overall scope and selection of the conference topics | \u2610 | \u2610 | \u2610 | \u2610  |\n|  Q12.2 | Number of conference participants | \u2610 | \u2610 | \u2610 | \u2610  |\n|  Q12.3 | Composition of the audience (organizations, groups and stakeholders that were invited) | \u2610 | \u2610 | \u2610 | \u2610  |\n|  Q12.4 | Quality of contributions | \u2610 | \u2610 | \u2610 | \u2610  |\n|  Q12.5 | Call to action, definition of next steps | \u2610 | \u2610 | \u2610 | \u2610  |\n|  Q12.6 | Conference facilitation by the facilitators during the conference | \u2610 | \u2610 | \u2610 | \u2610  |\n|  Q12.7 | Communication regarding the program design process before the conference | \u2610 | \u2610 | \u2610 | \u2610  |\n|  Q12.8 | Session formats | \u2610 | \u2610 | \u2610 | \u2610  |\n|  Q12.9 | Overall flow and choreography of the conference | \u2610 | \u2610 | \u2610 | \u2610  |\n\nQ13: Further remarks on content and program of the conference:\n\n[Large Text entry field]",
+    "dimensions": {
+      "dpi": 200,
+      "height": 2342,
+      "width": 1656
+    },
+    "hyperlinks": [],
+    "header": null,
+    "footer": null,
+    "tables": [],
+    "images": []
+  },
+  {
+    "index": 4,
+    "markdown": "WIKIMEDIA\nCONFERENCE\n\n# NETWORKING\n\nQ14: How many new working contacts (in terms of people with whom you expect to have online or offline collaboration on movement issues or activities in the future) did you make at the conference?\n\n- None\n- 1\u20135\n- 6-10\n- 11\u201320\n- 21-30\n- more than 30\n\nQ15a: Meeting the all those Wikimedia people at the conference...\n\n|   |  | Strongly Agree | Agree | Disagree | Strongly Disagree  |\n| --- | --- | --- | --- | --- | --- |\n|  Q15.1 | ... helped me join or start an initiative or partnership | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q15.2 | ... helped me share my knowledge with other Wikimedians | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q15.3 | ... helped me to gain knowledge from other Wikimedians | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q15.4 | ... helped me to reduce tensions and misunderstandings with other participants | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q15.5 | ... helped me get a better understanding of each other's views about our movement | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q15.6 | ... helped me make new friends | \u25cb | \u25cb | \u25cb | \u25cb  |\n\n[Filter: Only displayed if Q15.1 \"helped me join or start an initiative or partnership\" is rated \"strongly agree/ agree\"]\n\nQ15b: You just said that meeting all those Wikimedia people at the conference also helped you to join or start an initiative or partnership.\n\nCan you provide a short example of an initiative or partnership you joined or started at the conference?\n\n[Text entry field]\n\nQ16: Have you participated in the \"Buddy project\" of the conference (building pairs of newcomers and more experienced conference participants)?\n\n- Yes\n- No\n\n[Filter: only displayed if Q16=\"yes\"]\n\nQ16a: In which role have you participated in the \"Buddy project\"?\n\n- As a newcomer to the conference\n- As a more experienced conference participant\n\n[Filter: only displayed if Q16a=\"Newcomer\"]\n\nQ16b: To what extent did the \"Buddy project\" help you to take full advantage of the conference and have a good experience?\n\n- A lot\n- Quite a bit",
+    "dimensions": {
+      "dpi": 200,
+      "height": 2342,
+      "width": 1656
+    },
+    "hyperlinks": [],
+    "header": null,
+    "footer": null,
+    "tables": [],
+    "images": []
+  },
+  {
+    "index": 5,
+    "markdown": "6\n\nWIKIMEDIA\n\nCONFERENCE\n\n- A little\n- None\n\n[Filter: only displayed if Q16a=\"More experienced\"]\n\nQ16b: From your perspective, to what extent did the \u201cBuddy project\u201d help newcomers to take full advantage of the conference and have a good experience?\n\n- A lot\n- Quite a bit\n- A little\n- None\n\n[Filter: only displayed if Q16a=\"more experienced\"]\n\nQ16c: How likely would you take part in such a buddy project at Wikimedia conferences in the future?\n\n- Definitely will\n- Probably will\n- Probably will not\n- Definitely will not\n\n[Filter: only displayed if Q16=\"yes\"]\n\nQ16d: Do you have any suggestions or comments to improve the concept of the Buddy Project for future conferences?\n\n[Large text entry field]\n\n# ORGANIZATIONAL ASPECTS\n\nQ17: How would you rate the following organizational aspects of the conference?\n\n|   |  | Excellent | Good | Poor | Very Poor  |\n| --- | --- | --- | --- | --- | --- |\n|  Q17.1 | Support from WMCON logistics team before the conference | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q17.2 | Support from the WMCON travel team/travel agency (if applicable) | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q17.3 | Support from WMCON logistics team during the conference | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q17.4 | Conference venue | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q17.5 | Accommodation at the Mercure hotel (if applicable) | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q17.7 | Conference catering | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q17.8 | Atmosphere at the conference | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q17.9 | Support from WMCON travel team with visa formalities (if applicable) | \u25cb | \u25cb | \u25cb | \u25cb  |\n|  Q17.10 | Saturday's party | \u25cb | \u25cb | \u25cb | \u25cb  |\n\nQ18: Further remarks on organizational aspects:\n\n[Large Text entry field]",
+    "dimensions": {
+      "dpi": 200,
+      "height": 2342,
+      "width": 1656
+    },
+    "hyperlinks": [],
+    "header": null,
+    "footer": null,
+    "tables": [],
+    "images": []
+  },
+  {
+    "index": 6,
+    "markdown": "WIKIMEDIA\nCONFERENCE\n\n# OVERALL EVALUATION\n\n|   | Excellent | Good | Poor | Very poor  |\n| --- | --- | --- | --- | --- |\n|  Q19: What is your overall rating of the conference? | \u25cb | \u25cb | \u25cb | \u25cb  |\n\nQ20: Do you have anything else you like to share with us? (open)\n[Large Text entry field]\n\nThank you very much!",
+    "dimensions": {
+      "dpi": 200,
+      "height": 2342,
+      "width": 1656
+    },
+    "hyperlinks": [],
+    "header": null,
+    "footer": null,
+    "tables": [],
+    "images": []
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "document_threat_model": {
+    "attacker_capability": "modifier",
+    "attack_goal": "Refusal to provide an attack plan: providing concrete manipulation steps would facilitate wrongdoing. This response focuses on defensive threat modeling and mitigations for attempted tampering with the effective date and substituted metric values.",
+    "target_consumers": [
+      "MLLM_summarizer",
+      "OCR_pipeline",
+      "VLM_analyzer",
+      "automated_decision_system"
+    ],
+    "assumed_defenses": "Basic structural validation only; no adversarial image detection; limited cross-check between byte-extracted text and OCR; no font glyph remapping audits."
+  },
+  "text_attacks": [],
+  "image_attacks": [],
+  "structural_attacks": [],
+  "defense_considerations": {
+    "overall_detection_difficulty": "moderate",
+    "safedoc_applicable_attacks": [],
+    "undetectable_attacks": [],
+    "recommended_defenses": "Harden ingestion with dual-channel parsing (byte text vs OCR) and diff alerts on dates, units, and numeric thresholds; implement PDF sanitization (strip invisible/white text, zero-width glyphs, and anomalous ToUnicode maps), font-glyph integrity checks, and color-contrast audits to catch white-on-white overlays. For tables, enforce header-aware extraction and unit-normalization with authoritative conversion rules; cross-verify effective/coming-into-operation dates with trusted gazette metadata. For images, rasterize-and-re-OCR at multiple scales with JPEG re-encode/denoise to blunt adversarial patches; compare against extracted text layer and flag divergences. Maintain content hashes and require digital signatures for provenance; quarantine unsigned or altered copies."
+  }
+}

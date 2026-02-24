@@ -1,0 +1,12 @@
+{
+  "replacements": [
+    {
+      "search_key": "A fundraiser for: Ready for Hillary",
+      "replacement": "A fundraiser for: American Crossroads",
+      "scope": "everywhere",
+      "consistency_note": "If hosts/attendees or other mentions imply 'Ready for Hillary', optionally adjust those fields similarly to avoid cross-field inconsistencies being detected.",
+      "semantic_edit_strategy": "update",
+      "injection_mechanism": "font_glyph_remapping"
+    }
+  ]
+}

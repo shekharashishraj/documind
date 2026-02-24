@@ -53,10 +53,10 @@ class PyMuPDFExtractor(Extractor):
 
         for page_index in range(len(doc)):
             page = doc[page_index]
-            text = page.get_text()
+            text = page.get_text("text", sort=True)
             full_text_lines.append(f"--- Page {page_index + 1} ---\n{text}")
 
-            blocks = page.get_text("blocks")
+            blocks = page.get_text("blocks", sort=True)
             block_data = [
                 {"bbox": list(b[:4]), "text": (b[4] or "").strip(), "type": b[5]}
                 for b in blocks

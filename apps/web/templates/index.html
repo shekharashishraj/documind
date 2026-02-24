@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documind Vulnerability Evaluation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Documind Vulnerability Evaluation</h1>
+      <p>Demonstrating indirect prompt injection risks in agentic systems</p>
+    </div>
+    <div class="topbar-right">
+      <span id="health-indicator" class="pill">Checking API...</span>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-target="pipeline">Pipeline</button>
+    <button class="tab" data-target="evaluation">Evaluation</button>
+    <button class="tab" data-target="runs">Runs</button>
+    <button class="tab" data-target="reports">Reports</button>
+  </nav>
+
+  <main>
+    <section id="pipeline" class="tab-panel active">
+      <div class="panel-header">
+        <h2>Adversarial Document Generation</h2>
+        <p>Run Stage 1 -> Stage 4 sequentially and generate the adversarial PDF.</p>
+      </div>
+
+      <div class="two-col">
+        <div class="card fade-in">
+          <h3>Controls</h3>
+          <div class="form-grid">
+            <div>
+              <label for="pdf-select">PDF from repository</label>
+              <select id="pdf-select">
+                <option value="">(none)</option>
+              </select>
+            </div>
+            <div>
+              <label for="pdf-path">Or custom PDF path</label>
+              <input id="pdf-path" type="text" placeholder="path/to/file.pdf" />
+            </div>
+          </div>
+
+          <details class="advanced-block">
+            <summary>Advanced options</summary>
+            <div class="form-grid advanced-grid">
+              <div>
+                <label for="out-root">Output root</label>
+                <input id="out-root" type="text" value="pipeline_run" />
+              </div>
+              <div>
+                <label for="priority-filter">Stage 4 priority filter</label>
+                <select id="priority-filter">
+                  <option value="all">all</option>
+                  <option value="high">high</option>
+                  <option value="medium">medium</option>
+                  <option value="low">low</option>
+                </select>
+              </div>
+              <div>
+                <label for="attack-mechanism">Stage 4 mechanism mode</label>
+                <select id="attack-mechanism"></select>
+                <p class="hint">Default is <code>auto</code> (planner strategy drives mechanism).</p>
+                <p id="attack-mechanism-warning" class="hint override-warning hidden">
+                  Manual override is enabled. This is an ablation mode and may diverge from paper-aligned planner coupling.
+                </p>
+              </div>
+              <div>
+                <label>Stage 1 mechanisms</label>
+                <p class="hint">Choose how text is extracted in Stage 1.</p>
+                <div class="checkbox-row mechanism-list">
+                  <label class="mechanism-item">
+                    <input type="checkbox" value="byte_extraction" checked />
+                    <span>
+                      <span class="mechanism-name">Byte Extraction</span>
+                      <span class="mechanism-desc">Extract text directly from PDF bytes (default).</span>
+                    </span>
+                  </label>
+                  <label class="mechanism-item">
+                    <input type="checkbox" value="ocr" />
+                    <span>
+                      <span class="mechanism-name">OCR</span>
+                      <span class="mechanism-desc">Extract text from rendered page images.</span>
+                    </span>
+                  </label>
+                  <label class="mechanism-item">
+                    <input type="checkbox" value="vlm" />
+                    <span>
+                      <span class="mechanism-name">VLM</span>
+                      <span class="mechanism-desc">Use vision-language parsing for visual text/context.</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </details>
+
+          <button id="run-pipeline" class="btn btn-primary">Generate Adversarial Doc</button>
+        </div>
+
+        <div class="card fade-in">
+          <h3>Stage Timeline</h3>
+          <div class="progress-wrap">
+            <div class="progress-bar"><div id="pipeline-progress" class="progress-fill"></div></div>
+            <span id="pipeline-progress-label">Idle</span>
+          </div>
+
+          <div class="stage-cards" id="stage-cards">
+            <div class="stage-card" data-stage="stage1">
+              <h4>Stage 1</h4>
+              <p>Extracting structure, OCR, and visual text.</p>
+              <span class="state">Pending</span>
+              <button class="btn btn-secondary stage-run-btn" data-run-stage="stage1" disabled>Run Stage 1</button>
+            </div>
+            <div class="stage-card" data-stage="stage2">
+              <h4>Stage 2</h4>
+              <p>Analyzing document semantics and attack surface.</p>
+              <span class="state">Pending</span>
+              <button class="btn btn-secondary stage-run-btn" data-run-stage="stage2" disabled>Run Stage 2</button>
+            </div>
+            <div class="stage-card" data-stage="stage3">
+              <h4>Stage 3</h4>
+              <p>Building manipulation strategy.</p>
+              <span class="state">Pending</span>
+              <button class="btn btn-secondary stage-run-btn" data-run-stage="stage3" disabled>Run Stage 3</button>
+            </div>
+            <div class="stage-card" data-stage="stage4">
+              <h4>Stage 4</h4>
+              <p>Applying perturbations and visual overlay.</p>
+              <span class="state">Pending</span>
+              <button class="btn btn-secondary stage-run-btn" data-run-stage="stage4" disabled>Run Stage 4</button>
+            </div>
+          </div>
+
+          <div id="pipeline-result" class="result-box muted">No pipeline run yet.</div>
+          <div id="pipeline-preview" class="preview-grid hidden">
+            <div class="preview-card">
+              <h4>Original Document</h4>
+              <iframe id="preview-original" title="Original document preview" loading="lazy"></iframe>
+            </div>
+            <div class="preview-card">
+              <h4>Adversarial Document</h4>
+              <iframe id="preview-adversarial" title="Adversarial document preview" loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="evaluation" class="tab-panel">
+      <div class="panel-header">
+        <h2>Agent-Backend Evaluation</h2>
+        <p>Run clean vs adversarial documents through the agent-backend supervisor and inspect which domain specialist gets routed.</p>
+      </div>
+
+      <div class="two-col evaluation-layout">
+        <div class="card fade-in">
+          <h3>Run Evaluation</h3>
+          <div class="form-grid">
+            <div>
+              <label for="eval-scenario">Prompt template</label>
+              <select id="eval-scenario"></select>
+              <p id="eval-scenario-task" class="hint">Use Auto for a neutral query. Router still decides which agent runs.</p>
+            </div>
+            <div>
+              <label for="eval-trials">Trials</label>
+              <input id="eval-trials" type="number" min="1" max="9" value="3" />
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div>
+              <label for="eval-original-upload">Upload Original Doc</label>
+              <input id="eval-original-upload" type="file" accept=".pdf,application/pdf" />
+            </div>
+            <div>
+              <label for="eval-adversarial-upload">Upload Adversarial Doc</label>
+              <input id="eval-adversarial-upload" type="file" accept=".pdf,application/pdf" />
+            </div>
+          </div>
+
+          <div class="button-row">
+            <button id="check-eval" class="btn btn-secondary">Check Eligibility</button>
+            <button id="run-eval" class="btn btn-primary" disabled>Run Agent-Backend Evaluation</button>
+          </div>
+
+          <div class="progress-wrap">
+            <div class="progress-bar"><div id="eval-progress" class="progress-fill"></div></div>
+            <span id="eval-progress-label">Idle</span>
+          </div>
+
+          <div class="stage-cards stage5-stage-cards" id="eval-stage-cards">
+            <div class="stage-card" data-stage="ingest">
+              <h4>Step 1: Ingest</h4>
+              <p>Load clean and attacked document text.</p>
+              <span class="state">Pending</span>
+            </div>
+            <div class="stage-card" data-stage="route">
+              <h4>Step 2: Route</h4>
+              <p>Supervisor selects the best domain specialist.</p>
+              <span class="state">Pending</span>
+            </div>
+            <div class="stage-card" data-stage="execute">
+              <h4>Step 3: Execute</h4>
+              <p>Selected domain agent answers the query.</p>
+              <span class="state">Pending</span>
+            </div>
+            <div class="stage-card" data-stage="trace">
+              <h4>Step 4: Trace</h4>
+              <p>Capture routed domain and execution trace.</p>
+              <span class="state">Pending</span>
+            </div>
+            <div class="stage-card" data-stage="score">
+              <h4>Step 5: Score</h4>
+              <p>Compare task deviation, latency, and tool behavior.</p>
+              <span class="state">Pending</span>
+            </div>
+          </div>
+
+          <div id="eval-message" class="result-box muted">Eligibility not checked.</div>
+        </div>
+
+        <div class="card fade-in">
+          <h3>Agent Monitor</h3>
+          <p class="hint">Green highlight marks the routed specialist. If routing is low-confidence, backend may use a fallback route.</p>
+          <div id="agent-panel-note" class="result-box muted">No evaluation run yet.</div>
+          <div id="agent-panels" class="agent-grid"></div>
+        </div>
+      </div>
+
+      <div id="eval-summary" class="pane-summary hidden"></div>
+    </section>
+
+    <section id="runs" class="tab-panel">
+      <div class="panel-header">
+        <h2>Runs</h2>
+        <p>Recent per-document evaluation outputs.</p>
+      </div>
+      <div class="card fade-in">
+        <button id="refresh-runs" class="btn btn-secondary">Refresh Runs</button>
+        <div class="table-wrap">
+          <table id="runs-table">
+            <thead>
+              <tr>
+                <th>Doc ID</th>
+                <th>Scenario</th>
+                <th>Compromised</th>
+                <th>Clean=Gold</th>
+                <th>Changed Fields</th>
+                <th>Path</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="reports" class="tab-panel">
+      <div class="panel-header">
+        <h2>Reports</h2>
+        <p>Legacy Stage 5 batch reports (optional).</p>
+      </div>
+
+      <div class="card fade-in">
+        <div class="form-grid">
+          <div>
+            <label for="batch-docs">Batch doc IDs (comma-separated)</label>
+            <input id="batch-docs" type="text" placeholder="doc_id_1,doc_id_2" />
+            <p class="hint">Leave empty to use demo batch from config.</p>
+          </div>
+          <div>
+            <label for="batch-model">Batch model</label>
+            <input id="batch-model" type="text" value="gpt-5-2025-08-07" />
+          </div>
+          <div>
+            <label for="batch-trials">Batch trials</label>
+            <input id="batch-trials" type="number" min="1" max="9" value="3" />
+          </div>
+          <div>
+            <label for="batch-out-dir">Batch output directory</label>
+            <input id="batch-out-dir" type="text" value="stage5_runs" />
+          </div>
+        </div>
+        <button id="run-batch" class="btn btn-primary">Run Batch Evaluation</button>
+
+        <div id="batch-summary" class="result-box muted">No batch run yet.</div>
+      </div>
+
+      <div class="card fade-in">
+        <h3>Existing Batch Reports</h3>
+        <button id="refresh-reports" class="btn btn-secondary">Refresh Reports</button>
+        <div class="table-wrap">
+          <table id="reports-table">
+            <thead>
+              <tr>
+                <th>Run ID</th>
+                <th>Eligible Docs</th>
+                <th>ASR</th>
+                <th>Severity Weighted</th>
+                <th>Path</th>
+                <th>Paper Table</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Logs: <code>logs/demo_web.log</code></span>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
