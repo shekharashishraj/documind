@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#040c1e"/>
+      <stop offset="45%"  stop-color="#071629"/>
+      <stop offset="80%"  stop-color="#0c2040"/>
+      <stop offset="100%" stop-color="#081830"/>
+    </linearGradient>
+    <radialGradient id="midGlow" cx="62%" cy="55%" r="38%">
+      <stop offset="0%"   stop-color="#1060c0" stop-opacity="0.45"/>
+      <stop offset="60%"  stop-color="#0840a0" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#040c1e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="pdfUnderGlow" cx="50%" cy="70%" r="50%">
+      <stop offset="0%"   stop-color="#1e7fff" stop-opacity="0.7"/>
+      <stop offset="50%"  stop-color="#0060ff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0040cc" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+    <filter id="iconShadow" x="-30%" y="-20%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#0050cc" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background fill -->
+  <rect width="1440" height="260" fill="url(#bg)"/>
+
+  <!-- Central blue atmospheric glow -->
+  <ellipse cx="900" cy="170" rx="520" ry="200" fill="url(#midGlow)"/>
+
+  <!-- ══ Left-side circuit grid ══ -->
+  <!-- Vertical grid lines -->
+  <line x1="40"  y1="0" x2="40"  y2="260" stroke="rgba(40,100,200,0.10)" stroke-width="0.6"/>
+  <line x1="80"  y1="0" x2="80"  y2="260" stroke="rgba(40,100,200,0.10)" stroke-width="0.6"/>
+  <line x1="120" y1="0" x2="120" y2="260" stroke="rgba(40,100,200,0.10)" stroke-width="0.6"/>
+  <line x1="160" y1="0" x2="160" y2="260" stroke="rgba(40,100,200,0.08)" stroke-width="0.6"/>
+  <line x1="200" y1="0" x2="200" y2="260" stroke="rgba(40,100,200,0.08)" stroke-width="0.6"/>
+  <line x1="240" y1="0" x2="240" y2="260" stroke="rgba(40,100,200,0.07)" stroke-width="0.6"/>
+  <line x1="280" y1="0" x2="280" y2="260" stroke="rgba(40,100,200,0.06)" stroke-width="0.6"/>
+  <line x1="320" y1="0" x2="320" y2="260" stroke="rgba(40,100,200,0.05)" stroke-width="0.5"/>
+  <line x1="360" y1="0" x2="360" y2="260" stroke="rgba(40,100,200,0.05)" stroke-width="0.5"/>
+  <!-- Horizontal grid lines -->
+  <line x1="0" y1="40"  x2="400" y2="40"  stroke="rgba(40,100,200,0.09)" stroke-width="0.6"/>
+  <line x1="0" y1="80"  x2="400" y2="80"  stroke="rgba(40,100,200,0.09)" stroke-width="0.6"/>
+  <line x1="0" y1="120" x2="400" y2="120" stroke="rgba(40,100,200,0.09)" stroke-width="0.6"/>
+  <line x1="0" y1="160" x2="400" y2="160" stroke="rgba(40,100,200,0.09)" stroke-width="0.6"/>
+  <line x1="0" y1="200" x2="400" y2="200" stroke="rgba(40,100,200,0.09)" stroke-width="0.6"/>
+  <line x1="0" y1="240" x2="400" y2="240" stroke="rgba(40,100,200,0.07)" stroke-width="0.6"/>
+  <!-- Grid intersection dots -->
+  <circle cx="40"  cy="40"  r="1.5" fill="rgba(50,120,220,0.35)"/>
+  <circle cx="80"  cy="40"  r="1.5" fill="rgba(50,120,220,0.30)"/>
+  <circle cx="120" cy="40"  r="1.5" fill="rgba(50,120,220,0.30)"/>
+  <circle cx="40"  cy="80"  r="1.5" fill="rgba(50,120,220,0.30)"/>
+  <circle cx="80"  cy="80"  r="2"   fill="rgba(50,150,255,0.55)"/>
+  <circle cx="120" cy="80"  r="1.5" fill="rgba(50,120,220,0.30)"/>
+  <circle cx="160" cy="80"  r="1.5" fill="rgba(50,120,220,0.25)"/>
+  <circle cx="40"  cy="120" r="1.5" fill="rgba(50,120,220,0.25)"/>
+  <circle cx="80"  cy="120" r="1.5" fill="rgba(50,120,220,0.25)"/>
+  <circle cx="120" cy="120" r="2"   fill="rgba(50,150,255,0.45)"/>
+  <circle cx="160" cy="120" r="1.5" fill="rgba(50,120,220,0.20)"/>
+  <circle cx="200" cy="120" r="1.5" fill="rgba(50,120,220,0.18)"/>
+  <circle cx="40"  cy="160" r="1.5" fill="rgba(50,120,220,0.20)"/>
+  <circle cx="80"  cy="160" r="1.5" fill="rgba(50,120,220,0.20)"/>
+  <circle cx="120" cy="160" r="1.5" fill="rgba(50,120,220,0.20)"/>
+  <circle cx="40"  cy="200" r="1.5" fill="rgba(50,120,220,0.15)"/>
+  <circle cx="80"  cy="200" r="1.5" fill="rgba(50,120,220,0.15)"/>
+  <!-- Cyan accent dot (bright node) -->
+  <circle cx="80" cy="80" r="3.5" fill="rgba(0,180,255,0.8)"/>
+  <circle cx="80" cy="80" r="7"   fill="rgba(0,180,255,0.2)" filter="url(#softBlur)"/>
+  <!-- Connector lines from bright node -->
+  <line x1="80" y1="80" x2="200" y2="80"  stroke="rgba(0,180,255,0.35)" stroke-width="0.8"/>
+  <line x1="80" y1="80" x2="80"  y2="160" stroke="rgba(0,180,255,0.25)" stroke-width="0.8"/>
+  <line x1="80" y1="80" x2="40"  y2="120" stroke="rgba(0,180,255,0.20)" stroke-width="0.8"/>
+
+  <!-- ══ Concentric radar rings (centered at ~900,130) ══ -->
+  <circle cx="900" cy="130" r="280" fill="none" stroke="rgba(30,100,200,0.10)" stroke-width="1"/>
+  <circle cx="900" cy="130" r="240" fill="none" stroke="rgba(30,110,210,0.13)" stroke-width="1"/>
+  <circle cx="900" cy="130" r="200" fill="none" stroke="rgba(30,120,220,0.16)" stroke-width="1"/>
+  <circle cx="900" cy="130" r="162" fill="none" stroke="rgba(30,130,230,0.20)" stroke-width="1"/>
+  <circle cx="900" cy="130" r="126" fill="none" stroke="rgba(30,140,240,0.24)" stroke-width="1.2"/>
+  <circle cx="900" cy="130" r="92"  fill="none" stroke="rgba(30,150,255,0.28)" stroke-width="1.2"/>
+  <!-- Tick marks on rings -->
+  <line x1="900" y1="-150" x2="900" y2="-138" stroke="rgba(30,140,240,0.5)" stroke-width="1.5" transform="translate(0,130)"/>
+  <line x1="900" y1="408"  x2="900" y2="420"  stroke="rgba(30,140,240,0.5)" stroke-width="1.5" transform="translate(0,-130)"/>
+  <line x1="608" y1="130"  x2="620" y2="130"  stroke="rgba(30,140,240,0.5)" stroke-width="1.5"/>
+  <line x1="1180" y1="130" x2="1192" y2="130" stroke="rgba(30,140,240,0.5)" stroke-width="1.5"/>
+
+  <!-- ══ PDF under-glow ══ -->
+  <ellipse cx="902" cy="218" rx="68" ry="18" fill="rgba(0,100,255,0.5)" filter="url(#softBlur)"/>
+  <ellipse cx="902" cy="218" rx="42" ry="10" fill="rgba(30,150,255,0.7)" filter="url(#softBlur)"/>
+
+  <!-- ══ PDF document icon ══ -->
+  <g filter="url(#iconShadow)">
+    <!-- Document body -->
+    <rect x="848" y="48" width="108" height="142" rx="8" fill="#e8edf5"/>
+    <!-- Corner fold -->
+    <path d="M928 48 L956 76 L928 76 Z" fill="#c8d0dc"/>
+    <line x1="928" y1="48" x2="956" y2="76" stroke="#b0bac8" stroke-width="0.5"/>
+    <!-- Horizontal lines (document text) -->
+    <rect x="862" y="100" width="72" height="5"  rx="2.5" fill="#b8c2d0" opacity="0.7"/>
+    <rect x="862" y="113" width="58" height="4"  rx="2"   fill="#b8c2d0" opacity="0.55"/>
+    <rect x="862" y="124" width="64" height="4"  rx="2"   fill="#b8c2d0" opacity="0.55"/>
+    <rect x="862" y="135" width="50" height="4"  rx="2"   fill="#b8c2d0" opacity="0.45"/>
+    <!-- PDF label -->
+    <text x="862" y="165" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#7a8aa0" letter-spacing="2">PDF</text>
+    <!-- Lock icon -->
+    <rect x="870" y="52" width="40" height="36" rx="4" fill="#c4cdd9" opacity="0.9"/>
+    <!-- Lock shackle -->
+    <path d="M882 66 v-6 a8 8 0 0 1 16 0 v6" stroke="#8a98a8" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- Lock body (darker box) -->
+    <rect x="876" y="66" width="28" height="20" rx="4" fill="#8a98a8"/>
+    <!-- Keyhole -->
+    <circle cx="890" cy="74" r="3.5" fill="#c4cdd9"/>
+    <rect x="888.5" y="74" width="3" height="6" rx="1" fill="#c4cdd9"/>
+  </g>
+
+  <!-- ══ Subtle right-side vignette ══ -->
+  <rect x="1200" y="0" width="240" height="260" fill="url(#bg)" opacity="0.5"/>
+</svg>

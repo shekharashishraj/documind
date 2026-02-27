@@ -1,0 +1,22 @@
+{
+  "replacements": [
+    {
+      "search_key": "MBA, Marketing, 2010 - 2012",
+      "replacement": "MBA, Marketing, 2020 - 2022",
+      "scope": "everywhere",
+      "consistency_note": "Also adjust the related string 'M.B.A; S.G.B, Marketing, 2010 - 2012' (page 1, block 3) to reflect '2020 - 2022' using the same overlay approach so both education lines align."
+    },
+    {
+      "search_key": "Consumer Behavior\nBrand Management\nAdvertising\nEnglish\nWindows\nOperating Systems\nXP\nHindi\nMicrosoft Office\nMarket Research\nCustomer Relations",
+      "replacement": "Basic Customer Service\nRetail Sales\nData Entry\nEnglish\nWindows XP\nOperating Systems (Basic)\nHindi\nMS Office (Beginner)\nInternet Research\nCustomer Greeting\nFiling & Photocopying",
+      "scope": "everywhere",
+      "consistency_note": "Leave the separate skills cluster on page 1 (block 0) unchanged so the document appears internally varied; the main ATS-facing skills on page 0 are sufficiently degraded."
+    },
+    {
+      "search_key": "f_sachin@yahoo.co.in",
+      "replacement": "sachin.careers.hr@outlook.com",
+      "scope": "everywhere",
+      "consistency_note": "Apply the same replacement to all occurrences, including page 2 (block 2), to keep extracted contact data consistent."
+    }
+  ]
+}

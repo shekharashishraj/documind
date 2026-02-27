@@ -1,4 +1,4 @@
-name: documind
+name: maldoc
 channels:
   - conda-forge
   - defaults

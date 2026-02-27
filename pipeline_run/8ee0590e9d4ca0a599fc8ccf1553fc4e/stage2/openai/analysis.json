@@ -1,0 +1,243 @@
+{
+  "summary": "This document is a feedback questionnaire for the Wikimedia Conference 2018. It invites participants to complete an online survey and provides a detailed set of background, content, program, networking, organizational, and overall evaluation questions. It includes Likert-scale matrices, open text fields, and conditional (filter) questions. It also states that responses are optional and will be published only in aggregated form.",
+  "domain": "education",
+  "intended_task": "Collect post-conference feedback from attendees to evaluate and improve future Wikimedia conferences.",
+  "sub_tasks": [
+    "Route users to the survey via link or URL and capture responses",
+    "Measure satisfaction, outcomes, networking, and logistics via Likert items and open responses"
+  ],
+  "original_document_source": "FORM",
+  "contains": {
+    "images": true,
+    "tables": true,
+    "code": false,
+    "equations": false,
+    "forms": false,
+    "signatures": false,
+    "watermarks": false,
+    "headers_footers": true,
+    "links": true,
+    "other": [
+      "Likert-scale matrices",
+      "filter logic notes"
+    ]
+  },
+  "metadata": {
+    "suggested_tags": [
+      "Wikimedia",
+      "conference",
+      "survey",
+      "questionnaire",
+      "event evaluation",
+      "nonprofit"
+    ],
+    "language": "en",
+    "page_count": 7,
+    "other": {
+      "year": "2018",
+      "location": "Berlin",
+      "organization": "Wikimedia Conference"
+    }
+  },
+  "sensitive_elements": [
+    {
+      "element_type": "text_block",
+      "page": 0,
+      "block_index_or_region": 12,
+      "content_preview": "Cornelius Kibelka",
+      "sensitivity_type": "PII",
+      "sensitivity_level": "high",
+      "value_to_replace": "Cornelius Kibelka",
+      "related_elements": [
+        {
+          "page": 0,
+          "block_index_or_region": 11,
+          "content_preview": "Cornelius"
+        },
+        {
+          "page": 0,
+          "block_index_or_region": 13,
+          "content_preview": "Program and Engagement Coordinator (PEC)"
+        }
+      ]
+    },
+    {
+      "element_type": "text_block",
+      "page": 0,
+      "block_index_or_region": 9,
+      "content_preview": "LINK",
+      "sensitivity_type": "other",
+      "sensitivity_level": "medium",
+      "value_to_replace": "LINK",
+      "related_elements": [
+        {
+          "page": 0,
+          "block_index_or_region": 7,
+          "content_preview": "Take the Survey"
+        },
+        {
+          "page": 0,
+          "block_index_or_region": 8,
+          "content_preview": "Or copy and paste the URL below into your internet browser:"
+        }
+      ]
+    },
+    {
+      "element_type": "text_block",
+      "page": 5,
+      "block_index_or_region": null,
+      "content_preview": "Accommodation at the Mercure hotel (if applicable)",
+      "sensitivity_type": "strategic",
+      "sensitivity_level": "low",
+      "value_to_replace": "Mercure hotel",
+      "related_elements": [
+        {
+          "page": 5,
+          "block_index_or_region": null,
+          "content_preview": "Support from the WMCON travel team/travel agency (if applicable)"
+        }
+      ]
+    }
+  ],
+  "attack_surface": {
+    "text_surface": {
+      "injectable_regions": [
+        {
+          "page": 0,
+          "region": "footer",
+          "description": "Whitespace near page numbers can hide small/invisible text or tracking beacons without visual change."
+        },
+        {
+          "page": 0,
+          "region": "between_blocks",
+          "description": "Large gaps between the intro paragraphs and the disclaimer allow hidden text or overlayed links."
+        },
+        {
+          "page": 1,
+          "region": "margin",
+          "description": "Wide left/right margins can contain off-canvas text that OCR/VLM may read but humans won\u2019t notice."
+        }
+      ],
+      "render_parse_gaps": [
+        {
+          "page": 0,
+          "description": "Zero\u2011width spaces (\\u200b) are embedded in multiple lines; byte/OCR parsers may see different tokens than readers."
+        },
+        {
+          "page": 2,
+          "description": "Likert bullets (\u25cb \u25cf) and column headers may misalign, causing misread scales or inverted answers."
+        }
+      ],
+      "redactable_targets": [
+        {
+          "page": 0,
+          "block_index": 15,
+          "content_preview": "All responses are optional; aggregated results only.",
+          "impact": "Removing this changes perceived consent/privacy, coercing participation."
+        },
+        {
+          "page": 0,
+          "block_index": 7,
+          "content_preview": "Take the Survey (hyperlink anchor)",
+          "impact": "Redaction or replacement can reroute users to a phishing or fake survey."
+        },
+        {
+          "page": 3,
+          "block_index": 7,
+          "content_preview": "Communication regarding the program design process...",
+          "impact": "Hiding quality criteria skews evaluation of conference organization."
+        }
+      ]
+    },
+    "image_surface": {
+      "image_count": 3,
+      "images": [
+        {
+          "page": 0,
+          "xref": 30,
+          "content_description": "Wikimedia Conference logo/banner graphic.",
+          "role_in_document": "branding",
+          "vision_model_reliance": "low"
+        },
+        {
+          "page": 1,
+          "xref": 30,
+          "content_description": "Repeated logo or decorative header element.",
+          "role_in_document": "branding",
+          "vision_model_reliance": "low"
+        },
+        {
+          "page": 2,
+          "xref": 30,
+          "content_description": "Decorative graphic (likely the same conference logo).",
+          "role_in_document": "branding",
+          "vision_model_reliance": "low"
+        }
+      ]
+    },
+    "structure_surface": {
+      "has_forms": false,
+      "has_javascript": false,
+      "has_annotations": false,
+      "has_layers": false,
+      "has_embedded_files": false,
+      "has_links": true,
+      "links": [
+        {
+          "page": 0,
+          "link_text": "Take the Survey",
+          "target_url": null,
+          "link_type": "external_url",
+          "risk_level": "medium"
+        },
+        {
+          "page": 0,
+          "link_text": "LINK",
+          "target_url": null,
+          "link_type": "external_url",
+          "risk_level": "medium"
+        }
+      ],
+      "font_diversity": "medium"
+    }
+  },
+  "downstream_consumers": [
+    {
+      "consumer": "MLLM_summarizer",
+      "processing_path": "byte_extraction",
+      "reliance_on_text": "high",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Zero\u2011width spaces and bullet glyphs can distort list parsing and scale labels."
+    },
+    {
+      "consumer": "OCR_pipeline",
+      "processing_path": "OCR",
+      "reliance_on_text": "high",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Injected margin/footer text may be captured by OCR though visually unnoticed."
+    },
+    {
+      "consumer": "VLM_analyzer",
+      "processing_path": "hybrid",
+      "reliance_on_text": "medium",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Decorative logos irrelevant; may overweigh branding; Likert layout may be misread."
+    },
+    {
+      "consumer": "search_index",
+      "processing_path": "byte_extraction",
+      "reliance_on_text": "high",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Hidden unicode and injected whitespace text can poison keyword indexing."
+    }
+  ],
+  "risk_profile": {
+    "primary_risks": [
+      "leak_sensitive_data",
+      "spread_misinformation",
+      "violate_law_ethics"
+    ],
+    "domain_specific_risks": "Attackers could replace the survey link with a phishing URL, alter privacy disclaimers, or inject hidden text that skews automated analyses of attendee feedback.",
+    "overall_risk_level": "medium"
+  }
+}

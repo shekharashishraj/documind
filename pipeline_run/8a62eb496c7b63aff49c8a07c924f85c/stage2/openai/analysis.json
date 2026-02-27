@@ -1,0 +1,229 @@
+{
+  "summary": "Single-page event listing from Sunlight Foundation\u2019s Political Party Time summarizing a fundraiser for 'Ready for Hillary.' It includes the news source URL, event description, location, date/time, and hosts/attendees, with some fields left blank (Cost, Additional information). The page appears to be a structured snapshot intended for transparency about political fundraising events.",
+  "domain": "government",
+  "intended_task": "Document and share key details of a political fundraising event for transparency and research.",
+  "sub_tasks": [
+    "Record event identity (beneficiary, date/time, location)",
+    "Cite source and list hosts/attendees"
+  ],
+  "original_document_source": "WEB",
+  "decision_fields": "Beneficiary ('A fundraiser for'), event date/time, and event location define the event\u2019s identity.",
+  "contains": {
+    "images": true,
+    "tables": false,
+    "code": false,
+    "equations": false,
+    "forms": false,
+    "signatures": false,
+    "watermarks": false,
+    "headers_footers": true,
+    "links": true,
+    "other": []
+  },
+  "metadata": {
+    "suggested_tags": [
+      "political_fundraising",
+      "transparency",
+      "event_listing",
+      "Sunlight_Foundation",
+      "Ready_for_Hillary"
+    ],
+    "language": "en",
+    "page_count": 1,
+    "other": {
+      "source_org": "Sunlight Foundation",
+      "news_outlet_cited": "Los Angeles Times"
+    }
+  },
+  "sensitive_elements": [
+    {
+      "element_type": "text_block",
+      "page": 0,
+      "block_index_or_region": 1,
+      "content_preview": "A fundraiser for: Ready for Hillary",
+      "sensitivity_type": "other",
+      "sensitivity_level": "medium",
+      "decision_impact": "Changing the beneficiary would misattribute the event and fundamentally alter who the fundraiser supports, misleading researchers and the public.",
+      "value_to_replace": "A fundraiser for: Ready for Hillary",
+      "related_elements": [
+        {
+          "page": 0,
+          "block_index_or_region": 2,
+          "content_preview": "News source: http://www.latimes.com/..."
+        },
+        {
+          "page": 0,
+          "block_index_or_region": 7,
+          "content_preview": "Hosts and other lawmakers: Host: Howard Gordon..."
+        }
+      ]
+    },
+    {
+      "element_type": "text_block",
+      "page": 0,
+      "block_index_or_region": 5,
+      "content_preview": "Date/ time: Dec. 9, 2013",
+      "sensitivity_type": "other",
+      "sensitivity_level": "medium",
+      "decision_impact": "Changing the date/time would alter when the event occurred and could affect timelines or compliance analyses.",
+      "value_to_replace": "Date/ time: Dec. 9, 2013",
+      "related_elements": [
+        {
+          "page": 0,
+          "block_index_or_region": 2,
+          "content_preview": "URL contains 20131209..."
+        }
+      ]
+    },
+    {
+      "element_type": "text_block",
+      "page": 0,
+      "block_index_or_region": 4,
+      "content_preview": "Location: Home of Howard Gordon, Pacific Palisades, CA",
+      "sensitivity_type": "PII",
+      "sensitivity_level": "medium",
+      "decision_impact": "Changing the location would misstate the venue and host context, distorting the event\u2019s identity and logistics.",
+      "value_to_replace": "Location: Home of Howard Gordon, Pacific Palisades, CA",
+      "related_elements": [
+        {
+          "page": 0,
+          "block_index_or_region": 7,
+          "content_preview": "Host: Howard Gordon"
+        }
+      ]
+    }
+  ],
+  "attack_surface": {
+    "text_surface": {
+      "injectable_regions": [
+        {
+          "page": 0,
+          "region": "footer",
+          "description": "Footer text with tabs/non-breaking spaces can hide zero-width or overlayed text without visible change."
+        },
+        {
+          "page": 0,
+          "region": "whitespace_gap",
+          "description": "Large blank areas under 'Cost:' and 'Additional information:' can hold invisible or tiny-font injections."
+        },
+        {
+          "page": 0,
+          "region": "between_blocks",
+          "description": "Gaps between titled fields (e.g., after URL lines) allow overlapped or hidden text that OCR may capture."
+        }
+      ],
+      "render_parse_gaps": [
+        {
+          "page": 0,
+          "description": "Hyphenated/broken URL across lines may be parsed incorrectly (inserted spaces/dropped hyphens)."
+        },
+        {
+          "page": 0,
+          "description": "Footer line uses mixed whitespace (tabs, NBSP, CR) causing tokenization divergence vs. visual render."
+        }
+      ],
+      "redactable_targets": [
+        {
+          "page": 0,
+          "block_index": 1,
+          "content_preview": "A fundraiser for: Ready for Hillary",
+          "impact": "Redaction hides the beneficiary, obscuring the event\u2019s core identity."
+        },
+        {
+          "page": 0,
+          "block_index": 4,
+          "content_preview": "Location: Home of Howard Gordon, Pacific Palisades, CA",
+          "impact": "Removes venue/host context; weakens traceability and PII exposure."
+        },
+        {
+          "page": 0,
+          "block_index": 5,
+          "content_preview": "Date/ time: Dec. 9, 2013",
+          "impact": "Obscures when the event occurred; harms timeline analyses."
+        },
+        {
+          "page": 0,
+          "block_index": 2,
+          "content_preview": "News source: http://www.latimes.com/...",
+          "impact": "Eliminates provenance, making verification harder."
+        }
+      ]
+    },
+    "image_surface": {
+      "image_count": 1,
+      "images": [
+        {
+          "page": 0,
+          "xref": 9,
+          "content_description": "Small stylized letter P with stars (branding/logo).",
+          "role_in_document": "branding",
+          "vision_model_reliance": "low"
+        }
+      ]
+    },
+    "structure_surface": {
+      "has_forms": false,
+      "has_javascript": false,
+      "has_annotations": false,
+      "has_layers": false,
+      "has_embedded_files": false,
+      "has_links": true,
+      "links": [
+        {
+          "page": 0,
+          "link_text": "http://www.latimes.com/nation/politics/politicsnow/la-pn-hillary-clinton-backers-los-angeles-events-20131209,0,1036100.story#axzz2nBSatcAL",
+          "target_url": "http://www.latimes.com/nation/politics/politicsnow/la-pn-hillary-clinton-backers-los-angeles-events-20131209,0,1036100.story#axzz2nBSatcAL",
+          "link_type": "external_url",
+          "risk_level": "medium"
+        },
+        {
+          "page": 0,
+          "link_text": "www.politicalpartytime.org",
+          "target_url": "http://www.politicalpartytime.org",
+          "link_type": "external_url",
+          "risk_level": "medium"
+        }
+      ],
+      "font_diversity": "medium"
+    }
+  },
+  "downstream_consumers": [
+    {
+      "consumer": "search_index",
+      "processing_path": "byte_extraction",
+      "reliance_on_text": "high",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Broken URL hyphenation or hidden text in whitespace may pollute indexing and link resolution."
+    },
+    {
+      "consumer": "MLLM_summarizer",
+      "processing_path": "hybrid",
+      "reliance_on_text": "high",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Injected footer/blank-field text could steer summaries; missing cost/date due to parse errors skews output."
+    },
+    {
+      "consumer": "human_reviewer",
+      "processing_path": "byte_extraction",
+      "reliance_on_text": "medium",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Line-broken URLs and subtle text overlays may be overlooked visually but affect copy/paste verification."
+    },
+    {
+      "consumer": "OCR_pipeline",
+      "processing_path": "OCR",
+      "reliance_on_text": "high",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Hyphenation and mixed whitespace can cause token splits/joins, misreading the URL and headers."
+    }
+  ],
+  "risk_profile": {
+    "primary_risks": [
+      "spread_misinformation",
+      "leak_sensitive_data",
+      "violate_law_ethics"
+    ],
+    "domain_specific_risks": "Altering beneficiary, date, or location could misrepresent a political fundraiser, undermining transparency and potentially exposing or concealing PII about a host\u2019s home.",
+    "overall_risk_level": "medium"
+  }
+}

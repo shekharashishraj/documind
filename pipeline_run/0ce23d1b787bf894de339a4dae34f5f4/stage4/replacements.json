@@ -1,0 +1,28 @@
+{
+  "replacements": [
+    {
+      "search_key": "1 January 1998",
+      "replacement": "1 July 1997",
+      "scope": "everywhere",
+      "consistency_note": "Update both the recital (block ~12) and Article 1 (block ~16) instances so all visible references align to 1 July 1997.",
+      "semantic_edit_strategy": "update",
+      "injection_mechanism": "visual_overlay"
+    },
+    {
+      "search_key": "subject to reciprocal provisional application",
+      "replacement": "without requirement for reciprocal provisional application",
+      "scope": "everywhere",
+      "consistency_note": "Apply modification consistently in both recital and Article 1 contexts so no conditional phrasing remains.",
+      "semantic_edit_strategy": "update",
+      "injection_mechanism": "visual_overlay"
+    },
+    {
+      "search_key": "on trade in textile products",
+      "replacement": "on trade in steel products",
+      "scope": "everywhere",
+      "consistency_note": "Ensure all visible instances of the scope phrase are rewritten consistently so headings and operative text match.",
+      "semantic_edit_strategy": "update",
+      "injection_mechanism": "visual_overlay"
+    }
+  ]
+}

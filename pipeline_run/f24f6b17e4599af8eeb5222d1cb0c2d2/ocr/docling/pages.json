@@ -1,0 +1,420 @@
+[
+  {
+    "page": 0,
+    "text": "Sachin Farfad document_index",
+    "blocks": [
+      {
+        "text": "Sachin Farfad",
+        "bbox": {
+          "l": 36.0,
+          "r": 161.0,
+          "t": 754.14,
+          "b": 736.14
+        },
+        "type": "SectionHeaderItem"
+      },
+      {
+        "text": "document_index",
+        "bbox": {
+          "l": 34.5351676940918,
+          "r": 576.8706665039062,
+          "t": 728.5559616088867,
+          "b": 65.33306884765625
+        },
+        "type": "TableItem"
+      }
+    ]
+  },
+  {
+    "page": 1,
+    "text": "Business Strategy Excel Word Team Management Competitive Analysis Product Development Data Analysis Database Administration PowerPoint Strategic Planning Research New Business Development Budgeting Event Management Retail Marketing Strategy Project Planning Business Planning Online Marketing Problem Solving Web Development Education Amravati University MBA, Marketing, 2010 - 2012 Activities and Societies: Social Marketing Cell, Enterprenuership Development Cell Amravati University M.B.A; S.G.B, Marketing, 2010 - 2012 Nagpur University B.C.A; M, 2009 Hutatama Rastriya Vidhyalaya Ashti H.S.S.C, 2003 - 2005 Lokmanya Vidhyliya, Ashti 10th, School Education, 1998 - 2003 Interests New Technology, Adventures Sports, Playing Chess, Social & Political Activities, Business.",
+    "blocks": [
+      {
+        "text": "Business Strategy",
+        "bbox": {
+          "l": 36.0,
+          "r": 135.0,
+          "t": 754.884,
+          "b": 744.084
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Excel",
+        "bbox": {
+          "l": 36.0,
+          "r": 66.0,
+          "t": 740.912,
+          "b": 730.112
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Word",
+        "bbox": {
+          "l": 36.0,
+          "r": 60.0,
+          "t": 726.94,
+          "b": 716.14
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Team Management",
+        "bbox": {
+          "l": 36.0,
+          "r": 123.0,
+          "t": 712.9680000000001,
+          "b": 702.168
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Competitive Analysis",
+        "bbox": {
+          "l": 36.0,
+          "r": 153.0,
+          "t": 698.996,
+          "b": 688.1959999999999
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Product Development",
+        "bbox": {
+          "l": 36.0,
+          "r": 147.0,
+          "t": 685.024,
+          "b": 674.2239999999999
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Data Analysis",
+        "bbox": {
+          "l": 36.0,
+          "r": 111.0,
+          "t": 671.052,
+          "b": 660.252
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Database Administration",
+        "bbox": {
+          "l": 36.0,
+          "r": 171.0,
+          "t": 657.08,
+          "b": 646.28
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "PowerPoint",
+        "bbox": {
+          "l": 36.0,
+          "r": 96.0,
+          "t": 643.1080000000001,
+          "b": 632.308
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Strategic Planning",
+        "bbox": {
+          "l": 36.0,
+          "r": 141.0,
+          "t": 629.1360000000001,
+          "b": 618.336
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Research",
+        "bbox": {
+          "l": 36.0,
+          "r": 84.0,
+          "t": 615.164,
+          "b": 604.3639999999999
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "New Business Development",
+        "bbox": {
+          "l": 36.0,
+          "r": 174.0,
+          "t": 601.192,
+          "b": 590.3919999999999
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Budgeting",
+        "bbox": {
+          "l": 36.0,
+          "r": 90.0,
+          "t": 587.22,
+          "b": 576.42
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Event Management",
+        "bbox": {
+          "l": 36.0,
+          "r": 129.0,
+          "t": 573.248,
+          "b": 562.448
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Retail",
+        "bbox": {
+          "l": 36.0,
+          "r": 72.0,
+          "t": 559.2760000000001,
+          "b": 548.476
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Marketing Strategy",
+        "bbox": {
+          "l": 36.0,
+          "r": 141.0,
+          "t": 545.304,
+          "b": 534.5039999999999
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Project Planning",
+        "bbox": {
+          "l": 36.0,
+          "r": 129.0,
+          "t": 531.332,
+          "b": 520.5319999999999
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Business Planning",
+        "bbox": {
+          "l": 36.0,
+          "r": 135.0,
+          "t": 517.36,
+          "b": 506.56
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Online Marketing",
+        "bbox": {
+          "l": 36.0,
+          "r": 129.0,
+          "t": 503.38800000000003,
+          "b": 492.588
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Problem Solving",
+        "bbox": {
+          "l": 36.0,
+          "r": 123.0,
+          "t": 489.41600000000005,
+          "b": 478.61600000000004
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Web Development",
+        "bbox": {
+          "l": 36.0,
+          "r": 123.0,
+          "t": 475.444,
+          "b": 464.644
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Education",
+        "bbox": {
+          "l": 36.0,
+          "r": 108.0,
+          "t": 439.488,
+          "b": 425.088
+        },
+        "type": "SectionHeaderItem"
+      },
+      {
+        "text": "Amravati University",
+        "bbox": {
+          "l": 36.0,
+          "r": 147.0,
+          "t": 416.372,
+          "b": 405.572
+        },
+        "type": "SectionHeaderItem"
+      },
+      {
+        "text": "MBA, Marketing, 2010 - 2012",
+        "bbox": {
+          "l": 36.0,
+          "r": 186.0,
+          "t": 401.516,
+          "b": 390.716
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Activities and Societies:",
+        "bbox": {
+          "l": 36.0,
+          "r": 180.0,
+          "t": 386.516,
+          "b": 375.716
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Social Marketing Cell, Enterprenuership Development Cell",
+        "bbox": {
+          "l": 186.0,
+          "r": 507.0,
+          "t": 386.516,
+          "b": 375.716
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Amravati University",
+        "bbox": {
+          "l": 36.0,
+          "r": 147.0,
+          "t": 359.40000000000003,
+          "b": 348.6
+        },
+        "type": "SectionHeaderItem"
+      },
+      {
+        "text": "M.B.A; S.G.B, Marketing, 2010 - 2012",
+        "bbox": {
+          "l": 36.0,
+          "r": 237.0,
+          "t": 344.54400000000004,
+          "b": 333.744
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Nagpur University",
+        "bbox": {
+          "l": 36.0,
+          "r": 135.0,
+          "t": 315.62800000000004,
+          "b": 304.82800000000003
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "B.C.A; M, 2009",
+        "bbox": {
+          "l": 36.0,
+          "r": 114.0,
+          "t": 300.77200000000005,
+          "b": 289.97200000000004
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Hutatama Rastriya Vidhyalaya Ashti",
+        "bbox": {
+          "l": 36.0,
+          "r": 231.0,
+          "t": 271.856,
+          "b": 261.05600000000004
+        },
+        "type": "SectionHeaderItem"
+      },
+      {
+        "text": "H.S.S.C, 2003 - 2005",
+        "bbox": {
+          "l": 36.0,
+          "r": 147.0,
+          "t": 257.0,
+          "b": 246.20000000000005
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Lokmanya Vidhyliya, Ashti",
+        "bbox": {
+          "l": 36.0,
+          "r": 180.0,
+          "t": 228.08400000000006,
+          "b": 217.284
+        },
+        "type": "SectionHeaderItem"
+      },
+      {
+        "text": "10th, School Education, 1998 - 2003",
+        "bbox": {
+          "l": 36.0,
+          "r": 231.0,
+          "t": 213.22800000000007,
+          "b": 202.428
+        },
+        "type": "TextItem"
+      },
+      {
+        "text": "Interests",
+        "bbox": {
+          "l": 36.0,
+          "r": 108.0,
+          "t": 162.32799999999997,
+          "b": 147.928
+        },
+        "type": "SectionHeaderItem"
+      },
+      {
+        "text": "New Technology, Adventures Sports, Playing Chess, Social & Political Activities, Business.",
+        "bbox": {
+          "l": 36.0,
+          "r": 546.0,
+          "t": 137.32799999999997,
+          "b": 126.52800000000002
+        },
+        "type": "TextItem"
+      }
+    ]
+  },
+  {
+    "page": 2,
+    "text": "picture Contact Sachin on LinkedIn",
+    "blocks": [
+      {
+        "text": "picture",
+        "bbox": {
+          "l": 33.90816879272461,
+          "r": 154.5874481201172,
+          "t": 678.605598449707,
+          "b": 642.7223205566406
+        },
+        "type": "PictureItem"
+      },
+      {
+        "text": "Contact Sachin on LinkedIn",
+        "bbox": {
+          "l": 36.0,
+          "r": 183.0,
+          "t": 607.6800000000001,
+          "b": 596.88
+        },
+        "type": "SectionHeaderItem"
+      }
+    ]
+  }
+]
