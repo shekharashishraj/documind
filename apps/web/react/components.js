@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   STAGE_SEQUENCE,
   STAGE5_FLOW_SEQUENCE,
@@ -7,6 +7,7 @@ import {
   AGENT_DOMAIN_COLORS,
   formatValue,
 } from "./constants.js";
+import { apiGet } from "./api.js";
 
 /* ── HealthPill ───────────────────────────────────────────── */
 export function HealthPill({ ok, text }) {
@@ -30,20 +31,97 @@ export function HealthPill({ ok, text }) {
 }
 
 /* ── StageCard ────────────────────────────────────────────── */
-export function StageCard({ stageKey, title, icon, status, runButton }) {
+export function StageCard({ stageKey, title, icon, status, runButton, inspectButton }) {
   const cls = ["stage-card"];
-  if (status === "done") cls.push("done");
+  if (status === "done")    cls.push("done");
   if (status === "running") cls.push("running");
-  if (status === "failed") cls.push("failed");
+  if (status === "failed")  cls.push("failed");
 
-  const stateIcon = status === "done" ? "\u2713" : status === "running" ? "\u25CB" : status === "failed" ? "\u2717" : "\u2022";
+  const dotClass = status === "done" ? "sc-dot done" : status === "running" ? "sc-dot running" : status === "failed" ? "sc-dot failed" : "sc-dot";
   const stateText = status === "done" ? "Complete" : status === "running" ? "Running\u2026" : status === "failed" ? "Failed" : "Pending";
 
   return React.createElement("div", { className: cls.join(" "), "data-stage": stageKey },
-    React.createElement("span", { className: "stage-icon" }, icon),
-    React.createElement("h4", null, title),
-    React.createElement("span", { className: "state" }, stateIcon, " ", stateText),
-    runButton ? React.createElement("div", { style: { marginLeft: "auto", flexShrink: 0 } }, runButton) : null,
+    /* Left: status indicator */
+    React.createElement("div", { className: "sc-left" },
+      React.createElement("span", { className: dotClass }),
+      React.createElement("span", { className: "sc-state-text" }, stateText),
+    ),
+    /* Right: title + buttons */
+    React.createElement("div", { className: "sc-right" },
+      React.createElement("div", { className: "sc-title-row" },
+        icon && React.createElement("span", { className: "stage-icon" }, icon),
+        React.createElement("h4", null, title),
+        React.createElement("span", { className: "sc-key-pill" }, stageKey),
+      ),
+      (runButton || inspectButton) && React.createElement("div", { className: "sc-btn-row" },
+        runButton,
+        inspectButton,
+      ),
+    ),
+  );
+}
+
+/* ── InspectDrawer ────────────────────────────────────────── */
+export function InspectDrawer({ artifact, onClose }) {
+  const [data, setData]       = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError]     = useState("");
+  const [copied, setCopied]   = useState(false);
+
+  useEffect(() => {
+    if (!artifact) return;
+    setLoading(true);
+    setData(null);
+    setError("");
+    apiGet(`/api/files/content?path=${encodeURIComponent(artifact.path)}&max_chars=40000`)
+      .then(d => setData(d))
+      .catch(e => setError(e.message || "Failed to load"))
+      .finally(() => setLoading(false));
+  }, [artifact]);
+
+  const handleCopy = () => {
+    if (data && data.content) {
+      navigator.clipboard.writeText(data.content).then(() => {
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      });
+    }
+  };
+
+  if (!artifact) return null;
+
+  return React.createElement("div", { className: "inspect-overlay", onClick: (e) => { if (e.target.className === "inspect-overlay") onClose(); } },
+    React.createElement("div", { className: "inspect-drawer" },
+      /* Header */
+      React.createElement("div", { className: "inspect-header" },
+        React.createElement("div", { className: "inspect-title-row" },
+          React.createElement("span", { className: "inspect-stage-badge" }, artifact.stage || ""),
+          React.createElement("h3", null, artifact.label || "Output"),
+        ),
+        React.createElement("div", { className: "inspect-header-actions" },
+          data && React.createElement("button", { className: "btn-copy", onClick: handleCopy },
+            copied ? "\u2713 Copied" : "\uD83D\uDCCB Copy"
+          ),
+          React.createElement("button", { className: "inspect-close", onClick: onClose }, "\u00D7"),
+        ),
+      ),
+      /* Sub-header */
+      data && React.createElement("div", { className: "inspect-meta" },
+        React.createElement("span", { className: "inspect-filename" }, data.filename || ""),
+        React.createElement("span", { className: "inspect-type-pill" }, data.content_type || "text"),
+        data.truncated && React.createElement("span", { className: "inspect-truncated" },
+          `\u26A0 Showing first 40k chars of ${(data.char_count || 0).toLocaleString()} total`
+        ),
+      ),
+      /* Content */
+      React.createElement("div", { className: "inspect-body" },
+        loading && React.createElement("div", { className: "inspect-loading" }, "\u23F3 Loading\u2026"),
+        error   && React.createElement("div", { className: "inspect-error" },   "\u26A0 " + error),
+        data && React.createElement("pre", { className: `inspect-content${data.content_type === "json" ? " json" : ""}` },
+          data.content
+        ),
+      ),
+    ),
   );
 }
 

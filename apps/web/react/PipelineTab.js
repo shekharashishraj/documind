@@ -10,7 +10,7 @@ import {
   normalizeOutRootForUi,
   DEFAULT_PIPELINE_RUN_ROOT,
 } from "./constants.js";
-import { StageCard, ProgressBar, ResultBox, computePipelineProgress } from "./components.js";
+import { StageCard, ProgressBar, ResultBox, computePipelineProgress, InspectDrawer } from "./components.js";
 
 const h = React.createElement;
 
@@ -54,6 +54,12 @@ export default function PipelineTab() {
   const [dragover, setDragover] = useState(false);
   const [pdfSource, setPdfSource] = useState("upload");
   const [repoOpen, setRepoOpen] = useState(false);
+
+  /* ── Stage 3 attack mode ── */
+  const [attackMode, setAttackMode] = useState("none");
+  /* ── Inspect artifacts ── */
+  const [stageArtifacts, setStageArtifacts] = useState({ stage1: null, stage2: null, stage3: null, stage4: null });
+  const [inspecting, setInspecting] = useState(null);
   const fileInputRef = useRef(null);
   const dropdownRef = useRef(null);
 
@@ -169,6 +175,7 @@ export default function PipelineTab() {
         dispatch({ type: "SET_BASE_ROOT", payload: stage1.run_root || currentOutRoot });
         currentStatus = setStageStatus(currentStatus, "stage1", "done");
         setStageStatusAction(currentStatus, "Stage 1 completed");
+        setStageArtifacts(prev => ({ ...prev, stage1: { label: "Extracted Text", path: `${baseDir}/byte_extraction/pymupdf/full_text.txt`, stage: "stage1" } }));
         setPipelineResult("Stage 1 completed. Run Stage 2 next.", false);
         return;
       }
@@ -180,6 +187,7 @@ export default function PipelineTab() {
         await apiPost("/api/pipeline/stage2", { base_dir: baseDir });
         currentStatus = setStageStatus(currentStatus, "stage2", "done");
         setStageStatusAction(currentStatus, "Stage 2 completed");
+        setStageArtifacts(prev => ({ ...prev, stage2: { label: "Vulnerability Analysis", path: `${baseDir}/stage2/openai/analysis.json`, stage: "stage2" } }));
         setPipelineResult("Stage 2 completed. Run Stage 3 next.", false);
         return;
       }
@@ -190,6 +198,7 @@ export default function PipelineTab() {
         await apiPost("/api/pipeline/stage3", { base_dir: baseDir });
         currentStatus = setStageStatus(currentStatus, "stage3", "done");
         setStageStatusAction(currentStatus, "Stage 3 completed");
+        setStageArtifacts(prev => ({ ...prev, stage3: { label: "Manipulation Plan", path: `${baseDir}/stage3/openai/manipulation_plan.json`, stage: "stage3" } }));
         setPipelineResult("Stage 3 completed. Run Stage 4 to generate adversarial PDF.", false);
         return;
       }
@@ -202,6 +211,7 @@ export default function PipelineTab() {
       const originalPreview = stage4.preview_original_pdf || selectedPdfPath;
       const adversarialPreview = stage4.preview_adversarial_pdf || `${baseDir}/stage4/final_overlay.pdf`;
       showPreview(originalPreview, adversarialPreview);
+      setStageArtifacts(prev => ({ ...prev, stage4: { label: "Adversarial PDF", path: adversarialPreview, stage: "stage4" } }));
       setPipelineResult(`Adversarial document generated for ${stage4.doc_id}. Review the Original vs Adversarial previews below, then open Evaluation to run the agent-backend check.`, false);
     } catch (err) {
       currentStatus = setStageStatus(currentStatus, stageKey, "failed");
@@ -238,18 +248,21 @@ export default function PipelineTab() {
 
       const baseDir = stage1.base_dir;
       const sourcePdfPath = stage1.source_pdf_path || selectedPdfPath;
+      setStageArtifacts(prev => ({ ...prev, stage1: { label: "Extracted Text", path: `${baseDir}/byte_extraction/pymupdf/full_text.txt`, stage: "stage1" } }));
 
       currentStatus = setStageStatus(currentStatus, "stage2", "running");
       setStageStatusAction(currentStatus);
       await apiPost("/api/pipeline/stage2", { base_dir: baseDir });
       currentStatus = setStageStatus(currentStatus, "stage2", "done");
       setStageStatusAction(currentStatus, "Stage 2 completed");
+      setStageArtifacts(prev => ({ ...prev, stage2: { label: "Vulnerability Analysis", path: `${baseDir}/stage2/openai/analysis.json`, stage: "stage2" } }));
 
       currentStatus = setStageStatus(currentStatus, "stage3", "running");
       setStageStatusAction(currentStatus);
       await apiPost("/api/pipeline/stage3", { base_dir: baseDir });
       currentStatus = setStageStatus(currentStatus, "stage3", "done");
       setStageStatusAction(currentStatus, "Stage 3 completed");
+      setStageArtifacts(prev => ({ ...prev, stage3: { label: "Manipulation Plan", path: `${baseDir}/stage3/openai/manipulation_plan.json`, stage: "stage3" } }));
 
       currentStatus = setStageStatus(currentStatus, "stage4", "running");
       setStageStatusAction(currentStatus);
@@ -260,6 +273,7 @@ export default function PipelineTab() {
       const originalPreview = stage4.preview_original_pdf || sourcePdfPath;
       const adversarialPreview = stage4.preview_adversarial_pdf || `${baseDir}/stage4/final_overlay.pdf`;
       showPreview(originalPreview, adversarialPreview);
+      setStageArtifacts(prev => ({ ...prev, stage4: { label: "Adversarial PDF", path: adversarialPreview, stage: "stage4" } }));
       setPipelineResult(`Adversarial document generated for ${stage4.doc_id}. Review the Original vs Adversarial previews below, then open Evaluation to run the agent-backend check.`, false);
 
       dispatch({ type: "SET_BASE_ROOT", payload: stage1.run_root || currentOutRoot });
@@ -300,12 +314,23 @@ export default function PipelineTab() {
   const showWarning = state.selectedAttackMechanism !== "auto";
 
   return h("section", { id: "pipeline", className: "tab-panel active" },
+    h("div", { className: "hero-banner" },
+      h("img", { src: "/static/homepage-hero.svg", className: "hero-banner-img", alt: "MALDOC Security Platform" }),
+    ),
     h("div", { className: "panel-header" },
-      h("h2", null, "Adversarial Document Generation"),
+      h("div", { className: "panel-title-row" },
+        h("h2", null, "Adversarial Document Generation"),
+        h("div", { className: "threat-badges" },
+          h("span", { className: "threat-badge pdf-badge", title: "PDF Attack Surface" }, "\uD83D\uDCC4"),
+          h("span", { className: "threat-badge hacker-badge", title: "Adversary Model" }, "\uD83D\uDC80"),
+          h("span", { className: "threat-badge spider-badge", title: "Threat Spider" }, "\uD83D\uDD77\uFE0F"),
+        ),
+      ),
     ),
     h("div", { className: "two-col" },
       /* Left: Controls */
-      h("div", { className: "card fade-in" },
+      h("div", { className: "card fade-in controls-card" },
+        h("div", { className: "corner-sticker", title: "Threat Vector" }, "\uD83D\uDD77\uFE0F"),
         h("h3", null, "\u2699\uFE0F  Controls"),
 
         /* ── PDF source selector: Upload (left) | Repository (right) ── */
@@ -317,7 +342,7 @@ export default function PipelineTab() {
             onClick: () => setPdfSource("upload"),
           },
             h("h4", null,
-              h("span", { className: "source-icon" }, "\u{1F4C1}"),
+              h("span", { className: "source-icon" }, "\uD83D\uDCC4"),
               "File Upload",
             ),
             h("div", {
@@ -337,7 +362,7 @@ export default function PipelineTab() {
                 fileInputRef.current && fileInputRef.current.click();
               },
             },
-              h("span", { className: "upload-zone-icon" }, "\u2B06\uFE0F"),
+              h("img", { src: "/static/pdf-cyber.svg", className: "upload-zone-svg", alt: "PDF upload", draggable: false }),
               h("p", { className: "upload-zone-text" },
                 "Drag & drop a PDF here or ", h("strong", null, "browse"),
               ),
@@ -420,12 +445,15 @@ export default function PipelineTab() {
             ),
           ),
         ),
-        /* Advanced options */
+        /* Expert mode / Advanced options */
+        h("div", { className: "expert-mode-row" },
+          h("span", { className: "expert-mode-badge" }, "Expert mode"),
+          h("span", { className: "expert-mode-bracket" }, "(Advanced options)"),
+        ),
         h("div", { className: "advanced-block" },
-          h("h4", { className: "advanced-heading" }, "Advanced options"),
           h("div", { className: "form-grid advanced-grid" },
             h("div", null,
-              h("label", { htmlFor: "attack-mechanism" }, "Stage 4 mechanism mode"),
+              h("label", { htmlFor: "attack-mechanism" }, "Stage 4 Mechanism Mode"),
               h("select", {
                 id: "attack-mechanism",
                 value: state.selectedAttackMechanism,
@@ -465,13 +493,31 @@ export default function PipelineTab() {
               ),
             ),
           ),
+          /* ── Stage 3 attack mode selector ── */
+          h("div", { className: "stage3-box" },
+            h("div", { className: "stage3-box-header" },
+              h("span", { className: "stage3-icon" }, "\uD83E\uDDE0"),
+              h("span", null, "Attack Mode"),
+            ),
+            h("select", {
+              id: "attack-mode",
+              className: "stage3-select",
+              value: attackMode,
+              onChange: (e) => setAttackMode(e.target.value),
+            },
+              h("option", { value: "none" }, "None (Off)"),
+              h("option", { value: "task_degradation" }, "Task Degradation"),
+              h("option", { value: "tool_misfire" }, "Tool Misfire"),
+              h("option", { value: "resource_inflation" }, "Resource Inflation"),
+            ),
+          ),
         ),
         h("button", {
           id: "run-pipeline",
-          className: "btn btn-primary",
+          className: "btn btn-auto",
           disabled: busy || !hasPdf,
           onClick: runPipeline,
-        }, "\u25B6\uFE0E  Generate Adversarial Doc"),
+        }, "\u25B6\uFE0E  Auto"),
       ),
 
       /* Right: Timeline */
@@ -492,21 +538,27 @@ export default function PipelineTab() {
                 disabled: busy || !hasPdf,
                 onClick: () => runPipelineStage(s.key),
               }, `\u25B8 Run ${s.title}`),
+              inspectButton: (stageArtifacts[s.key] && stageStatus[s.key] === "done")
+                ? h("button", { className: "btn-inspect", onClick: () => setInspecting(stageArtifacts[s.key]) }, "\uD83D\uDC41 Inspect")
+                : null,
             }),
           ),
         ),
         h(ResultBox, { message: result.message, muted: result.muted, id: "pipeline-result" }),
-        preview && h("div", { className: "preview-grid", id: "pipeline-preview" },
-          h("div", { className: "preview-card" },
-            h("h4", null, "Original Document"),
-            h("iframe", { id: "preview-original", title: "Original document preview", loading: "lazy", src: `/api/files/preview?path=${encodeURIComponent(preview.original)}#toolbar=0` }),
-          ),
-          h("div", { className: "preview-card" },
-            h("h4", null, "Adversarial Document"),
-            h("iframe", { id: "preview-adversarial", title: "Adversarial document preview", loading: "lazy", src: `/api/files/preview?path=${encodeURIComponent(preview.adversarial)}#toolbar=0` }),
-          ),
+      ),
+    ),
+    preview && h("div", { className: "preview-section", id: "pipeline-preview" },
+      h("div", { className: "preview-grid" },
+        h("div", { className: "preview-card" },
+          h("h4", null, "Original Document"),
+          h("iframe", { id: "preview-original", title: "Original document preview", loading: "lazy", src: `/api/files/preview?path=${encodeURIComponent(preview.original)}#toolbar=0` }),
+        ),
+        h("div", { className: "preview-card" },
+          h("h4", null, "Adversarial Document"),
+          h("iframe", { id: "preview-adversarial", title: "Adversarial document preview", loading: "lazy", src: `/api/files/preview?path=${encodeURIComponent(preview.adversarial)}#toolbar=0` }),
         ),
       ),
     ),
+    inspecting && h(InspectDrawer, { artifact: inspecting, onClose: () => setInspecting(null) }),
   );
 }

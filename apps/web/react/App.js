@@ -86,19 +86,10 @@ function AppInner() {
   return h(React.Fragment, null,
     /* ── Topbar ── */
     h("header", { className: "topbar" },
-      h("div", { style: { display: "flex", alignItems: "center", gap: "12px" } },
-        h("div", {
-          style: {
-            width: 36, height: 36, borderRadius: "10px",
-            background: "linear-gradient(135deg, #6366f1, #7c3aed)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            color: "#fff", fontWeight: 800, fontSize: 16,
-            boxShadow: "0 2px 8px rgba(99,102,241,0.35)",
-          },
-        }, "M"),
-        h("div", null,
-          h("h1", null, "MALDOC: A Modular Red-Teaming Platform for Document Processing AI Agents"),
-          h("p", null, "Demonstrating indirect prompt injection risks in agentic systems"),
+      h("div", { style: { display: "flex", alignItems: "center", gap: "16px" } },
+        h("img", { src: "/static/maldoc-logo.svg", className: "topbar-logo", alt: "MalDoc" }),
+        h("div", { className: "topbar-tagline" },
+          h("p", null, "Modular Red-Teaming Platform for Document Processing AI Agents"),
         ),
       ),
       h("div", { className: "topbar-right" },

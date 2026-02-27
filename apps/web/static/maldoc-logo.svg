@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" fill="none">
+  <defs>
+    <linearGradient id="mLeft" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#CC1111"/>
+      <stop offset="100%" stop-color="#8B0000"/>
+    </linearGradient>
+    <linearGradient id="mRight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8B0000"/>
+      <stop offset="100%" stop-color="#660000"/>
+    </linearGradient>
+  </defs>
+
+  <!-- M icon: two stacked chevrons forming the M mark -->
+  <!-- Top chevron (upper M) -->
+  <path d="M8,4 L22,4 L34,22 L46,4 L60,4 L34,32 Z" fill="url(#mLeft)"/>
+  <!-- Bottom chevron (lower V notch) -->
+  <path d="M14,36 L34,56 L54,36 L46,36 L34,48 L22,36 Z" fill="url(#mRight)"/>
+
+  <!-- MalDoc wordmark -->
+  <text x="76" y="42"
+    font-family="'Space Grotesk', 'Arial Black', 'Segoe UI', Arial, sans-serif"
+    font-size="32"
+    font-weight="800"
+    letter-spacing="-0.5"
+    fill="#CC1111">Mal</text>
+  <text x="138" y="42"
+    font-family="'Space Grotesk', 'Arial Black', 'Segoe UI', Arial, sans-serif"
+    font-size="32"
+    font-weight="800"
+    letter-spacing="-0.5"
+    fill="#8B0000">Doc</text>
+</svg>
