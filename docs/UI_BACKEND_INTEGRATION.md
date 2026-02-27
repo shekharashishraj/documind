@@ -81,8 +81,8 @@ UI does not expose Stage 2 or Stage 3 model pickers.
 
 Backend defaults are set in `apps/web/main.py`:
 
-- `DOCUMIND_STAGE2_MODEL` (default `gpt-5-2025-08-07`)
-- `DOCUMIND_STAGE3_MODEL` (default `gpt-5-2025-08-07`)
+- `MALDOC_STAGE2_MODEL` (default `gpt-5-2025-08-07`)
+- `MALDOC_STAGE3_MODEL` (default `gpt-5-2025-08-07`)
 
 ## Logging
 

@@ -3,7 +3,7 @@ requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "documind"
+name = "maldoc"
 version = "0.1.0"
 description = "PDF parsing pipeline: byte-extraction, OCR, VLM (LangGraph)"
 readme = "README.md"
@@ -27,7 +27,7 @@ dependencies = [
 ]
 
 [project.scripts]
-documind = "pipeline.cli:app"
+maldoc = "pipeline.cli:app"
 
 [tool.setuptools.packages.find]
 where = ["."]

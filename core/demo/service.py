@@ -19,7 +19,7 @@ from core.stage5 import run_stage5_batch
 from core.stage5.orchestrator import load_demo_doc_ids, load_scenario_specs
 from pipeline.graph import run_parse_pdf
 
-log = logging.getLogger("documind.demo.service")
+log = logging.getLogger("maldoc.demo.service")
 
 PIPELINE_RUN_ROOT = Path("pipeline_run")
 

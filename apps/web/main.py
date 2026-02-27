@@ -1,4 +1,4 @@
-"""FastAPI app for reviewer-facing Documind demo UI (HTML/CSS/JS frontend)."""
+"""FastAPI app for reviewer-facing MalDoc demo UI (HTML/CSS/JS frontend)."""
 
 from __future__ import annotations
 
@@ -8,11 +8,10 @@ import uuid
 from pathlib import Path
 from typing import Any
 
-from fastapi import FastAPI, HTTPException, Query, Request
+from fastapi import FastAPI, HTTPException, Query, Request, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
-from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel, Field
 
 from core.demo.logging_utils import configure_demo_logging
@@ -41,14 +40,13 @@ from core.demo.service import (
 )
 
 logger = configure_demo_logging("logs/demo_web.log")
-log = logging.getLogger("documind.demo.api")
+log = logging.getLogger("maldoc.demo.api")
 
 ROOT_DIR = Path(__file__).resolve().parent
-TEMPLATES = Jinja2Templates(directory=str(ROOT_DIR / "templates"))
-DEFAULT_STAGE2_MODEL = os.environ.get("DOCUMIND_STAGE2_MODEL", "gpt-5-2025-08-07")
-DEFAULT_STAGE3_MODEL = os.environ.get("DOCUMIND_STAGE3_MODEL", "gpt-5-2025-08-07")
+DEFAULT_STAGE2_MODEL = os.environ.get("MALDOC_STAGE2_MODEL", "gpt-5-2025-08-07")
+DEFAULT_STAGE3_MODEL = os.environ.get("MALDOC_STAGE3_MODEL", "gpt-5-2025-08-07")
 
-app = FastAPI(title="Documind Vulnerability Evaluation API", version="1.0.0")
+app = FastAPI(title="MALDOC: A Modular Red-Teaming Platform for Document Processing AI Agents", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -57,6 +55,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 app.mount("/static", StaticFiles(directory=str(ROOT_DIR / "static")), name="static")
+app.mount("/react", StaticFiles(directory=str(ROOT_DIR / "react")), name="react")
 
 
 class PipelineRunRequest(BaseModel):
@@ -147,8 +146,12 @@ def _require_pdf_upload(upload: Any, label: str) -> None:
 
 
 @app.get("/", response_class=HTMLResponse)
-def home(request: Request) -> HTMLResponse:
-    return TEMPLATES.TemplateResponse("index.html", {"request": request})
+def home() -> HTMLResponse:
+    """Serve the React single-page application (default)."""
+    react_index = ROOT_DIR / "react" / "index.html"
+    return HTMLResponse(react_index.read_text())
+
+
 
 
 @app.get("/api/health")
@@ -168,13 +171,46 @@ def metadata() -> dict[str, Any]:
     }
 
 
+PROJECT_ROOT = ROOT_DIR.parent.parent
+
+
 @app.get("/api/pdfs")
 def pdf_candidates(base_root: str = Query(".")) -> dict[str, Any]:
     try:
-        pdfs = list_pdf_candidates(base_root)
+        # Resolve relative to project root so pdfs/text_documents is found
+        resolved = base_root if Path(base_root).is_absolute() else str(PROJECT_ROOT / base_root)
+        pdfs = list_pdf_candidates(resolved)
         return {"items": pdfs, "count": len(pdfs)}
     except Exception as exc:
         log.exception("Failed listing PDFs: %s", exc)
+        raise HTTPException(status_code=500, detail=str(exc))
+
+
+UPLOAD_DIR = ROOT_DIR.parent.parent / "pdfs" / "uploads"
+
+
+@app.post("/api/pdfs/upload")
+async def upload_pdf(file: UploadFile = File(...)) -> dict[str, Any]:
+    """Accept a PDF upload and save it to pdfs/uploads/, returning the path."""
+    filename = (file.filename or "").strip()
+    if not filename:
+        raise HTTPException(status_code=400, detail="No filename provided.")
+    if not filename.lower().endswith(".pdf"):
+        raise HTTPException(status_code=400, detail="Only PDF files are accepted.")
+    UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+    # Avoid collisions by prefixing with short uuid
+    safe_name = filename.replace(" ", "_")
+    dest = UPLOAD_DIR / safe_name
+    if dest.exists():
+        stem = dest.stem
+        dest = UPLOAD_DIR / f"{stem}_{uuid.uuid4().hex[:6]}{dest.suffix}"
+    try:
+        contents = await file.read()
+        dest.write_bytes(contents)
+        log.info("Uploaded PDF saved: %s (%d bytes)", dest, len(contents))
+        return {"path": str(dest.resolve()), "filename": dest.name, "size": len(contents)}
+    except Exception as exc:
+        log.exception("PDF upload failed: %s", exc)
         raise HTTPException(status_code=500, detail=str(exc))
 
 

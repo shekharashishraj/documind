@@ -1,4 +1,4 @@
-# documind
+# maldoc
 
 A multi-stage PDF parsing and analysis pipeline:
 
@@ -104,8 +104,8 @@ Follow these steps to get the project running on your machine.
 ### 2. Clone and enter the project
 
 ```bash
-git clone <your-repo-url> documind
-cd documind
+git clone <your-repo-url> maldoc
+cd maldoc
 ```
 
 ### 3. Create a virtual environment and install dependencies
@@ -124,7 +124,7 @@ pip install -e .
 
 ```bash
 conda env create -f environment.yml
-conda activate documind
+conda activate maldoc
 pip install -e .
 ```
 
@@ -719,8 +719,8 @@ Then open **http://127.0.0.1:8000**. The UI has four tabs: **Pipeline**, **Evalu
 Optional backend model overrides (for Stage 2 and Stage 3):
 
 ```bash
-export DOCUMIND_STAGE2_MODEL=gpt-5-2025-08-07
-export DOCUMIND_STAGE3_MODEL=gpt-5-2025-08-07
+export MALDOC_STAGE2_MODEL=gpt-5-2025-08-07
+export MALDOC_STAGE3_MODEL=gpt-5-2025-08-07
 ```
 
 ---

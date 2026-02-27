@@ -39,6 +39,6 @@ def configure_demo_logging(log_path: str | Path = "logs/demo_web.log") -> loggin
         console_handler.setFormatter(formatter)
         root_logger.addHandler(console_handler)
 
-    logger = logging.getLogger("documind.demo")
+    logger = logging.getLogger("maldoc.demo")
     logger.info("Demo logging configured. log_path=%s", path)
     return logger

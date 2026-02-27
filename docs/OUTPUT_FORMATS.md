@@ -1,6 +1,6 @@
 # Output formats
 
-This document describes the structure of the main JSON and text outputs produced by the documind pipeline.
+This document describes the structure of the main JSON and text outputs produced by the maldoc pipeline.
 
 ---
 

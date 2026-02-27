@@ -39,7 +39,7 @@ def _configure_logging(verbose: bool) -> None:
 def main(
     verbose: bool = typer.Option(False, "--verbose", "-v", help="Enable DEBUG logging"),
 ) -> None:
-    """Documind pipeline: PDF parsing, analysis, and manipulation planning."""
+    """MalDoc pipeline: PDF parsing, analysis, and manipulation planning."""
     _configure_logging(verbose)
 
 

@@ -1,4 +1,4 @@
-# Documind Demo UI Spec
+# MalDoc Demo UI Spec
 
 ## Objective
 Create a reviewer-facing interface that clearly demonstrates:
@@ -208,7 +208,7 @@ Present reproducible evidence for reviewers.
 ## Copy Deck (Final Text)
 
 ### Global
-- App title: `Documind Vulnerability Evaluation`
+- App title: `MALDOC: A Modular Red-Teaming Platform for Document Processing AI Agents`
 - Tagline: `Demonstrating indirect prompt injection risks in agentic systems`
 
 ### Buttons

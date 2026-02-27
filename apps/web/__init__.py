@@ -1,1 +1,1 @@
-"""FastAPI web app package for Documind demo."""
+"""FastAPI web app package for MalDoc demo."""
