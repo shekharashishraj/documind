@@ -120,10 +120,20 @@ class Stage5BatchRequest(BaseModel):
     out_dir: str = "stage5_runs"
 
 
-def _require_openai_api_key() -> str:
-    key = os.environ.get("OPENAI_API_KEY", "").strip()
+def _require_openai_api_key(request: Request | None = None) -> str:
+    header_key = ""
+    if request is not None:
+        header_key = (
+            request.headers.get("x-openai-api-key")
+            or request.headers.get("x-openai-key")
+            or ""
+        ).strip()
+    key = header_key or os.environ.get("OPENAI_API_KEY", "").strip()
     if not key:
-        raise HTTPException(status_code=400, detail="OPENAI_API_KEY is not set in environment.")
+        raise HTTPException(
+            status_code=400,
+            detail="OpenAI API key is required. Enter it in the UI or set OPENAI_API_KEY on the server.",
+        )
     return key
 
 
@@ -330,8 +340,8 @@ def doc_scenario(doc_id: str) -> dict[str, Any]:
 
 
 @app.post("/api/pipeline/run")
-def run_pipeline(payload: PipelineRunRequest) -> dict[str, Any]:
-    api_key = _require_openai_api_key()
+def run_pipeline(payload: PipelineRunRequest, request: Request) -> dict[str, Any]:
+    api_key = _require_openai_api_key(request)
     try:
         pdf_path = Path(payload.pdf_path)
         if not pdf_path.is_file():
@@ -390,8 +400,8 @@ def run_pipeline_stage1(payload: PipelineStage1Request) -> dict[str, Any]:
 
 
 @app.post("/api/pipeline/stage2")
-def run_pipeline_stage2(payload: PipelineStage2Request) -> dict[str, Any]:
-    api_key = _require_openai_api_key()
+def run_pipeline_stage2(payload: PipelineStage2Request, request: Request) -> dict[str, Any]:
+    api_key = _require_openai_api_key(request)
     try:
         base_dir = Path(payload.base_dir)
         if not base_dir.is_dir():
@@ -411,8 +421,8 @@ def run_pipeline_stage2(payload: PipelineStage2Request) -> dict[str, Any]:
 
 
 @app.post("/api/pipeline/stage3")
-def run_pipeline_stage3(payload: PipelineStage3Request) -> dict[str, Any]:
-    api_key = _require_openai_api_key()
+def run_pipeline_stage3(payload: PipelineStage3Request, request: Request) -> dict[str, Any]:
+    api_key = _require_openai_api_key(request)
     try:
         base_dir = Path(payload.base_dir)
         if not base_dir.is_dir():
@@ -623,8 +633,8 @@ async def stage5_prepare_upload(
 
 
 @app.post("/api/stage5/doc")
-def stage5_doc(payload: Stage5DocRequest) -> dict[str, Any]:
-    api_key = _require_openai_api_key()
+def stage5_doc(payload: Stage5DocRequest, request: Request) -> dict[str, Any]:
+    api_key = _require_openai_api_key(request)
     try:
         base_dir = Path(payload.base_dir)
         result = run_stage5_doc_eval(
@@ -647,8 +657,8 @@ def stage5_doc(payload: Stage5DocRequest) -> dict[str, Any]:
 
 
 @app.post("/api/stage5/batch")
-def stage5_batch(payload: Stage5BatchRequest) -> dict[str, Any]:
-    api_key = _require_openai_api_key()
+def stage5_batch(payload: Stage5BatchRequest, request: Request) -> dict[str, Any]:
+    api_key = _require_openai_api_key(request)
     try:
         result = run_stage5_batch_eval(
             base_root=payload.base_root,
@@ -706,9 +716,9 @@ class StructureDiffsRequest(BaseModel):
 
 
 @app.post("/api/eval/qa")
-def eval_qa(payload: EvalQARequest) -> dict[str, Any]:
+def eval_qa(payload: EvalQARequest, request: Request) -> dict[str, Any]:
     """Run QA evaluation on both original and adversarial PDFs using GPT."""
-    api_key = _require_openai_api_key()
+    api_key = _require_openai_api_key(request)
     import fitz  # PyMuPDF
     from openai import OpenAI
     import json as json_module
@@ -776,9 +786,9 @@ def eval_qa(payload: EvalQARequest) -> dict[str, Any]:
 
 
 @app.post("/api/eval/structure-diffs")
-def structure_diffs_endpoint(payload: StructureDiffsRequest) -> dict[str, Any]:
+def structure_diffs_endpoint(payload: StructureDiffsRequest, request: Request) -> dict[str, Any]:
     """Use GPT to structure and explain field-level diffs in human-readable form."""
-    api_key = _require_openai_api_key()
+    api_key = _require_openai_api_key(request)
     from openai import OpenAI
     import json as json_module
 

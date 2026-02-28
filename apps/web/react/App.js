@@ -1,6 +1,6 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import { AppProvider, useAppState } from "./AppContext.js";
-import { apiGet } from "./api.js";
+import { apiGet, getStoredApiKey, setStoredApiKey, clearStoredApiKey } from "./api.js";
 import { DEFAULT_PIPELINE_RUN_ROOT } from "./constants.js";
 import { HealthPill } from "./components.js";
 import PipelineTab from "./PipelineTab.js";
@@ -19,6 +19,11 @@ const TABS = [
 
 function AppInner() {
   const { state, dispatch } = useAppState();
+  const [showKeyModal, setShowKeyModal] = useState(() => !getStoredApiKey());
+  const [apiKeyInput, setApiKeyInput] = useState("");
+  const [rememberKey, setRememberKey] = useState(false);
+  const [keyError, setKeyError] = useState("");
+  const [hasApiKey, setHasApiKey] = useState(() => Boolean(getStoredApiKey()));
 
   /* ── Bootstrap ── */
   const bootstrap = useCallback(async () => {
@@ -82,6 +87,26 @@ function AppInner() {
   useEffect(() => { bootstrap(); }, [bootstrap]);
 
   const activeTab = state.activeTab;
+  const keyLabel = hasApiKey ? "API Key: Set" : "API Key: Required";
+
+  const saveApiKey = () => {
+    const trimmed = apiKeyInput.trim();
+    if (!trimmed) {
+      setKeyError("Please enter your OpenAI API key to continue.");
+      return;
+    }
+    setStoredApiKey(trimmed, rememberKey);
+    setApiKeyInput("");
+    setKeyError("");
+    setHasApiKey(true);
+    setShowKeyModal(false);
+  };
+
+  const clearApiKey = () => {
+    clearStoredApiKey();
+    setHasApiKey(false);
+    setShowKeyModal(true);
+  };
 
   return h(React.Fragment, null,
     /* ── Topbar ── */
@@ -94,6 +119,11 @@ function AppInner() {
       ),
       h("div", { className: "topbar-right" },
         h(HealthPill, { ok: state.health.ok, text: state.health.text }),
+        h("button", {
+          className: `api-key-pill${hasApiKey ? " ok" : ""}`,
+          onClick: () => setShowKeyModal(true),
+          title: "Set or update your OpenAI API key",
+        }, "\uD83D\uDD11 ", keyLabel),
       ),
     ),
 
@@ -117,6 +147,42 @@ function AppInner() {
       activeTab === "reports" && h(ReportsTab),
     ),
 
+    showKeyModal && h("div", { className: "api-key-overlay" },
+      h("div", { className: "api-key-modal" },
+        h("div", { className: "api-key-header" },
+          h("div", null,
+            h("h3", null, "Enter Your OpenAI API Key"),
+            h("p", { className: "hint" },
+              "Your key stays in your browser and is sent with API requests. It is not stored on the server."
+            ),
+          ),
+          hasApiKey && h("button", { className: "api-key-close", onClick: () => setShowKeyModal(false) }, "\u00D7"),
+        ),
+        h("div", { className: "api-key-body" },
+          h("label", { className: "api-key-label" }, "OpenAI API Key"),
+          h("input", {
+            className: "api-key-input",
+            type: "password",
+            placeholder: "sk-...",
+            value: apiKeyInput,
+            onChange: (e) => setApiKeyInput(e.target.value),
+          }),
+          h("label", { className: "api-key-remember" },
+            h("input", {
+              type: "checkbox",
+              checked: rememberKey,
+              onChange: (e) => setRememberKey(e.target.checked),
+            }),
+            h("span", null, "Remember on this device"),
+          ),
+          keyError && h("div", { className: "api-key-error" }, keyError),
+        ),
+        h("div", { className: "api-key-actions" },
+          hasApiKey && h("button", { className: "btn btn-secondary", onClick: clearApiKey }, "Clear Key"),
+          h("button", { className: "btn btn-primary", onClick: saveApiKey }, "Save Key"),
+        ),
+      ),
+    ),
 
   );
 }

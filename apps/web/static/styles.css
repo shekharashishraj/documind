@@ -71,6 +71,123 @@ p { margin: 0; color: var(--text-secondary); }
 .topbar p { font-size: 13px; margin-top: 2px; }
 .topbar-right { display: flex; align-items: center; gap: 12px; }
 
+.api-key-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition), background var(--transition);
+}
+
+.api-key-pill.ok {
+  border-color: rgba(52, 211, 153, 0.6);
+  color: #d1fae5;
+  background: rgba(52, 211, 153, 0.08);
+}
+
+.api-key-pill:hover {
+  border-color: var(--primary);
+  color: var(--text);
+}
+
+/* ── API Key Modal ──────────────────────────────────────────── */
+.api-key-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  z-index: 240;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.api-key-modal {
+  width: min(540px, 92vw);
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.api-key-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.api-key-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.api-key-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.api-key-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.api-key-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.api-key-input {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.api-key-remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.api-key-error {
+  color: var(--danger);
+  font-size: 12px;
+  background: var(--danger-surface);
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.api-key-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
 /* ── Tabs ───────────────────────────────────────────────────── */
 .tabs {
   display: flex;
