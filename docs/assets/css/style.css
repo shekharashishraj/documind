@@ -37,8 +37,8 @@ a {
 }
 
 .hero-logo {
-  width: 88px;
-  height: 88px;
+  width: 190px;
+  height: auto;
   display: inline-block;
   margin-bottom: 8px;
 }
@@ -189,6 +189,13 @@ figcaption {
   margin-top: 14px;
 }
 
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
 .callout {
   border-left: 4px solid var(--accent);
   padding: 0.6rem 1rem;
@@ -226,6 +233,10 @@ footer {
   }
 
   .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-grid {
     grid-template-columns: 1fr;
   }
 }

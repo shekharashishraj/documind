@@ -13,7 +13,7 @@
 <body>
   <main class="page">
     <header class="hero">
-      <img class="hero-logo" src="assets/img/logo.svg" alt="MalDoc logo">
+      <img class="hero-logo" src="assets/img/logo.png" alt="MalDoc logo">
       <h1>MALDOC: A Modular Red-Teaming Platform for Document Processing AI Agents</h1>
       <p class="hero-subtitle">
         MALDOC evaluates document-processing agents against document-layer attacks by combining
@@ -32,10 +32,10 @@
         <a class="btn" href="https://github.com/shekharashishraj/MalDoc">Code</a>
       </div>
       <figure class="teaser">
-        <img src="assets/img/teaser.svg" alt="System overview placeholder">
+        <img src="assets/img/figure-1.png" alt="MALDOC system overview">
         <figcaption>
-          Figure 1: System overview of MALDOC. Replace this placeholder with the paper figure
-          showing multi-view extraction, planning, injection, and propagation scoring.
+          Figure 1: System overview of MALDOC, covering multi-view extraction, risk-aware planning,
+          injection mechanisms, and agentic propagation scoring.
         </figcaption>
       </figure>
     </header>
@@ -73,9 +73,9 @@
         <li>Propagation scoring: Tool Misfire, Task Degradation, and Resource Inflation.</li>
       </ul>
       <figure class="figure">
-        <img src="assets/img/pipeline.svg" alt="Pipeline placeholder">
+        <img src="assets/img/figure-1-top.png" alt="MALDOC pipeline overview">
         <figcaption>
-          Replace with the finalized pipeline diagram or the figure from the paper.
+          Top-half view of the MALDOC pipeline: extraction, planning, and injection.
         </figcaption>
       </figure>
     </section>
@@ -97,9 +97,9 @@
         </ul>
       </div>
       <figure class="figure">
-        <img src="assets/img/dataset.svg" alt="Dataset placeholder">
+        <img src="assets/img/figure-1-bottom.png" alt="Agentic propagation scoring overview">
         <figcaption>
-          Replace with a dataset snapshot or task schema overview.
+          Bottom-half view highlighting domain-specific agents and propagation metrics.
         </figcaption>
       </figure>
     </section>
@@ -114,9 +114,14 @@
         clean versus adversarial execution traces. This supports reproducible evaluation across models.
       </p>
       <figure class="figure">
-        <img src="assets/img/demo-page-1.png" alt="Demo walkthrough">
+        <div class="demo-grid">
+          <img src="assets/img/demo-home-left.png" alt="Demo: creation view">
+          <img src="assets/img/demo-home-right.png" alt="Demo: stage timeline view">
+          <img src="assets/img/demo-eval-left.png" alt="Demo: evaluation setup">
+          <img src="assets/img/demo-eval-right.png" alt="Demo: propagation metrics">
+        </div>
         <figcaption>
-          Figure 2: End-to-end demo walkthrough for reproducibility.
+          Figure 2: End-to-end demo walkthrough (cropped into four panels).
         </figcaption>
       </figure>
     </section>
@@ -147,14 +152,14 @@
         degradation, Tool Misfire rates, and detection performance.
       </p>
       <div class="results-grid">
-        <img src="assets/img/result-1.svg" alt="Table 1 placeholder">
-        <img src="assets/img/result-2.svg" alt="Table 2 placeholder">
-        <img src="assets/img/result-3.svg" alt="Table 3 placeholder">
-        <img src="assets/img/result-4.svg" alt="Ablations placeholder">
+        <img src="assets/img/table-1.png" alt="Table 1: HTI/FGR/VOI results">
+        <img src="assets/img/table-2.png" alt="Table 2: Planner-agnostic ASR">
+        <img src="assets/img/table-3.png" alt="Table 3: Stealthiness evaluation">
+        <img src="assets/img/table-4.png" alt="Table 4: Strategy to injection mapping">
       </div>
       <figcaption>
-        Replace placeholders with Table 1 (HTI/FGR/VOI results), Table 2 (planner-agnostic evaluation),
-        Table 3 (stealthiness), and ablation plots.
+        Table 1: HTI/FGR/VOI evaluation. Table 2: planner-agnostic ASR. Table 3: stealthiness.
+        Table 4: strategy-to-injection channel mapping.
       </figcaption>
     </section>
 
