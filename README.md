@@ -2,7 +2,7 @@
 
 # MALDOC: A Modular Red-Teaming Platform for Document Processing AI Agents
 
-[Project Page](https://shekharashishraj.github.io/MalDoc/) · [Paper](docs/assets/maldoc_paper.pdf) · [Demo](https://maldoc-demo.anonymous-acl.org) · [Try It](https://coral-lab-asu.github.io/) · [Video](https://www.youtube.com/watch?v=OLKtiIROjWw) · [Code](https://github.com/shekharashishraj/MalDoc)
+[Project Page](https://shekharashishraj.github.io/MalDoc/) · [Paper](docs/assets/maldoc_paper.pdf) · [Demo](https://maldoc-demo.anonymous-acl.org) · [Try It](https://shekharashishraj.github.io/MalDoc/try/) · [Video](https://www.youtube.com/watch?v=OLKtiIROjWw) · [Code](https://github.com/shekharashishraj/MalDoc)
 
 **Authors:** Ashish Raj Shekhar*, Priyanuj Bordoloi*, Shiven Agarwal*, Yash Shah, Sandipan De, Vivek Gupta  
 **Affiliation:** Arizona State University · *Equal contribution*
