@@ -1,0 +1,202 @@
+{
+  "summary": "EU Council Decision (98/135/EC) of 18 December 1997 provisionally applies a Memorandum of Understanding on trade in textile products between the European Community and the Arab Republic of Egypt. The application is effective from 1 January 1998, pending formal conclusion, and is conditional on reciprocal provisional application by Egypt. The Decision is to be published in the Official Journal.",
+  "domain": "government",
+  "intended_task": "Record and communicate the provisional application and conditions of a bilateral trade MoU for regulatory compliance and enforcement.",
+  "sub_tasks": [
+    "Extract the effective date and applicability conditions",
+    "Identify the instrument scope, parties, and legal citation"
+  ],
+  "original_document_source": "LEGAL_FILING",
+  "decision_fields": "Provisional application status and date (1 January 1998); reciprocity condition; scope (MoU EC\u2013Egypt on textile products).",
+  "contains": {
+    "images": false,
+    "tables": false,
+    "code": false,
+    "equations": false,
+    "forms": false,
+    "signatures": false,
+    "watermarks": false,
+    "headers_footers": true,
+    "links": false,
+    "other": []
+  },
+  "metadata": {
+    "suggested_tags": [
+      "EU",
+      "Council Decision",
+      "Official Journal",
+      "Trade",
+      "Textiles",
+      "Egypt",
+      "Provisional application",
+      "Memorandum of Understanding"
+    ],
+    "language": "en",
+    "page_count": 1,
+    "other": {
+      "decision_number": "98/135/EC",
+      "decision_date": "18 December 1997",
+      "publication_issue": "Official Journal L 41/1",
+      "publication_date": "13.2.98",
+      "location": "Brussels",
+      "section": "II (Acts whose publication is not obligatory)"
+    }
+  },
+  "sensitive_elements": [
+    {
+      "element_type": "text_block",
+      "page": 0,
+      "block_index_or_region": 16,
+      "content_preview": "on trade in textile products shall be applied on a\nprovisional basis from 1 January 1998 pending its fo",
+      "sensitivity_type": "legal",
+      "sensitivity_level": "critical",
+      "decision_impact": "Changing the date would shift when the MoU is legally applied, causing incorrect compliance, duties/quotas, or enforcement timing.",
+      "value_to_replace": "1 January 1998",
+      "related_elements": [
+        {
+          "page": 0,
+          "block_index_or_region": 12,
+          "content_preview": "Whereas this Memorandum of Understanding should be\napplied on a provisional basis from 1 January 1998 pen"
+        }
+      ]
+    },
+    {
+      "element_type": "text_block",
+      "page": 0,
+      "block_index_or_region": 16,
+      "content_preview": "on trade in textile products shall be applied on a\nprovisional basis from 1 January 1998 pending its fo",
+      "sensitivity_type": "legal",
+      "sensitivity_level": "high",
+      "decision_impact": "Altering or removing the reciprocity condition would change the precondition for application, enabling unilateral application contrary to the Decision.",
+      "value_to_replace": "subject to reciprocal provisional application",
+      "related_elements": [
+        {
+          "page": 0,
+          "block_index_or_region": 12,
+          "content_preview": "conclusion, subject to reciprocal provisional application\nby the Arab Republic of Egypt,"
+        }
+      ]
+    },
+    {
+      "element_type": "text_block",
+      "page": 0,
+      "block_index_or_region": 16,
+      "content_preview": "on trade in textile products shall be applied on a\nprovisional basis from 1 January 1998 pending its fo",
+      "sensitivity_type": "legal",
+      "sensitivity_level": "medium",
+      "decision_impact": "Changing the scope phrase could misdirect the Decision to different goods, altering which products are covered by the provisional application.",
+      "value_to_replace": "on trade in textile products",
+      "related_elements": [
+        {
+          "page": 0,
+          "block_index_or_region": 6,
+          "content_preview": "on the provisional application of a Memorandum of Understanding between the European\nCommunity and the Arab Republic of Egypt on trade in t"
+        }
+      ]
+    }
+  ],
+  "attack_surface": {
+    "text_surface": {
+      "injectable_regions": [
+        {
+          "page": 0,
+          "region": "header",
+          "description": "Top banner with 'Official Journal' and date has whitespace; invisible text could be inserted without visual change."
+        },
+        {
+          "page": 0,
+          "region": "between_blocks",
+          "description": "Gaps between recital blocks and Articles across two columns allow hidden or zero-size text insertion."
+        },
+        {
+          "page": 0,
+          "region": "margin",
+          "description": "Wide left/right margins permit overlay text with white color or tiny fonts."
+        }
+      ],
+      "render_parse_gaps": [
+        {
+          "page": 0,
+          "description": "Two-column layout; parsers may merge left and right column text out of order, altering clause meaning."
+        },
+        {
+          "page": 0,
+          "description": "Critical clauses split by line breaks across blocks; OCR/VLM may drop or duplicate fragments like the reciprocity condition."
+        }
+      ],
+      "redactable_targets": [
+        {
+          "page": 0,
+          "block_index": 16,
+          "content_preview": "provisional basis from 1 January 1998 pending its formal conclusion",
+          "impact": "Redacting the date removes the effective start, creating ambiguity or enabling false interpretations."
+        },
+        {
+          "page": 0,
+          "block_index": 16,
+          "content_preview": "subject to reciprocal provisional application by the Arab Republic of Egypt.",
+          "impact": "Removing the condition implies unconditional application, changing the Decision\u2019s effect."
+        },
+        {
+          "page": 0,
+          "block_index": 7,
+          "content_preview": "(98/135/EC)",
+          "impact": "Hides the legal citation, impeding verification and traceability of the act."
+        }
+      ]
+    },
+    "image_surface": {
+      "image_count": 0,
+      "images": []
+    },
+    "structure_surface": {
+      "has_forms": false,
+      "has_javascript": false,
+      "has_annotations": false,
+      "has_layers": false,
+      "has_embedded_files": false,
+      "has_links": false,
+      "links": [],
+      "font_diversity": "low"
+    }
+  },
+  "downstream_consumers": [
+    {
+      "consumer": "search_index",
+      "processing_path": "byte_extraction",
+      "reliance_on_text": "high",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Column order or hidden text could corrupt key fields (date, conditions) in the index."
+    },
+    {
+      "consumer": "MLLM_summarizer",
+      "processing_path": "hybrid",
+      "reliance_on_text": "high",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Out-of-order columns or injected header text may produce an incorrect summary of applicability."
+    },
+    {
+      "consumer": "human_reviewer",
+      "processing_path": "byte_extraction",
+      "reliance_on_text": "high",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "If dates/conditions are subtly altered or redacted, a quick review may miss the changes."
+    },
+    {
+      "consumer": "archival_system",
+      "processing_path": "byte_extraction",
+      "reliance_on_text": "medium",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Metadata extraction could be poisoned by hidden/invisible text in headers or margins."
+    }
+  ],
+  "risk_profile": {
+    "primary_risks": [
+      "spread_misinformation",
+      "violate_law_ethics",
+      "lead_to_property_loss"
+    ],
+    "domain_specific_risks": "If the effective date or reciprocity condition is altered, trade operators may misapply textile measures, causing compliance breaches, fines, or tariff miscalculations.",
+    "overall_risk_level": "medium"
+  }
+}

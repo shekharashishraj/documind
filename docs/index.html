@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MALDOC | Document-Layer Red-Teaming for AI Agents</title>
+  <meta name="description" content="MALDOC: A modular red-teaming platform for document-processing AI agents.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <img class="hero-logo" src="assets/img/logo.png" alt="MalDoc logo">
+      <h1>MALDOC: A Modular Red-Teaming Platform for Document Processing AI Agents</h1>
+      <p class="hero-subtitle">
+        MALDOC evaluates document-processing agents against document-layer attacks by combining
+        multi-view extraction, risk-aware planning, controlled injection, and agentic propagation analysis.
+      </p>
+      <p class="authors">
+        Ashish Raj Shekhar* · Priyanuj Bordoloi* · Shiven Agarwal* · Yash Shah · Sandipan De · Vivek Gupta
+      </p>
+      <p class="affiliations">Arizona State University · *Equal contribution</p>
+      <p class="venue">Preprint · 2026</p>
+      <div class="link-row">
+        <a class="btn" href="assets/maldoc_paper.pdf">Paper</a>
+        <a class="btn" href="https://github.com/shekharashishraj/MalDoc">Project Page</a>
+        <a class="btn" href="https://maldoc-demo.anonymous-acl.org">Demo</a>
+        <a class="btn" href="https://www.youtube.com/watch?v=OLKtiIROjWw">Video</a>
+        <a class="btn" href="https://github.com/shekharashishraj/MalDoc">Code</a>
+      </div>
+      <figure class="teaser">
+        <img src="assets/img/figure-1.png" alt="MALDOC system overview">
+        <figcaption>
+          Figure 1: System overview of MALDOC, covering multi-view extraction, risk-aware planning,
+          injection mechanisms, and agentic propagation scoring.
+        </figcaption>
+      </figure>
+    </header>
+
+    <section class="section" id="overview">
+      <div class="section-header">
+        <span class="section-label">Overview</span>
+        <h2>Document-Layer Red-Teaming</h2>
+      </div>
+      <p>
+        Document-processing AI agents can be compromised by attacks that exploit discrepancies between
+        rendered PDF content and machine-readable representations. MALDOC provides a modular pipeline
+        to generate document-layer adversarial PDFs and measure downstream failures in agent workflows.
+      </p>
+      <p class="callout">
+        Key result: MALDOC induces 72% task degradation while preserving human-visible fidelity, and
+        achieves an aggregated 86% attack success rate across finance, healthcare, and education documents.
+      </p>
+    </section>
+
+    <section class="section" id="pipeline">
+      <div class="section-header">
+        <span class="section-label">Pipeline</span>
+        <h2>Multi-Stage Attack Generation</h2>
+      </div>
+      <p>
+        The system is organized into four attack stages plus propagation evaluation. Each stage emits
+        structured artifacts for reproducibility and ablation studies.
+      </p>
+      <ul class="bullets">
+        <li>Stage 1: Multi-view extraction (PyMuPDF byte parsing, Docling OCR, Mistral layout).</li>
+        <li>Stage 2: Risk-aware planning with cross-layer surface mapping and target binding.</li>
+        <li>Stage 3: Adversarial payload generation (strategy, mechanism, payload, scope).</li>
+        <li>Stage 4: Injection engine with Hidden Text Injection (HTI), Visual Overlay Injection (VOI), and Font-Glyph Remapping (FGR).</li>
+        <li>Propagation scoring: Tool Misfire, Task Degradation, and Resource Inflation.</li>
+      </ul>
+      <figure class="figure">
+        <img src="assets/img/figure-1-top.png" alt="MALDOC pipeline overview">
+        <figcaption>
+          Top-half view of the MALDOC pipeline: extraction, planning, and injection.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section two-col" id="dataset">
+      <div>
+        <div class="section-header">
+          <span class="section-label">Dataset</span>
+          <h2>Evaluation Setup</h2>
+        </div>
+        <p>
+          MALDOC evaluates on the Document Understanding Dataset (DuDE) with finance, healthcare,
+          and education documents. Agents are implemented using LangGraph to simulate realistic workflows.
+        </p>
+        <ul class="bullets">
+          <li>6 domain-specific agents with 10 functional tools.</li>
+          <li>Task types: QA, key-field extraction, and summarization.</li>
+          <li>Attacks tested under HTI, FGR, and VOI mechanisms.</li>
+        </ul>
+      </div>
+      <figure class="figure">
+        <img src="assets/img/figure-1-bottom.png" alt="Agentic propagation scoring overview">
+        <figcaption>
+          Bottom-half view highlighting domain-specific agents and propagation metrics.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="demo">
+      <div class="section-header">
+        <span class="section-label">Demo</span>
+        <h2>End-to-End Walkthrough</h2>
+      </div>
+      <p>
+        The interactive demo allows users to upload PDFs, configure attack settings, and compare
+        clean versus adversarial execution traces. This supports reproducible evaluation across models.
+      </p>
+      <figure class="figure">
+        <div class="demo-grid">
+          <img src="assets/img/demo-home-left.png" alt="Demo: creation view">
+          <img src="assets/img/demo-home-right.png" alt="Demo: stage timeline view">
+          <img src="assets/img/demo-eval-left.png" alt="Demo: evaluation setup">
+          <img src="assets/img/demo-eval-right.png" alt="Demo: propagation metrics">
+        </div>
+        <figcaption>
+          Figure 2: End-to-end demo walkthrough (cropped into four panels).
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="evaluation">
+      <div class="section-header">
+        <span class="section-label">Evaluation</span>
+        <h2>Propagation Metrics & Stealth</h2>
+      </div>
+      <p>
+        Attack success is defined by any propagation signal relative to clean baselines. MALDOC reports
+        an aggregated 86% attack success rate, with task degradation accounting for 72% of successes.
+        Workflow deviations dominate: 74.5% of successful attacks involve Tool Misfire or state drift.
+      </p>
+      <p>
+        Stealth is enforced with SSIM-based visual invariance (SSIM = 1.0). In a human spot-check of 30
+        document pairs, annotators reported no visible differences in 97% of cases.
+      </p>
+    </section>
+
+    <section class="section" id="results">
+      <div class="section-header">
+        <span class="section-label">Results</span>
+        <h2>Quantitative Highlights</h2>
+      </div>
+      <p>
+        Use the grid below for key tables or plots from the paper, such as mechanism-specific QA-F1
+        degradation, Tool Misfire rates, and detection performance.
+      </p>
+      <div class="results-grid">
+        <img src="assets/img/table-1.png" alt="Table 1: HTI/FGR/VOI results">
+        <img src="assets/img/table-2.png" alt="Table 2: Planner-agnostic ASR">
+        <img src="assets/img/table-3.png" alt="Table 3: Stealthiness evaluation">
+        <img src="assets/img/table-4.png" alt="Table 4: Strategy to injection mapping">
+      </div>
+      <figcaption>
+        Table 1: HTI/FGR/VOI evaluation. Table 2: planner-agnostic ASR. Table 3: stealthiness.
+        Table 4: strategy-to-injection channel mapping.
+      </figcaption>
+    </section>
+
+    <section class="section" id="bibtex">
+      <div class="section-header">
+        <span class="section-label">Citation</span>
+        <h2>BibTeX</h2>
+      </div>
+      <pre><code>@misc{maldoc2026,
+  title   = {MALDOC: A Modular Red-Teaming Platform for Document Processing AI Agents},
+  author  = {Shekhar, Ashish Raj and Bordoloi, Priyanuj and Agarwal, Shiven and Shah, Yash and De, Sandipan and Gupta, Vivek},
+  year    = {2026},
+  note    = {Preprint},
+  url     = {https://github.com/shekharashishraj/MalDoc}
+}
+</code></pre>
+    </section>
+
+    <footer>
+      Replace placeholders with finalized figures and update links as needed.
+    </footer>
+  </main>
+</body>
+</html>

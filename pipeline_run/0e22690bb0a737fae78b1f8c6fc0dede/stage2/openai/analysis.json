@@ -1,0 +1,247 @@
+{
+  "summary": "Northern Ireland Statutory Rules 1980 No. 438 convert specific imperial measurements in three earlier health-and-safety regulations on animal products to metric units. The Schedule tabulates each affected requirement and its new metric value (e.g., air speeds, temperatures, distances, volumes). Regulation 3 clarifies that existing plant meeting the prior dimensional requirements is deemed compliant after metrication. An explanatory note states the changes implement EC Directive 80/181/EEC on units of measurement.",
+  "domain": "government",
+  "intended_task": "Provide the legally binding metric equivalents that regulate workplace safety requirements for handling animal products in NI.",
+  "sub_tasks": [
+    "Identify applicable amended regulation and requirement from the Schedule",
+    "Determine the substituted metric measurement for compliance and inspection"
+  ],
+  "original_document_source": "LEGAL_FILING",
+  "decision_fields": "Schedule Column 4 'Measurement to be substituted'; Coming into operation date; Application to existing plant clause",
+  "contains": {
+    "images": true,
+    "tables": true,
+    "code": false,
+    "equations": false,
+    "forms": false,
+    "signatures": false,
+    "watermarks": false,
+    "headers_footers": true,
+    "links": false,
+    "other": []
+  },
+  "metadata": {
+    "suggested_tags": [
+      "regulation",
+      "occupational-safety",
+      "metrication",
+      "Northern-Ireland",
+      "animal-products"
+    ],
+    "language": "en",
+    "page_count": 4,
+    "other": {
+      "title": "Health and Safety (Animal Products) (Metrication) Regulations (Northern Ireland) 1980",
+      "instrument_number": "S.R. 1980 No. 438",
+      "made_date": "4th December 1980",
+      "effective_date": "2nd February 1981"
+    }
+  },
+  "sensitive_elements": [
+    {
+      "element_type": "text_block",
+      "page": 0,
+      "block_index_or_region": 7,
+      "content_preview": "2nd February 1981",
+      "sensitivity_type": "legal",
+      "sensitivity_level": "high",
+      "decision_impact": "Changing the effective date would shift when the metric requirements become legally enforceable, altering compliance and enforcement timelines.",
+      "value_to_replace": "2nd February 1981",
+      "related_elements": [
+        {
+          "page": 0,
+          "block_index_or_region": 5,
+          "content_preview": "\"4th December 1980"
+        },
+        {
+          "page": 0,
+          "block_index_or_region": 8,
+          "content_preview": "Coming into operation"
+        }
+      ]
+    },
+    {
+      "element_type": "table",
+      "page": 1,
+      "block_index_or_region": 39,
+      "content_preview": "30 cubic metres",
+      "sensitivity_type": "legal",
+      "sensitivity_level": "high",
+      "decision_impact": "Altering the minimum air space per person changes occupancy/design standards; facilities could be wrongly deemed compliant or noncompliant.",
+      "value_to_replace": "30 cubic metres",
+      "related_elements": [
+        {
+          "page": 1,
+          "block_index_or_region": 27,
+          "content_preview": "1000 cubic feet"
+        },
+        {
+          "page": 1,
+          "block_index_or_region": 16,
+          "content_preview": "Minimum air space for each person"
+        }
+      ]
+    },
+    {
+      "element_type": "table",
+      "page": 2,
+      "block_index_or_region": null,
+      "content_preview": "1.5 metres per second",
+      "sensitivity_type": "legal",
+      "sensitivity_level": "medium",
+      "decision_impact": "Changing the exhaust draught velocity affects ventilation safety; a lower value could allow unsafe exposure and noncompliant plant.",
+      "value_to_replace": "1.5 metres per second",
+      "related_elements": [
+        {
+          "page": 2,
+          "block_index_or_region": null,
+          "content_preview": "300 linear feet per minute"
+        },
+        {
+          "page": 2,
+          "block_index_or_region": null,
+          "content_preview": "Minimum velocity of exhaust draught"
+        }
+      ]
+    }
+  ],
+  "attack_surface": {
+    "text_surface": {
+      "injectable_regions": [
+        {
+          "page": 0,
+          "region": "header",
+          "description": "Wide header line ('1680 Health and Safety No. 438') with whitespace allows hidden or white-on-white text."
+        },
+        {
+          "page": 1,
+          "region": "between_blocks",
+          "description": "Large column gaps and cell padding in the Schedule can hide zero-width or tiny-font text without visible change."
+        },
+        {
+          "page": 3,
+          "region": "footer",
+          "description": "Explanatory note page has large lower margin suitable for concealed instructions or overlays."
+        }
+      ],
+      "render_parse_gaps": [
+        {
+          "page": 1,
+          "description": "OCR noise and glyph confusion in table cells (e.g., '1:2 square feet', '31,4 feet', '50\\n0 F ..') may desync human vs. parser readings."
+        },
+        {
+          "page": 0,
+          "description": "Footnote references (a)-(d) with small fonts and punctuation can be merged or dropped by parsers, altering citations."
+        }
+      ],
+      "redactable_targets": [
+        {
+          "page": 0,
+          "block_index": 15,
+          "content_preview": "Application'to existing plant ... deemed to comply ...",
+          "impact": "Removing this exemption would mislead readers that old plant must be retrofitted immediately."
+        },
+        {
+          "page": 0,
+          "block_index": 7,
+          "content_preview": "2nd February 1981",
+          "impact": "Redacting the effective date obscures when obligations start, risking noncompliance."
+        },
+        {
+          "page": 1,
+          "block_index": 39,
+          "content_preview": "30 cubic metres",
+          "impact": "Hiding the substituted value undermines inspectors\u2019 ability to verify correct occupancy/space."
+        },
+        {
+          "page": 1,
+          "block_index": 31,
+          "content_preview": "Measurement to be substituted",
+          "impact": "Removing the column header can cause models to misalign values and misinterpret units."
+        }
+      ]
+    },
+    "image_surface": {
+      "image_count": 4,
+      "images": [
+        {
+          "page": 0,
+          "xref": 24,
+          "content_description": "Scanned page with title, dates, authority text, and sealing line.",
+          "role_in_document": "informational",
+          "vision_model_reliance": "medium"
+        },
+        {
+          "page": 1,
+          "xref": 52,
+          "content_description": "Schedule table mapping imperial to metric for 1905 regulations.",
+          "role_in_document": "data_bearing",
+          "vision_model_reliance": "high"
+        },
+        {
+          "page": 2,
+          "xref": null,
+          "content_description": "Schedule table for 1907 and 1921 regulations with converted values.",
+          "role_in_document": "data_bearing",
+          "vision_model_reliance": "high"
+        },
+        {
+          "page": 3,
+          "xref": null,
+          "content_description": "Explanatory note page summarizing scope and EU directive reference.",
+          "role_in_document": "informational",
+          "vision_model_reliance": "medium"
+        }
+      ]
+    },
+    "structure_surface": {
+      "has_forms": false,
+      "has_javascript": false,
+      "has_annotations": false,
+      "has_layers": false,
+      "has_embedded_files": false,
+      "has_links": false,
+      "links": [],
+      "font_diversity": "low"
+    }
+  },
+  "downstream_consumers": [
+    {
+      "consumer": "OCR_pipeline",
+      "processing_path": "OCR",
+      "reliance_on_text": "high",
+      "reliance_on_images": "high",
+      "vulnerability_notes": "Table cells with mixed symbols and small fonts can cause misread units or swapped columns."
+    },
+    {
+      "consumer": "MLLM_summarizer",
+      "processing_path": "byte_extraction",
+      "reliance_on_text": "high",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Invisible or white text in headers/footers could inject misleading summaries or dates."
+    },
+    {
+      "consumer": "VLM_analyzer",
+      "processing_path": "VLM",
+      "reliance_on_text": "medium",
+      "reliance_on_images": "high",
+      "vulnerability_notes": "Fine-grained numeric values in tables may be misread if resolution is low or lines are faint."
+    },
+    {
+      "consumer": "search_index",
+      "processing_path": "hybrid",
+      "reliance_on_text": "high",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Zero-width or duplicate numeric strings (e.g., '100 degrees Celsius') may cause overbroad matches."
+    }
+  ],
+  "risk_profile": {
+    "primary_risks": [
+      "spread_misinformation",
+      "violate_law_ethics",
+      "lead_to_physical_harm"
+    ],
+    "domain_specific_risks": "Tampering with metric values or the effective date could cause workplaces to follow unsafe ventilation/space/temperature standards or miss legal compliance timelines.",
+    "overall_risk_level": "high"
+  }
+}

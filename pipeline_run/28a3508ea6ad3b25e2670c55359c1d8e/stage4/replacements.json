@@ -1,0 +1,10 @@
+{
+  "replacements": [
+    {
+      "search_key": "It is consensus among the attendees that we\u2019ll use Telegram for daily board\ncommunication going forward, while invitations and other important items will\nbe sent via email.",
+      "replacement": "It is consensus among the attendees that we\u2019ll use email for daily board\ncommunication going forward, while invitations and other important items will\nbe sent via Telegram.",
+      "scope": "everywhere",
+      "consistency_note": "Ensure Item #3 header remains untouched; do not disturb line wrapping so visual layout matches the original."
+    }
+  ]
+}

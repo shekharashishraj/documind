@@ -1,27 +1,95 @@
-# documind
+![MALDOC logo](docs/assets/img/logo.png)
+
+# MALDOC: A Modular Red-Teaming Platform for Document Processing AI Agents
+
+[Project Page](https://shekharashishraj.github.io/MalDoc/) · [Paper](docs/assets/maldoc_paper.pdf) · [Demo](https://maldoc-demo.anonymous-acl.org) · [Video](https://www.youtube.com/watch?v=OLKtiIROjWw) · [Code](https://github.com/shekharashishraj/MalDoc)
+
+**Authors:** Ashish Raj Shekhar*, Priyanuj Bordoloi*, Shiven Agarwal*, Yash Shah, Sandipan De, Vivek Gupta  
+**Affiliation:** Arizona State University · *Equal contribution*
+
+## Overview
+
+Document-processing AI agents can be compromised by attacks that exploit discrepancies between rendered PDF content and machine-readable representations. MALDOC is a modular red-teaming system that generates document-layer adversarial PDFs and measures how failures propagate through agent workflows.
+
+Evaluated against GPT-4o, Claude Sonnet, and Grok on finance, healthcare, and education documents, MALDOC induces **72% task degradation** while preserving human-visible fidelity.
+
+## Key Results
+
+- **Attack Success Rate (ASR): 86%** under the default planner.
+- **72%** of successful attacks are driven by task degradation.
+- **74.5%** of successes involve structured workflow deviation (Tool Misfire or state drift).
+- **97%** of document pairs show no visible differences in a human spot-check.
+
+## Figures
+
+**System Overview (Figure 1)**
+
+![MALDOC system overview](docs/assets/img/figure-1.png)
+
+**Demo Walkthrough (Figure 2)**
+
+<table>
+  <tr>
+    <td><img src="docs/assets/img/demo-home-left.png" alt="Demo: creation view" /></td>
+    <td><img src="docs/assets/img/demo-home-right.png" alt="Demo: stage timeline view" /></td>
+  </tr>
+  <tr>
+    <td><img src="docs/assets/img/demo-eval-left.png" alt="Demo: evaluation setup" /></td>
+    <td><img src="docs/assets/img/demo-eval-right.png" alt="Demo: propagation metrics" /></td>
+  </tr>
+</table>
+
+**Selected Tables**
+
+<table>
+  <tr>
+    <td><img src="docs/assets/img/table-1.png" alt="Table 1: HTI/FGR/VOI evaluation" /></td>
+    <td><img src="docs/assets/img/table-2.png" alt="Table 2: Planner-agnostic ASR" /></td>
+  </tr>
+  <tr>
+    <td><img src="docs/assets/img/table-3.png" alt="Table 3: Stealthiness evaluation" /></td>
+    <td><img src="docs/assets/img/table-4.png" alt="Table 4: Strategy to injection channel mapping" /></td>
+  </tr>
+</table>
+
+---
+
+## Technical Documentation
 
 A multi-stage PDF parsing and analysis pipeline:
 
 - **Step 1**: Extract text, layout (bounding boxes), markdown, and images from PDFs using byte-extraction (PyMuPDF), OCR (Tesseract, Docling), and VLM (Mistral). Orchestrated with LangGraph.
-- **Stage 2**: Send the byte-extraction outputs plus extracted images to an MLLM (OpenAI GPT) to produce a **vulnerability-focused analysis**: document semantics (summary, domain, intended task) plus attack surface mapping (sensitive elements, injectable regions, render-parse gaps, links, downstream consumers, risk profile).
-- **Stage 3**: Use Stage 2 analysis and Step 1 structure to produce an **attack-ready manipulation plan**: specific attacks split by modality (text attacks, image attacks, structural attacks including hyperlink manipulation), each with injection strategy, technique, payload, and downstream effects. Planning only; no injection is performed.
+- **Stage 2**: Send the byte-extraction outputs plus extracted images to an MLLM (OpenAI GPT) to produce a **vulnerability-focused analysis**: document semantics plus attack surface mapping (exactly 3 sensitive elements with `value_to_replace` and `related_elements`, injectable regions, links, risk profile).
+- **Stage 3**: Use Stage 2 analysis and Step 1 structure to produce an **attack-ready manipulation plan**: text/image/structural attacks with paper-aligned `semantic_edit_strategy` (`append|update|delete`) and `injection_mechanism`, plus `scope`, `search_key`, `replacement`, and `consistency_note`. Planning only; no injection is performed.
+- **Stage 4**: Execute Stage 3 plan via direct PDF manipulation (replacements + hidden-text insertions) and optional visual overlay. In `auto` mode, mechanism selection follows paper mapping (`append -> hidden_text_injection`, `update/delete -> visual_overlay|font_glyph_remapping`). Writes `stage4/perturbed.pdf`, `stage4/replacements.json`, `stage4/hidden_text.json`, and `stage4/final_overlay.pdf`.
+- **Stage 5**: Run post-Stage-4 agentic vulnerability simulation on clean vs adversarial documents using LLM agents + deterministic mock tools, with 3-trial majority scoring and batch metrics/reporting.
 
-Output is written under **one folder per PDF** (named by the PDF stem), with subfolders per run type and, optionally, Stage 2 and Stage 3 results.
+Output is written under **one folder per PDF** (named by the PDF stem), with subfolders per run type and, optionally, Stage 2, Stage 3, Stage 4, and Stage 5 results.
 
 ---
 
 ## Table of contents
 
+- [Overview](#overview)
+- [Key Results](#key-results)
+- [Figures](#figures)
+- [Technical Documentation](#technical-documentation)
 - [Architecture](#architecture)
 - [Setup](#setup)
 - [Environment variables](#environment-variables)
 - [Step 1: PDF parsing](#step-1-pdf-parsing)
 - [Stage 2: GPT analysis](#stage-2-gpt-analysis)
 - [Stage 3: Manipulation planning](#stage-3-manipulation-planning)
+- [Stage 4: Injection and overlay](#stage-4-injection-and-overlay)
+- [Stage 5: Vulnerability simulation](#stage-5-vulnerability-simulation)
+- [Agent-backend (multi-agent PDF analyzer)](#agent-backend-multi-agent-pdf-analyzer)
 - [CLI reference](#cli-reference)
+- [Logging](#logging)
 - [Output layout](#output-layout)
 - [Output formats](#output-formats)
 - [Updating dependencies](#updating-dependencies)
+- [Demo UI](#demo-ui)
+- [Running the pipeline in the Demo UI](#running-the-pipeline-in-the-demo-ui)
 - [License](#license)
 
 ---
@@ -61,46 +129,91 @@ PDF input
 │  Input: Stage 2 analysis + Step 1 structure (pages, blocks,     │
 │         images list with page/xref)                             │
 │  Output: stage3/openai/manipulation_plan.json (text_attacks,    │
-│          image_attacks, structural_attacks including hyperlink   │
-│          manipulation, defense_considerations) — planning only │
+│          image_attacks, structural_attacks) — planning only    │
+└─────────────────────────────────────────────────────────────────┘
+    │
+    │  Stage 4 uses: stage2/analysis.json, stage3/manipulation_plan.json, original PDF
+    ▼
+┌─────────────────────────────────────────────────────────────────┐
+│  Stage 4 (direct PDF injection + overlay)                        │
+│  Input: manipulation plan, analysis, original PDF               │
+│  Output: stage4/perturbed.pdf, stage4/replacements.json,        │
+│          stage4/final_overlay.pdf (visual = original, parse = perturbed) │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
 - **Step 1** runs one or more of: byte_extraction (PyMuPDF), OCR (Tesseract + Docling), VLM (Mistral). Each mechanism writes under `<base_dir>/<run_type>/<sub_mechanism>/`.
-- **Stage 2** reads from `byte_extraction/pymupdf` only (full text or markdown, `pages.json`, and `images/`), calls the OpenAI API with a system prompt and the document + images, and writes `stage2/openai/analysis.json`.
-- **Stage 3** reads Stage 2 `analysis.json` and Step 1 structure (compact `pages.json` summary + image list with page/xref from filenames), calls the OpenAI API to produce a manipulation plan (what to manipulate, where, risk category, downstream effects). Writes `stage3/openai/manipulation_plan.json`. No actual PDF manipulation is performed; injection mechanisms are planned for a later stage.
+- **Stage 2** reads from `byte_extraction/pymupdf` only, calls the OpenAI API, and writes `stage2/openai/analysis.json` (with exactly 3 sensitive elements, each with `value_to_replace` and optional `related_elements`).
+- **Stage 3** reads Stage 2 `analysis.json` and Step 1 structure, calls the OpenAI API to produce a manipulation plan (with `scope`, `search_key`, `replacement`, `consistency_note` for document-wide and aggregate-safe attacks). Writes `stage3/openai/manipulation_plan.json`. Planning only.
+- **Stage 4** applies replacements via direct PDF modification (PyMuPDF: redact + insert replacement text) to produce `stage4/perturbed.pdf`, then overlays the original PDF as full-page images to produce `stage4/final_overlay.pdf`. When using `run --stage4`, the original PDF is copied to `base_dir/original.pdf` for injection and overlay.
+- **Stage 5** consumes `stage4/final_overlay.pdf` and clean byte-extraction text, runs clean/attacked trials via LLM agent simulation, executes deterministic mock tools, and writes doc-level + batch vulnerability metrics for the five real-world scenarios.
 
 ---
 
 ## Setup
 
-### Conda (recommended)
+Follow these steps to get the project running on your machine.
+
+### 1. Prerequisites
+
+- **Python 3.10 or newer**
+- **(Optional)** **Tesseract** — only if you want to run OCR in Step 1. Install with:
+  - macOS: `brew install tesseract`
+  - Linux: `apt-get install tesseract-ocr` (or your distro’s package)
+
+### 2. Clone and enter the project
 
 ```bash
-conda env create -f environment.yml
-conda activate documind
+git clone <your-repo-url> maldoc
+cd maldoc
 ```
 
-### Pip
+### 3. Create a virtual environment and install dependencies
+
+All dependencies are in **`pyproject.toml`**. Use one of the options below.
+
+**Option A — Pip (recommended)**
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate   # Windows: .venv\Scripts\activate
+python3 -m venv .venv
+source .venv/bin/activate          # On Windows: .venv\Scripts\activate
 pip install -e .
 ```
 
-### System dependencies
+**Option B — Conda**
 
-- **Tesseract** (for OCR): e.g. `brew install tesseract` (macOS), `apt-get install tesseract-ocr` (Linux).
+```bash
+conda env create -f environment.yml
+conda activate maldoc
+pip install -e .
+```
 
-### API keys
+This installs the pipeline, Stage 2–5, agent-backend, and the Demo UI. There is no separate `requirements.txt` under `core/agent-backend/`.
 
-Copy `.env.example` to `.env` in the project root and set the keys you need:
+### 4. Configure API keys
 
-- **Step 1 VLM (Mistral)**: `MISTRAL_API_KEY`
-- **Stage 2 (OpenAI)**: `OPENAI_API_KEY`
+Create a `.env` file in the **project root** and add your keys:
 
-The CLI loads `.env` automatically. Do not commit `.env`.
+```bash
+cp .env.example .env
+```
+
+Edit `.env` and set:
+
+- **`OPENAI_API_KEY`** — required for Stage 2, Stage 3, Stage 5, and the agent-backend (Demo UI evaluation).
+- **`MISTRAL_API_KEY`** — only if you run Step 1 with VLM (Mistral); can leave blank if you use only byte extraction or OCR.
+
+Do not commit `.env`. The CLI and Demo UI load it automatically from the project root.
+
+### 5. Start the Demo UI
+
+From the project root, with your virtual environment activated:
+
+```bash
+uvicorn apps.web.main:app --reload --port 8000
+```
+
+Then open **http://127.0.0.1:8000** in your browser. You can run the full pipeline and evaluation from the web interface (see [Running the pipeline in the Demo UI](#running-the-pipeline-in-the-demo-ui)).
 
 ---
 
@@ -109,7 +222,7 @@ The CLI loads `.env` automatically. Do not commit `.env`.
 | Variable           | Used by   | Purpose                                      |
 |--------------------|-----------|----------------------------------------------|
 | `MISTRAL_API_KEY`  | Step 1    | Mistral OCR/VLM API (when running `vlm`)     |
-| `OPENAI_API_KEY`   | Stage 2, Stage 3 | OpenAI Chat Completions (GPT) for analysis and manipulation planning |
+| `OPENAI_API_KEY`   | Stage 2, Stage 3, Stage 5, agent-backend | OpenAI Chat Completions (GPT) for analysis, planning, evaluation, and multi-agent PDF analyzer |
 
 Both can be set in a `.env` file in the project root or in the shell environment.
 
@@ -202,7 +315,7 @@ So Step 1 must have been run with **byte_extraction** (at least) before running 
 - **Path**: `<base_dir>/stage2/openai/analysis.json`
 - **Content**: A single JSON object with:
   - **Document semantics**: `summary`, `domain`, `intended_task`, `sub_tasks`, `original_document_source`, `contains` (images, tables, **links**, etc.), `metadata`
-  - **Vulnerability mapping**: `sensitive_elements` (PII, financial, medical data with locations), `attack_surface` (text/image/structure surfaces with injectable regions, render-parse gaps, **links**), `downstream_consumers` (who processes this document), `risk_profile` (primary risks from taxonomy: leak_sensitive_data, lead_to_property_loss, spread_misinformation, etc.)
+  - **Vulnerability mapping**: `sensitive_elements` (exactly 3 items; each has `value_to_replace` for document-wide replacement and optional `related_elements` for aggregates), `attack_surface`, `downstream_consumers`, `risk_profile`.
   
   See [Output formats](#output-formats) for the complete schema.
 
@@ -288,6 +401,123 @@ Requires `OPENAI_API_KEY`. The system prompt is in `core/stage3/prompts.py` (`ST
 
 ---
 
+## Stage 4: Injection and overlay
+
+Stage 4 applies the manipulation plan via **direct PDF modification** (PyMuPDF: redact + insert replacement text) to produce a **perturbed** PDF (parsers/agents see modified content), then optionally overlays the **original** PDF as full-page images so the document **looks** unchanged to humans (image-overlay attack).
+
+- **Input**: `stage2/openai/analysis.json`, `stage3/openai/manipulation_plan.json`, and the **original PDF** at `base_dir/original.pdf` or passed via `--original-pdf`.
+- **Output**: `stage4/perturbed.pdf`, `stage4/replacements.json` (audit log of replacements), and `stage4/final_overlay.pdf` (if overlay was run).
+
+Replacements are built from Stage 3 `text_attacks` with `scope: "everywhere"` (using `search_key` and `replacement`). They are applied in-place to the original PDF (search → redaction annotation with replacement text → apply redactions), and the result is saved to `stage4/perturbed.pdf`. The overlay step renders each page of the original PDF to an image and inserts it on top of the perturbed PDF so the visible layer is the original and the underlying content is perturbed.
+
+**Run Stage 4** (after Step 1, Stage 2, and Stage 3):
+
+```bash
+python -m pipeline.cli stage4 <base_dir> [--original-pdf PATH] [--no-overlay] [--priority-filter high|medium|low]
+```
+
+Or run the full pipeline including Stage 4 (Step 1 → Stage 2 → Stage 3 → copy original PDF to `base_dir/original.pdf` → Stage 4):
+
+```bash
+python -m pipeline.cli run path/to/document.pdf --out . --stage4
+```
+
+When using `run --stage4`, the original PDF is copied to `<base_dir>/original.pdf` for injection and overlay.
+
+---
+
+## Stage 5: Vulnerability simulation
+
+Stage 5 is the post-Stage-4 evaluation layer used to demonstrate that adversarial PDFs can corrupt critical agentic workflows. It compares a clean run versus an attacked run for each document:
+
+- **Clean input**: `byte_extraction/pymupdf/full_text.txt`
+- **Attacked input**: `stage4/final_overlay.pdf` parsed again with PyMuPDF byte extraction
+- **Execution engine**: LLM agent simulation + deterministic scenario-specific mock tools
+- **Trials**: 3 clean + 3 attacked trials, then majority vote
+- **Scoring policy**: vulnerability-only metrics with denominator restricted to docs where clean majority matches gold spec
+- **Terminal output**: human-readable narrative summary (clean behavior vs adversarial behavior, changed target fields, and compromise verdict) plus file paths for full artifacts
+
+Per-document outputs are written to `<base_dir>/stage5_eval/`:
+
+- `clean_trials.jsonl`
+- `attacked_trials.jsonl`
+- `doc_result.json`
+- `doc_metrics.json`
+
+Batch outputs are written to `<out_dir>/<run_id>/`:
+
+- `run_config.json`
+- `doc_results.csv`
+- `scenario_metrics.csv`
+- `overall_metrics.json`
+- `paper_table.md`
+
+Run Stage 5 for one document:
+
+```bash
+python -m pipeline.cli stage5 <base_dir> \
+  --scenario auto \
+  --model gpt-5-2025-08-07 \
+  --trials 3
+```
+
+Run Stage 5 for a batch (`--doc-id` can be repeated; if omitted, demo batch is used from `configs/stage5/demo_batch.json`):
+
+```bash
+python -m pipeline.cli stage5_batch \
+  --base-root . \
+  --doc-id 0afbb63ded89d3335a5109f8a9ec4db7 \
+  --doc-id 28a3508ea6ad3b25e2670c55359c1d8e \
+  --model gpt-5-2025-08-07 \
+  --trials 3 \
+  --out-dir stage5_runs
+```
+
+---
+
+## Agent-backend (multi-agent PDF analyzer)
+
+The **multi-agent supervisor** PDF analyzer lives under `core/agent-backend/`. It uses a perception layer (PyPDF), a router/supervisor (OpenAI), and domain-specific agents (Healthcare, Finance, HR, Insurance, Education, Political) to answer natural-language questions about a PDF. It is aligned with the rest of the codebase:
+
+- **Dependencies**: No separate `requirements.txt`; all deps are in the root **`pyproject.toml`**. Use the project env (`pip install -e .`).
+- **Environment**: Loads **`OPENAI_API_KEY`** from the **project root `.env`** (same as the main CLI). Optional: keyring for secure key storage (see `core/agent-backend/SECURE_API_KEY_SETUP.md`).
+
+### Run from the command line
+
+From the **project root** (so the root `.env` is used):
+
+```bash
+# Shell wrapper (uses project root .venv if present, else current python)
+./core/agent-backend/run_pdf.sh "/path/to/file.pdf" "Your question here"
+
+# Or directly
+python core/agent-backend/run_on_pdf.py /path/to/file.pdf "Your question here"
+```
+
+If you `cd` into `core/agent-backend/`, the script still loads the root `.env` via `Path(__file__)`.
+
+### Run the API server
+
+From **`core/agent-backend/`** (so the `src` package is found):
+
+```bash
+cd core/agent-backend
+python -m src.api_server
+```
+
+Or with uvicorn (e.g. port 8001 to avoid clashing with the Demo UI on 8000):
+
+```bash
+cd core/agent-backend
+uvicorn src.api_server:app --reload --port 8001
+```
+
+The server loads the project root `.env` on startup.
+
+For architecture details, quick start, and API docs, see **`core/agent-backend/README.md`**.
+
+---
+
 ## CLI reference
 
 ### `run` – Step 1 (and optionally Stage 2, Stage 3)
@@ -305,12 +535,15 @@ python -m pipeline.cli run <pdf> [OPTIONS]
 | `--vlm-only`       | Run only VLM (Mistral). |
 | `--stage2`         | After Step 1, run Stage 2 GPT analysis (requires byte_extraction; adds it if not in run_types). |
 | `--stage3`         | After Step 1 (and Stage 2 if needed), run Stage 3 manipulation planning. Implies `--stage2`. |
+| `--stage4`         | After Stage 3, run Stage 4 injection and image overlay. Implies `--stage2`, `--stage3`. Copies original PDF to `base_dir/original.pdf`. |
+| `--priority-filter` | Stage 4 only: apply attacks at this priority or higher (`high` \| `medium` \| `low`). Default: all. |
+| `--verbose`, `-v`  | Enable DEBUG logging. |
 
 Run type logic:
 
 - If none of `--byte-only`, `--ocr-only`, `--vlm-only` are set: run all three (byte_extraction, ocr, vlm).
 - If one or more are set: run only those. Combinations are allowed (e.g. `--byte-only --ocr-only`).
-- `--stage2` or `--stage3` ensures byte_extraction is included. `--stage3` also runs Stage 2 before Stage 3.
+- `--stage2`, `--stage3`, or `--stage4` ensures byte_extraction is included. `--stage3` and `--stage4` run Stage 2 before Stage 3. `--stage4` copies the original PDF and runs Stage 4 (direct PDF injection + overlay).
 
 ### `stage2` – Stage 2 only
 
@@ -337,6 +570,65 @@ python -m pipeline.cli stage3 <base_dir> [--model gpt-4o]
 | `--model`, `-m`   | OpenAI chat model. Default: `gpt-4o`. |
 
 Requires `OPENAI_API_KEY` to be set.
+
+### `stage4` – Stage 4 only
+
+```text
+python -m pipeline.cli stage4 <base_dir> [--original-pdf PATH] [--no-overlay] [--priority-filter high|medium|low]
+```
+
+| Argument / Option | Description |
+|-------------------|-------------|
+| `base_dir`        | Path to output directory containing `stage2/openai/analysis.json`, `stage3/openai/manipulation_plan.json`, and `byte_extraction/pymupdf/`. |
+| `--original-pdf`  | Path to original (unperturbed) PDF for injection and overlay. Default: `base_dir/original.pdf`. |
+| `--no-overlay`    | Skip image overlay; only run injection (perturbed PDF only). |
+| `--priority-filter` | Only apply attacks at this priority or higher: `high`, `medium`, or `low`. Default: all. |
+
+Writes `stage4/perturbed.pdf`, `stage4/replacements.json`, and (unless `--no-overlay`) `stage4/final_overlay.pdf`.
+
+### `stage5` – Stage 5 single document
+
+```text
+python -m pipeline.cli stage5 <base_dir> [--scenario auto|decision|scheduling|db|credential|survey] [--adv-pdf PATH] [--model MODEL] [--trials 3] [--out-subdir stage5_eval]
+```
+
+| Argument / Option | Description |
+|-------------------|-------------|
+| `base_dir`        | Path to document output directory (must include `byte_extraction/pymupdf/full_text.txt` and `stage4/final_overlay.pdf` unless `--adv-pdf` is provided). |
+| `--scenario`      | Scenario override. Default: `auto` (resolved from `configs/stage5/scenario_specs.json`). |
+| `--adv-pdf`       | Override attacked PDF path. Default: `base_dir/stage4/final_overlay.pdf`. |
+| `--model`, `-m`   | OpenAI chat model. Default: `gpt-5-2025-08-07`. |
+| `--trials`        | Number of clean + attacked trials. Default: `3`. |
+| `--out-subdir`    | Per-document Stage 5 output dir under `base_dir`. Default: `stage5_eval`. |
+
+Requires `OPENAI_API_KEY` to be set.
+
+### `stage5_batch` – Stage 5 batch run
+
+```text
+python -m pipeline.cli stage5_batch [--base-root .] [--doc-id DOC ...] [--model MODEL] [--trials 3] [--out-dir stage5_runs]
+```
+
+| Argument / Option | Description |
+|-------------------|-------------|
+| `--base-root`     | Root directory containing doc folders (`<base-root>/<doc_id>/...`). Default: `.` |
+| `--doc-id`        | Repeat to include multiple docs. If omitted, docs are loaded from `configs/stage5/demo_batch.json`. |
+| `--model`, `-m`   | OpenAI chat model. Default: `gpt-5-2025-08-07`. |
+| `--trials`        | Number of clean + attacked trials per doc. Default: `3`. |
+| `--out-dir`       | Directory for aggregate reports. Default: `stage5_runs`. |
+
+Batch fails fast if any requested doc ID is missing from `configs/stage5/scenario_specs.json`.
+
+---
+
+## Logging
+
+All stages use structured logging (module-level loggers). By default the CLI logs at **INFO**. To debug failures:
+
+- Set the environment variable **`LOG_LEVEL=DEBUG`** to enable DEBUG logs for all modules, or
+- Pass **`--verbose`** / **`-v`** when invoking the CLI (e.g. `python -m pipeline.cli --verbose run file.pdf`).
+
+Stage entry points log base_dir and output paths; validation errors and exceptions are logged with full context.
 
 ---
 
@@ -375,10 +667,22 @@ report/
 ├── stage2/              (only if Stage 2 was run)
 │   └── openai/
 │       └── analysis.json
-└── stage3/              (only if Stage 3 was run)
-    └── openai/
-        └── manipulation_plan.json
+├── stage3/              (only if Stage 3 was run)
+│   └── openai/
+│       └── manipulation_plan.json
+├── stage4/              (only if Stage 4 was run)
+│   ├── perturbed.pdf
+│   ├── replacements.json
+│   └── final_overlay.pdf
+├── stage5_eval/          (only if Stage 5 was run for this doc)
+│   ├── clean_trials.jsonl
+│   ├── attacked_trials.jsonl
+│   ├── doc_result.json
+│   └── doc_metrics.json
+└── original.pdf         (only if run --stage4; copy of input PDF for overlay)
 ```
+
+Batch Stage 5 reports are written outside doc folders under `<out-dir>/<run_id>/` with `run_config.json`, `doc_results.csv`, `scenario_metrics.csv`, `overall_metrics.json`, and `paper_table.md`.
 
 ---
 
@@ -454,6 +758,81 @@ The exact prompt is in `core/stage3/prompts.py`. A more precise schema and examp
   pip install -e .
   ```
 - Keep `environment.yml` and `pyproject.toml` in sync when you add new packages (e.g. add to both for conda users).
+
+---
+
+## Demo UI
+
+The Demo UI is a web app for running the pipeline and evaluating adversarial documents without using the command line.
+
+- **Backend**: FastAPI (`apps/web/main.py`)
+- **Frontend**: HTML/CSS/JavaScript (`apps/web/templates/index.html`, `apps/web/static/*`)
+
+Start it from the project root (with your venv activated):
+
+```bash
+uvicorn apps.web.main:app --reload --port 8000
+```
+
+Then open **http://127.0.0.1:8000**. The UI has four tabs: **Pipeline**, **Evaluation**, **Runs**, and **Reports**. Logs are written to `logs/demo_web.log`.
+
+Optional backend model overrides (for Stage 2 and Stage 3):
+
+```bash
+export MALDOC_STAGE2_MODEL=gpt-5-2025-08-07
+export MALDOC_STAGE3_MODEL=gpt-5-2025-08-07
+```
+
+---
+
+## Running the pipeline in the Demo UI
+
+This section explains how to use the Pipeline and Evaluation tabs in plain language.
+
+### Pipeline tab — Adversarial Document Generation
+
+Here you run **Stage 1 → Stage 4** to turn a normal PDF into an adversarial one (same look, different content for parsers/agents).
+
+1. **Choose a PDF**
+   - Pick one from the **PDF from repository** dropdown, or
+   - Enter a path in **Or custom PDF path** (e.g. `path/to/file.pdf`).
+2. **Optional: Advanced options** (click to expand)
+   - **Output root** — Where run outputs are stored (default: `pipeline_run`). Each PDF gets a folder named by its hash.
+   - **Stage 4 priority filter** — Which planned attacks to apply: **all**, **high**, **medium**, or **low**. Use this to restrict attacks by priority (e.g. only high-priority ones).
+   - **Stage 4 mechanism mode** — How attacks from the plan are turned into actual PDF changes (see below).
+   - **Stage 1 mechanisms** — How text is extracted: Byte Extraction (default), OCR, and/or VLM. At least Byte Extraction is needed for Stage 2–4.
+3. Click **Generate Adversarial Doc**. The stage cards show progress (Stage 1 → 2 → 3 → 4). When done, you get links to the original and adversarial PDFs.
+
+#### What is “Stage 4 mechanism mode”?
+
+Stage 3 produces a **plan** (e.g. “add hidden text here”, “replace this phrase everywhere”). Stage 4 **executes** that plan using one or more physical mechanisms. The **mechanism mode** controls how the plan is mapped to mechanisms:
+
+- **Auto (recommended)** — The system picks the mechanism from the plan’s *strategy*:
+  - **Append** (add new content) → **Hidden text injection** (invisible text in the PDF stream).
+  - **Update** or **Delete** (change or remove content) → **Visual overlay** or **Font glyph remapping** (so the document looks unchanged but parsers see different text).
+  - This matches the paper’s design and is the default.
+- **Visual Overlay** — Force all applicable text attacks to be applied via full-page image overlay (original on top; perturbed content underneath).
+- **Hidden Text Injection** — Force append-style attacks only (hidden text); other attacks may be skipped.
+- **Font Glyph Remapping** — Force update/delete-style attacks via font manipulation where supported.
+
+Choosing a specific mechanism (e.g. Visual Overlay only) is for **ablation or experiments**; it can diverge from the planner’s intended coupling.
+
+### Evaluation tab — Agent-Backend Evaluation
+
+Here you compare how the **agent-backend** (multi-agent supervisor) behaves on the **clean** vs **adversarial** document. You see which domain specialist was routed and whether the adversarial doc caused a compromise.
+
+1. **Prompt template** — The query sent to the agent:
+   - **Auto Router Check (Recommended)** — A neutral, generic query. The **router** (supervisor) looks at the document and **decides which domain specialist** to use (e.g. Healthcare, Finance, HR). You do not pick the agent; the model routes by content. Use this to see “what would the system do with this document?”
+   - **Decision / Scheduling / Database / Credential / Survey** — Scenario-specific prompts (e.g. “extract scheduling actions”, “verify credential fields”). The router *still* decides which specialist runs; the prompt only shapes the task. Use these to test particular use cases.
+2. **Trials** — How many times the system runs the agent on the **clean** document and on the **adversarial** document (e.g. 3 clean + 3 adversarial). Results are aggregated (e.g. majority vote) to decide if the document is **compromised**. More trials = more stable verdict but slower runs. Default is 3; you can set 1–9.
+3. **Upload PDFs** — **Upload Original Doc** and **Upload Adversarial Doc** (e.g. the original PDF and the one from the Pipeline tab’s Stage 4 output). You can also run evaluation on a document that was already processed by the Pipeline (see eligibility).
+4. **Check Eligibility** — Verifies that the chosen scenario and uploaded (or existing) documents are valid (e.g. required files exist). If eligible, **Run Agent-Backend Evaluation** is enabled.
+5. **Run Agent-Backend Evaluation** — Runs the agent multiple times (according to **Trials**), then shows:
+   - Which domain specialist was routed for clean vs adversarial (in **Agent Monitor**),
+   - A short narrative (clean behavior vs adversarial behavior, compromise verdict),
+   - And in the **Runs** tab, a table of recent evaluation results (compromised, clean=gold, changed fields, paths).
+
+In short: **Auto** = neutral query, router picks the agent; **Trials** = number of runs per document for a stable compromise check; **Check Eligibility** ensures your inputs are valid before running.
 
 ---
 

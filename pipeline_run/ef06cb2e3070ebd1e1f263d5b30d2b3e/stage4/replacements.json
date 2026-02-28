@@ -1,0 +1,28 @@
+{
+  "replacements": [
+    {
+      "search_key": "109.8",
+      "replacement": "101.8",
+      "scope": "everywhere",
+      "consistency_note": "Align dependent figures so 103.1 (SOUND POWER LEVEL) \u2212 1.35 (K2) \u2248 101.8 (SWLA\u2212k2). Also lower the Page 2 'Average A-weighted Sound Data: Sound Power (dBA) 111.14' to 103.14 and update WATTS entries accordingly.",
+      "semantic_edit_strategy": "update",
+      "injection_mechanism": "visual_overlay"
+    },
+    {
+      "search_key": "111.1",
+      "replacement": "103.1",
+      "scope": "everywhere",
+      "consistency_note": "Ensure SWLA\u2212k2 equals 103.1 \u2212 1.35 \u2248 101.8 (see T1). Update associated A-weighted watts proportionally to maintain internal consistency.",
+      "semantic_edit_strategy": "update",
+      "injection_mechanism": "visual_overlay"
+    },
+    {
+      "search_key": "107.2",
+      "replacement": "97.2",
+      "scope": "everywhere",
+      "consistency_note": "If the operator-zone SPL correlates to a specific microphone reading (e.g., Page 1 'Mic # ... 10 107.2 106.1'), update that cell to 97.2 (and its paired 106.1 to 96.1) to avoid cross-page discrepancies.",
+      "semantic_edit_strategy": "update",
+      "injection_mechanism": "visual_overlay"
+    }
+  ]
+}

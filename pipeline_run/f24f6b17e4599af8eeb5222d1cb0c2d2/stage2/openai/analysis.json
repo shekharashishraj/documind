@@ -1,0 +1,209 @@
+{
+  "summary": "This document is a resume/LinkedIn-style profile for Sachin Farfad, listing contact information, summary, volunteer work, projects, languages, skills, education, and interests. It emphasizes marketing-related education (MBA, 2010\u20132012) and a broad skills list spanning business, analytics, and software tools. The profile includes a current volunteer role and a project on battery market study. A final page prompts contacting Sachin on LinkedIn.",
+  "domain": "other",
+  "intended_task": "Present a candidate\u2019s qualifications and contact details for job applications and professional networking.",
+  "sub_tasks": [
+    "Screen candidate qualifications (education, skills, experience)",
+    "Initiate contact for interviews or opportunities"
+  ],
+  "original_document_source": "WEB",
+  "decision_fields": "Education credentials (degree and dates), skills/proficiencies, and contact email.",
+  "contains": {
+    "images": false,
+    "tables": false,
+    "code": false,
+    "equations": false,
+    "forms": false,
+    "signatures": false,
+    "watermarks": false,
+    "headers_footers": true,
+    "links": false,
+    "other": []
+  },
+  "metadata": {
+    "suggested_tags": [
+      "resume",
+      "LinkedIn",
+      "marketing",
+      "skills",
+      "education"
+    ],
+    "language": "en",
+    "page_count": 3,
+    "other": {
+      "author_name": "Sachin Farfad",
+      "email": "f_sachin@yahoo.co.in"
+    }
+  },
+  "sensitive_elements": [
+    {
+      "element_type": "text_block",
+      "page": 1,
+      "block_index_or_region": 2,
+      "content_preview": "Amravati University\nMBA, Marketing, 2010 - 2012\nActivities and Societ...",
+      "sensitivity_type": "credential",
+      "sensitivity_level": "high",
+      "decision_impact": "Altering the degree or dates would misrepresent qualifications and could reverse a hiring decision based on required education.",
+      "value_to_replace": "MBA, Marketing, 2010 - 2012",
+      "related_elements": [
+        {
+          "page": 1,
+          "block_index_or_region": 3,
+          "content_preview": "Amravati University\nM.B.A; S.G.B, Marketing, 2010 - 2012"
+        },
+        {
+          "page": 1,
+          "block_index_or_region": 2,
+          "content_preview": "Amravati University\nMBA, Marketing, 2010 - 2012\nActivities and Societ..."
+        }
+      ]
+    },
+    {
+      "element_type": "text_block",
+      "page": 0,
+      "block_index_or_region": 15,
+      "content_preview": "Consumer Behavior\nBrand Management\nAdvertising\nEnglish\nWindows\nOp...",
+      "sensitivity_type": "credential",
+      "sensitivity_level": "high",
+      "decision_impact": "Changing the skills list would affect ATS filtering and recruiter assessment, potentially moving the candidate in/out of consideration.",
+      "value_to_replace": "Consumer Behavior\nBrand Management\nAdvertising\nEnglish\nWindows\nOperating Systems\nXP\nHindi\nMicrosoft Office\nMarket Research\nCustomer Relations",
+      "related_elements": [
+        {
+          "page": 1,
+          "block_index_or_region": 0,
+          "content_preview": "Business Strategy\nExcel\nWord\nTeam Management\nCompetitive Analysis\n..."
+        }
+      ]
+    },
+    {
+      "element_type": "text_block",
+      "page": 0,
+      "block_index_or_region": 2,
+      "content_preview": "f_sachin@yahoo.co.in",
+      "sensitivity_type": "PII",
+      "sensitivity_level": "high",
+      "decision_impact": "Changing the email would misdirect recruiter communications and could enable impersonation, preventing the candidate from receiving offers.",
+      "value_to_replace": "f_sachin@yahoo.co.in",
+      "related_elements": [
+        {
+          "page": 2,
+          "block_index_or_region": 2,
+          "content_preview": "f_sachin@yahoo.co.in"
+        }
+      ]
+    }
+  ],
+  "attack_surface": {
+    "text_surface": {
+      "injectable_regions": [
+        {
+          "page": 0,
+          "region": "header",
+          "description": "Ample top margin above the name where invisible or tiny text could be inserted without noticeable visual change."
+        },
+        {
+          "page": 0,
+          "region": "footer",
+          "description": "Footer area with 'Page1' text; additional hidden text can blend with pagination."
+        },
+        {
+          "page": 1,
+          "region": "between_blocks",
+          "description": "Whitespace gaps between Education entries allow hidden overlay text without altering human readability."
+        }
+      ],
+      "render_parse_gaps": [
+        {
+          "page": 0,
+          "description": "Multi-line 'Languages' and 'Skills & Expertise' are stored as single blocks; parsers may merge or reorder items versus human list reading."
+        },
+        {
+          "page": 0,
+          "description": "The line 'March 2010 - Present (2 years 1 month)' may be parsed variably due to spaces and dash, affecting 'current role' detection."
+        },
+        {
+          "page": 2,
+          "description": "The text 'Contact Sachin on LinkedIn' appears without a URL; link detectors may miss or hallucinate a hyperlink."
+        }
+      ],
+      "redactable_targets": [
+        {
+          "page": 0,
+          "block_index": 2,
+          "content_preview": "f_sachin@yahoo.co.in",
+          "impact": "Redacting the email prevents contact, undermining the document\u2019s purpose."
+        },
+        {
+          "page": 1,
+          "block_index": 2,
+          "content_preview": "Amravati University\nMBA, Marketing, 2010 - 2012...",
+          "impact": "Redacting degree info obscures qualifications, likely lowering candidate ranking."
+        },
+        {
+          "page": 0,
+          "block_index": 15,
+          "content_preview": "Consumer Behavior\nBrand Management\nAdvertising...",
+          "impact": "Removing skills diminishes keyword matches and ATS screening success."
+        },
+        {
+          "page": 2,
+          "block_index": 3,
+          "content_preview": "Contact Sachin on LinkedIn",
+          "impact": "Redacting the call-to-action reduces discoverability and outreach."
+        }
+      ]
+    },
+    "image_surface": {
+      "image_count": 0,
+      "images": []
+    },
+    "structure_surface": {
+      "has_forms": false,
+      "has_javascript": false,
+      "has_annotations": false,
+      "has_layers": false,
+      "has_embedded_files": false,
+      "has_links": false,
+      "links": [],
+      "font_diversity": "low"
+    }
+  },
+  "downstream_consumers": [
+    {
+      "consumer": "automated_decision_system",
+      "processing_path": "byte_extraction",
+      "reliance_on_text": "high",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Keyword-based ATS may be manipulated by injected/altered skills or dates."
+    },
+    {
+      "consumer": "human_reviewer",
+      "processing_path": "byte_extraction",
+      "reliance_on_text": "high",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Hidden text in margins/footers could pass unnoticed, skewing quick reads."
+    },
+    {
+      "consumer": "search_index",
+      "processing_path": "byte_extraction",
+      "reliance_on_text": "high",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "Injected invisible keywords can poison indexing and ranking."
+    },
+    {
+      "consumer": "MLLM_summarizer",
+      "processing_path": "hybrid",
+      "reliance_on_text": "high",
+      "reliance_on_images": "low",
+      "vulnerability_notes": "May overfit to dense skill lists and miss that the LinkedIn call-to-action lacks a real link."
+    }
+  ],
+  "risk_profile": {
+    "primary_risks": [
+      "leak_sensitive_data",
+      "spread_misinformation"
+    ],
+    "domain_specific_risks": "Falsified degrees/skills can mislead recruiters and ATS; altered email could divert job communications, enabling impersonation.",
+    "overall_risk_level": "medium"
+  }
+}

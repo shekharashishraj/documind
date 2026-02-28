@@ -1,0 +1,98 @@
+## Sachin Farfad
+
+| Student at S.G.B.A.U. Amravati f_sachin@yahoo.co.in                                                                                                                                   | Student at S.G.B.A.U. Amravati f_sachin@yahoo.co.in                                                                                                                                   |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Summary                                                                                                                                                                               | Summary                                                                                                                                                                               |
+| I have good organising Skill. Activate in various social activities. Extensive thinking abilities. enterprenuership skills. final objectives is to become a sucessfull Enthraprenuer. | I have good organising Skill. Activate in various social activities. Extensive thinking abilities. enterprenuership skills. final objectives is to become a sucessfull Enthraprenuer. |
+| Specialties                                                                                                                                                                           | Specialties                                                                                                                                                                           |
+| english, hindi, microsoft windows, microsoft windows xp, operating systems, vista,                                                                                                    | english, hindi, microsoft windows, microsoft windows xp, operating systems, vista,                                                                                                    |
+| Volunteer Experience                                                                                                                                                                  | Volunteer Experience                                                                                                                                                                  |
+| Volenteer at India Against Corrouption March 2010 - Present (2 years 1 month)                                                                                                         | Volenteer at India Against Corrouption March 2010 - Present (2 years 1 month)                                                                                                         |
+| Projects                                                                                                                                                                              | Projects                                                                                                                                                                              |
+| Comparative Study of Ameron & Exide Battries in Amravati August 2011 to Present Members: Sachin Farfad Trying to explore Battriese Market                                             | Comparative Study of Ameron & Exide Battries in Amravati August 2011 to Present Members: Sachin Farfad Trying to explore Battriese Market                                             |
+| English Marathi Hindi                                                                                                                                                                 | (Professional working proficiency) (Full professional proficiency) (Full professional proficiency)                                                                                    |
+| Skills & Expertise                                                                                                                                                                    | Skills & Expertise                                                                                                                                                                    |
+| Consumer Behavior Brand Management                                                                                                                                                    | Consumer Behavior Brand Management                                                                                                                                                    |
+| Advertising                                                                                                                                                                           | Advertising                                                                                                                                                                           |
+| English                                                                                                                                                                               | English                                                                                                                                                                               |
+| Windows Operating Systems                                                                                                                                                             | Windows Operating Systems                                                                                                                                                             |
+| XP Hindi                                                                                                                                                                              | XP Hindi                                                                                                                                                                              |
+| Microsoft Office                                                                                                                                                                      | Microsoft Office                                                                                                                                                                      |
+| Market Research                                                                                                                                                                       | Market Research                                                                                                                                                                       |
+| Customer Relations                                                                                                                                                                    | Customer Relations                                                                                                                                                                    |
+
+Business Strategy
+
+Excel
+
+Word
+
+Team Management
+
+Competitive Analysis
+
+Product Development
+
+Data Analysis
+
+Database Administration
+
+PowerPoint
+
+Strategic Planning
+
+Research
+
+New Business Development
+
+Budgeting
+
+Event Management
+
+Retail
+
+Marketing Strategy
+
+Project Planning
+
+Business Planning
+
+Online Marketing
+
+Problem Solving
+
+Web Development
+
+## Education
+
+## Amravati University
+
+MBA, Marketing, 2010 - 2012
+
+Activities and Societies:
+
+Social Marketing Cell, Enterprenuership Development Cell
+
+## Amravati University
+
+M.B.A; S.G.B, Marketing, 2010 - 2012
+
+Nagpur University
+
+B.C.A; M, 2009
+
+## Hutatama Rastriya Vidhyalaya Ashti
+
+H.S.S.C, 2003 - 2005
+
+## Lokmanya Vidhyliya, Ashti
+
+10th, School Education, 1998 - 2003
+
+## Interests
+
+New Technology, Adventures Sports, Playing Chess, Social &amp; Political Activities, Business.
+
+<!-- image -->
+
+## Contact Sachin on LinkedIn

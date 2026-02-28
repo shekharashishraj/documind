@@ -8,7 +8,10 @@ import logging
 from pathlib import Path
 from typing import Any
 
+from pydantic import ValidationError
+
 from core.stage2.prompts import STAGE2_SYSTEM_PROMPT
+from core.stage2.schemas import Stage2Analysis
 
 log = logging.getLogger(__name__)
 
@@ -100,7 +103,7 @@ def _build_user_content(
 def run_stage2_openai(
     base_dir: str | Path,
     *,
-    model: str = "gpt-4o",
+    model: str = "gpt-5-2025-08-07",
     api_key: str | None = None,
     system_prompt: str | None = None,
 ) -> dict[str, Any]:
@@ -109,6 +112,8 @@ def run_stage2_openai(
     Writes base_dir/stage2/openai/analysis.json and returns the parsed result + paths.
     """
     base_dir = Path(base_dir)
+    out_path = base_dir / "stage2" / "openai" / "analysis.json"
+    log.info("Stage 2: base_dir=%s, output path=%s", base_dir, out_path)
     doc_text, pages_summary, image_paths = _load_step1_artifacts(base_dir)
 
     try:
@@ -130,20 +135,44 @@ def run_stage2_openai(
         model=model,
         messages=messages,
         response_format={"type": "json_object"},
-        max_completion_tokens=4096,
+        max_completion_tokens=16384,
     )
 
-    raw_content = response.choices[0].message.content
+    # Log raw response shape for debugging empty content
+    num_choices = len(response.choices) if response.choices else 0
+    log.debug("Stage 2: API response id=%s, choices=%s", getattr(response, "id", None), num_choices)
+    if response.choices:
+        c0 = response.choices[0]
+        msg = c0.message
+        finish = getattr(c0, "finish_reason", None)
+        raw_content = msg.content if msg else None
+        log.debug("Stage 2: choice[0] finish_reason=%s, message.content len=%s", finish, len(raw_content) if raw_content else 0)
+        if not raw_content:
+            log.error(
+                "Stage 2: OpenAI returned empty content; finish_reason=%s, message=%s",
+                finish,
+                msg.model_dump() if hasattr(msg, "model_dump") else str(msg),
+            )
+    else:
+        raw_content = None
+        log.error("Stage 2: OpenAI returned no choices; response id=%s", getattr(response, "id", None))
+
     if not raw_content:
+        log.error("Stage 2: OpenAI returned empty content")
         raise ValueError("OpenAI returned empty content")
 
     analysis = json.loads(raw_content)
+    try:
+        Stage2Analysis.model_validate(analysis)
+    except ValidationError as e:
+        log.exception("Stage 2 validation failed: %s", e)
+        raise
 
     out_dir = base_dir / "stage2" / "openai"
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / "analysis.json"
     out_path.write_text(json.dumps(analysis, indent=2), encoding="utf-8")
-    log.info("Stage 2: wrote %s", out_path)
+    log.info("Stage 2 completed: output_path=%s", out_path)
 
     usage = None
     if getattr(response, "usage", None) is not None:

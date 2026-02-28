@@ -8,7 +8,10 @@ import re
 from pathlib import Path
 from typing import Any
 
+from pydantic import ValidationError
+
 from core.stage3.prompts import STAGE3_SYSTEM_PROMPT
+from core.stage3.schemas import ManipulationPlan
 
 log = logging.getLogger(__name__)
 
@@ -17,6 +20,126 @@ STRUCTURE_MAX_CHARS = 25_000
 
 # Filename pattern: page_<i>_img_<j>_x<xref>.<ext>
 IMAGE_FNAME_PATTERN = re.compile(r"page_(\d+)_img_\d+_x(\d+)\.\w+", re.IGNORECASE)
+
+VALID_SEMANTIC_STRATEGIES = {"append", "update", "delete"}
+VALID_INJECTION_STRATEGIES = {"addition", "modification", "redaction"}
+VALID_INJECTION_MECHANISMS = {"hidden_text_injection", "font_glyph_remapping", "visual_overlay"}
+
+SEMANTIC_BY_INJECTION_STRATEGY = {
+    "addition": "append",
+    "modification": "update",
+    "redaction": "delete",
+}
+
+INJECTION_STRATEGY_BY_SEMANTIC = {
+    "append": "addition",
+    "update": "modification",
+    "delete": "redaction",
+}
+
+ALLOWED_MECHANISMS_BY_SEMANTIC = {
+    "append": {"hidden_text_injection"},
+    "update": {"font_glyph_remapping", "visual_overlay"},
+    "delete": {"font_glyph_remapping", "visual_overlay"},
+}
+
+
+def _default_mechanism_for_attack(semantic: str, technique: str) -> str:
+    if semantic == "append":
+        return "hidden_text_injection"
+    if semantic in {"update", "delete"} and technique == "font_glyph_remapping":
+        return "font_glyph_remapping"
+    return "visual_overlay"
+
+
+def _canonicalize_text_attack_fields(plan: dict[str, Any]) -> dict[str, Any]:
+    """
+    Canonicalize text attack semantic/mechanism fields so Stage 4 can execute deterministically.
+
+    Requirements:
+    - Every text_attack must end with semantic_edit_strategy + injection_mechanism + injection_strategy.
+    - semantic_edit_strategy and injection_strategy are always coupled by paper mapping.
+    - injection_mechanism is constrained by semantic_edit_strategy.
+    """
+    text_attacks = plan.get("text_attacks")
+    if text_attacks is None:
+        return plan
+    if not isinstance(text_attacks, list):
+        raise ValueError("Stage 3 plan is invalid: 'text_attacks' must be a list.")
+
+    for i, attack in enumerate(text_attacks):
+        if not isinstance(attack, dict):
+            raise ValueError(f"Stage 3 plan is invalid: text_attacks[{i}] must be an object.")
+
+        attack_id = str(attack.get("attack_id") or f"index_{i + 1}")
+        semantic_raw = str(attack.get("semantic_edit_strategy") or "").strip().lower()
+        mechanism_raw = str(attack.get("injection_mechanism") or "").strip().lower()
+        strategy_raw = str(attack.get("injection_strategy") or "").strip().lower()
+        technique = str(attack.get("technique") or "").strip().lower()
+
+        semantic = semantic_raw or None
+        if semantic is not None and semantic not in VALID_SEMANTIC_STRATEGIES:
+            raise ValueError(
+                f"Stage 3 plan is invalid for {attack_id}: semantic_edit_strategy='{semantic_raw}' "
+                "must be append|update|delete."
+            )
+
+        strategy = strategy_raw or None
+        if strategy is not None and strategy not in VALID_INJECTION_STRATEGIES:
+            raise ValueError(
+                f"Stage 3 plan is invalid for {attack_id}: injection_strategy='{strategy_raw}' "
+                "must be addition|modification|redaction."
+            )
+
+        if semantic is None:
+            if strategy is None:
+                raise ValueError(
+                    f"Stage 3 plan is invalid for {attack_id}: missing both semantic_edit_strategy "
+                    "and injection_strategy."
+                )
+            semantic = SEMANTIC_BY_INJECTION_STRATEGY[strategy]
+            log.warning(
+                "Stage 3 planner omitted semantic_edit_strategy for %s; inferred '%s' from injection_strategy.",
+                attack_id,
+                semantic,
+            )
+
+        canonical_strategy = INJECTION_STRATEGY_BY_SEMANTIC[semantic]
+        if strategy is not None and strategy != canonical_strategy:
+            log.warning(
+                "Stage 3 planner mismatch for %s: semantic=%s but injection_strategy=%s. "
+                "Canonicalizing injection_strategy to %s.",
+                attack_id,
+                semantic,
+                strategy,
+                canonical_strategy,
+            )
+        strategy = canonical_strategy
+
+        mechanism = mechanism_raw or None
+        if mechanism is not None and mechanism not in VALID_INJECTION_MECHANISMS:
+            raise ValueError(
+                f"Stage 3 plan is invalid for {attack_id}: injection_mechanism='{mechanism_raw}' "
+                "must be hidden_text_injection|font_glyph_remapping|visual_overlay."
+            )
+
+        allowed = ALLOWED_MECHANISMS_BY_SEMANTIC[semantic]
+        if mechanism not in allowed:
+            if mechanism is not None:
+                log.warning(
+                    "Stage 3 planner mismatch for %s: semantic=%s but mechanism=%s. "
+                    "Canonicalizing mechanism using paper mapping.",
+                    attack_id,
+                    semantic,
+                    mechanism,
+                )
+            mechanism = _default_mechanism_for_attack(semantic, technique)
+
+        attack["semantic_edit_strategy"] = semantic
+        attack["injection_strategy"] = strategy
+        attack["injection_mechanism"] = mechanism
+
+    return plan
 
 
 def _load_stage2_analysis(base_dir: Path) -> dict[str, Any]:
@@ -95,7 +218,7 @@ def _build_user_message(analysis: dict[str, Any], structure_summary: str, images
 def run_stage3_openai(
     base_dir: str | Path,
     *,
-    model: str = "gpt-4o",
+    model: str = "gpt-5-2025-08-07",
     api_key: str | None = None,
     system_prompt: str | None = None,
 ) -> dict[str, Any]:
@@ -104,6 +227,8 @@ def run_stage3_openai(
     Writes base_dir/stage3/openai/manipulation_plan.json and returns the parsed result.
     """
     base_dir = Path(base_dir)
+    out_path = base_dir / "stage3" / "openai" / "manipulation_plan.json"
+    log.info("Stage 3: base_dir=%s, output path=%s", base_dir, out_path)
     analysis = _load_stage2_analysis(base_dir)
     structure_summary = _load_structure_summary(base_dir)
     images_list = _load_images_list(base_dir)
@@ -127,14 +252,39 @@ def run_stage3_openai(
         model=model,
         messages=messages,
         response_format={"type": "json_object"},
-        max_completion_tokens=8192,
+        max_completion_tokens=16384,
     )
 
-    raw_content = response.choices[0].message.content
+    # Log raw response shape for debugging empty content
+    num_choices = len(response.choices) if response.choices else 0
+    log.debug("Stage 3: API response id=%s, choices=%s", getattr(response, "id", None), num_choices)
+    if response.choices:
+        c0 = response.choices[0]
+        msg = c0.message
+        finish = getattr(c0, "finish_reason", None)
+        raw_content = msg.content if msg else None
+        log.debug("Stage 3: choice[0] finish_reason=%s, message.content len=%s", finish, len(raw_content) if raw_content else 0)
+        if not raw_content:
+            log.error(
+                "Stage 3: OpenAI returned empty content; finish_reason=%s, message=%s",
+                finish,
+                msg.model_dump() if hasattr(msg, "model_dump") else str(msg),
+            )
+    else:
+        raw_content = None
+        log.error("Stage 3: OpenAI returned no choices; response id=%s", getattr(response, "id", None))
+
     if not raw_content:
+        log.error("Stage 3: OpenAI returned empty content")
         raise ValueError("OpenAI returned empty content")
 
     result = json.loads(raw_content)
+    result = _canonicalize_text_attack_fields(result)
+    try:
+        ManipulationPlan.model_validate(result)
+    except ValidationError as e:
+        log.exception("Stage 3 validation failed: %s", e)
+        raise
 
     # Count total attack items across all categories
     text_attacks = result.get("text_attacks", [])
@@ -147,7 +297,7 @@ def run_stage3_openai(
     out_path = out_dir / "manipulation_plan.json"
     out_path.write_text(json.dumps(result, indent=2), encoding="utf-8")
     log.info(
-        "Stage 3: wrote %s (%s text, %s image, %s structural attacks)",
+        "Stage 3 completed: output_path=%s (%s text, %s image, %s structural attacks)",
         out_path, len(text_attacks), len(image_attacks), len(structural_attacks),
     )
 

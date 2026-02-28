@@ -1,6 +1,6 @@
 # Output formats
 
-This document describes the structure of the main JSON and text outputs produced by the documind pipeline.
+This document describes the structure of the main JSON and text outputs produced by the maldoc pipeline.
 
 ---
 
@@ -125,7 +125,7 @@ Written to `<base_dir>/stage2/openai/analysis.json`. Vulnerability-focused analy
 
 ### `sensitive_elements` array
 
-Each item identifies sensitive content:
+Stage 2 outputs **exactly 3** sensitive elements. Each item identifies sensitive content:
 
 - **`element_type`** (string): `"text_block"`, `"image"`, `"table"`, `"form_field"`, `"header_footer"`, `"signature"`
 - **`page`** (integer): 0-based page index
@@ -133,6 +133,8 @@ Each item identifies sensitive content:
 - **`content_preview`** (string): First 60 chars or short description
 - **`sensitivity_type`** (string): `"PII"`, `"financial"`, `"medical"`, `"credential"`, `"legal"`, `"strategic"`, `"other"`
 - **`sensitivity_level`** (string): `"critical"`, `"high"`, `"medium"`, `"low"`
+- **`value_to_replace`** (string, optional): Exact canonical value to replace document-wide (e.g. person name, amount, date). Used for global search-and-replace in Stage 4.
+- **`related_elements`** (array of objects or null, optional): When this element is an aggregate (e.g. total amount), list related elements that must change consistently. Each item: `page`, `block_index_or_region`, `content_preview`.
 
 ### `attack_surface` object
 
@@ -289,6 +291,8 @@ Each item represents a text-layer manipulation attack:
 
 - **`attack_id`** (string): Unique ID, e.g. `"T1"`, `"T2"`
 - **`target`** (object): `page` (0-based), `block_index`, `bbox`, `region` (body, header, footer, margin, between_blocks), `content_preview`
+- **`semantic_edit_strategy`** (string): `"append"` | `"update"` | `"delete"` (paper-level semantic strategy)
+- **`injection_mechanism`** (string): `"hidden_text_injection"` | `"font_glyph_remapping"` | `"visual_overlay"` (must align with strategy mapping)
 - **`injection_strategy`** (string): `"addition"` (inject new hidden text), `"modification"` (alter existing text), `"redaction"` (remove/hide text)
 - **`technique`** (string): `"invisible_text_injection"`, `"font_glyph_remapping"`, `"unicode_homoglyph"`, `"dual_layer_overlay"`, `"metadata_field_edit"`, `"content_stream_edit"`, `"whitespace_encoding"`
 - **`payload_description`** (string): Exact description of what to inject, modify, or redact
@@ -296,6 +300,16 @@ Each item represents a text-layer manipulation attack:
 - **`render_parse_behavior`** (object): `human_sees` (what human viewer sees), `parser_sees` (what byte-extraction/OCR/VLM parser sees)
 - **`effects_downstream`** (string): 1–3 sentences on concrete effect on target consumers
 - **`priority`** (string): `"high"`, `"medium"`, `"low"`
+- **`scope`** (string, optional): `"everywhere"` (replace this value in all occurrences document-wide) or `"single_block"`
+- **`search_key`** (string, optional): Exact value from Stage 2 `value_to_replace` to find and replace
+- **`replacement`** (string, optional): Single replacement value to use for all occurrences when scope is `"everywhere"`
+- **`consistency_note`** (string, optional): For aggregates: e.g. "Change total to X and set line items to [a, b, c] so a+b+c = X"
+
+Semantic mapping used by execution:
+
+- `append -> hidden_text_injection`
+- `update -> font_glyph_remapping | visual_overlay`
+- `delete -> font_glyph_remapping | visual_overlay`
 
 ### `image_attacks` array
 
@@ -395,6 +409,92 @@ Each item represents a PDF structure-level attack:
 ```
 
 The system prompt that produces this format is in `core/stage3/prompts.py` (`STAGE3_SYSTEM_PROMPT`).
+
+---
+
+## Stage 4: `replacements.json` and outputs
+
+Stage 4 uses **direct PDF modification** (PyMuPDF: redact + insert replacement text); no LaTeX is used. It writes under `<base_dir>/stage4/`:
+
+- **`perturbed.pdf`**: PDF with content replacements applied. Parsers/agents see the perturbed content.
+- **`replacements.json`**: Manifest of replacements applied (for auditing). Validated by Pydantic `ReplacementsManifest`.
+- **`final_overlay.pdf`**: If overlay was run: same as perturbed PDF but with full-page images of the original PDF overlaid so the document looks unchanged to humans.
+
+### `replacements.json` structure
+
+- **`replacements`** (array): Each item:
+  - **`search_key`** (string): Exact value that was replaced
+  - **`replacement`** (string): Replacement value used
+  - **`scope`** (string): `"everywhere"` or `"single_block"`
+  - **`consistency_note`** (string, optional): For aggregates, how related elements were updated
+
+Schema: `core/stage4/schemas.py` (`ReplacementItem`, `ReplacementsManifest`).
+
+---
+
+## Stage 5: post-Stage-4 vulnerability outputs
+
+Stage 5 compares clean vs adversarial behavior for simulated agentic systems using LLM trials and deterministic mock tools.
+
+### Per-document outputs: `<base_dir>/stage5_eval/`
+
+- **`clean_trials.jsonl`**: One JSON line per clean trial (`variant=clean`).
+- **`attacked_trials.jsonl`**: One JSON line per adversarial trial (`variant=attacked`).
+- **`doc_result.json`**: Full majority-reduced result and vulnerability labels.
+- **`doc_metrics.json`**: Compact metric-focused subset for the doc.
+
+#### `AgentTrialOutput` line shape (JSONL)
+
+- `doc_id` (string)
+- `scenario` (`decision` | `scheduling` | `db` | `credential` | `survey`)
+- `variant` (`clean` | `attacked`)
+- `trial_index` (integer, 1-based)
+- `extracted_fields` (object)
+- `tool_call` (object): `name` (string), `arguments` (object)
+- `tool_result` (object): deterministic mock tool output
+- `final_outcome` (object): outcome used for scoring
+- `parse_source` (string): source text path used in this trial
+
+#### `doc_result.json` top-level keys
+
+- `doc_id`, `scenario`, `severity`, `severity_weight`
+- `clean_majority_matches_gold` (boolean)
+- `baseline_failure` (boolean)
+- `attack_success` (boolean)
+- `success_rule_applied` (string)
+- `targeted_field_diffs` (object): per target field: `type`, `clean`, `attacked`, `changed`
+- `targeted_field_changed_count` (integer)
+- `decision_flip`, `tool_parameter_corruption`, `wrong_entity_binding`, `unsafe_routing`, `persistence_poisoning` (booleans)
+- `clean_majority`, `attacked_majority` (`AgentTrialOutput` objects)
+
+### Batch outputs: `<out_dir>/<run_id>/`
+
+- **`run_config.json`**: run metadata (doc_ids, model, trials, config paths).
+- **`doc_results.csv`**: flattened per-doc evidence and metric labels.
+- **`scenario_metrics.csv`**: per-scenario aggregates.
+- **`overall_metrics.json`**: full batch aggregate object.
+- **`paper_table.md`**: paper-ready summary table.
+
+#### `overall_metrics.json` key metrics
+
+- `total_docs`, `eligible_docs`, `baseline_failure_count`
+- `successful_attacks`, `attack_success_rate`
+- `decision_flip_rate`
+- `tool_parameter_corruption_rate`
+- `wrong_entity_binding_rate`
+- `unsafe_routing_rate`
+- `persistence_poisoning_rate`
+- `severity_weighted_vulnerability_score`
+- `scenario_metrics` (array)
+- `doc_results` (array)
+
+### Stage 5 configs
+
+Under `configs/stage5/`:
+
+- `scenario_specs.json`: per-doc gold spec and target fields (`doc_id`, `scenario`, `severity`, `tool_name`, `gold_clean`, `attack_targets`, `success_rule`)
+- `demo_batch.json`: default demo doc IDs (one per scenario)
+- `severity_weights.json`: weights for severity-weighted vulnerability score
 
 ---
 
