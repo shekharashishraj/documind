@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
 import { useAppState } from "./AppContext.js";
 import { apiGet } from "./api.js";
 import { DEFAULT_PIPELINE_RUN_ROOT } from "./constants.js";
@@ -40,7 +40,7 @@ const VECTOR_LABELS = {
 };
 
 /* ── Pipeline Run Card (MalDoc creation) ──────────────────── */
-function PipelineRunCard({ doc }) {
+function PipelineRunCard({ doc, onClick }) {
   const status    = doc.stage_status || {};
   const scenario  = doc.scenario;
   const scenMeta  = scenario
@@ -50,7 +50,7 @@ function PipelineRunCard({ doc }) {
   const completedCount = STAGE_STEPS.filter(s => status[s.key]).length;
   const allDone        = completedCount === STAGE_STEPS.length;
 
-  return h("article", { className: `pipeline-run-card${allDone ? " all-done" : ""}` },
+  return h("article", { className: `pipeline-run-card${allDone ? " all-done" : ""}`, onClick },
     /* Top row */
     h("div", { className: "pipeline-run-card-top" },
       h("span", { className: "run-card-icon" }, scenMeta.icon),
@@ -73,11 +73,114 @@ function PipelineRunCard({ doc }) {
       ),
     ),
 
-    /* Footer hint */
+    /* Footer */
     h("div", { className: "pipeline-run-card-footer" },
       allDone
         ? h("span", { className: "pipeline-run-status done" }, "✓ Complete")
         : h("span", { className: "pipeline-run-status partial" }, `Running stage ${completedCount + 1}…`),
+      h("button", { className: "btn-run-detail", onClick: (e) => { e.stopPropagation(); onClick(); } }, "View Details →"),
+    ),
+  );
+}
+
+/* ── Pipeline Detail Drawer ────────────────────────────────── */
+function PipelineDetailDrawer({ doc, onClose }) {
+  const [detail, setDetail] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const scenario  = doc.scenario;
+  const scenMeta  = scenario
+    ? (SCENARIO_META[scenario.scenario] || { label: scenario.scenario_label || scenario.scenario || "Unknown", icon: "📋", color: "#6366f1" })
+    : { label: "Unknown", icon: "📋", color: "#6366f1" };
+  const status    = doc.stage_status || {};
+  const completedCount = STAGE_STEPS.filter(s => status[s.key]).length;
+
+  useEffect(() => {
+    apiGet(`/api/doc/${encodeURIComponent(doc.doc_id)}/detail`)
+      .then(d => { setDetail(d); setLoading(false); })
+      .catch(() => setLoading(false));
+  }, [doc.doc_id]);
+
+  const analysis = detail?.analysis;
+  const plan     = detail?.plan;
+  const risks    = (analysis?.risk_profile?.primary_risks) || [];
+
+  return h("div", { className: "run-detail-overlay", onClick: (e) => { if (e.target.className === "run-detail-overlay") onClose(); } },
+    h("div", { className: "run-detail-drawer" },
+
+      /* Header */
+      h("div", { className: "run-detail-header" },
+        h("div", { className: "run-detail-title-row" },
+          h("span", { className: "run-detail-icon" }, scenMeta.icon),
+          h("div", null,
+            h("h3", null, scenMeta.label),
+            h("code", { className: "run-detail-docid" }, doc.doc_id || ""),
+          ),
+        ),
+        h("div", { className: "run-detail-header-right" },
+          h("span", { className: "pipeline-run-progress-badge" }, `${completedCount}/${STAGE_STEPS.length} stages`),
+          h("button", { className: "run-detail-close", onClick: onClose }, "×"),
+        ),
+      ),
+
+      /* Body */
+      h("div", { className: "run-detail-body" },
+
+        /* Stage status strip */
+        h("div", { className: "pipeline-drawer-stage-bar" },
+          STAGE_STEPS.map(s =>
+            h("div", { key: s.key, className: `pipeline-drawer-stage-step${status[s.key] ? " done" : " pending"}` },
+              h("div", { className: "pipeline-drawer-stage-dot" }, status[s.key] ? "✓" : "○"),
+              h("div", { className: "pipeline-drawer-stage-label" }, s.label),
+            ),
+          ),
+        ),
+
+        loading && h("div", { className: "pipeline-detail-loading" }, "Loading details…"),
+
+        /* Analysis summary */
+        !loading && analysis && h("div", { className: "run-detail-section" },
+          h("h4", null, "Vulnerability Analysis"),
+          analysis.domain && h("div", { className: "pipeline-detail-meta" },
+            h("span", { className: "pipeline-detail-key" }, "Domain"),
+            h("span", { className: "pipeline-detail-val" }, analysis.domain),
+          ),
+          analysis.summary && h("p", { className: "pipeline-detail-summary" }, analysis.summary),
+          h("div", { className: "pipeline-detail-meta" },
+            h("span", { className: "pipeline-detail-key" }, "Sensitive Elements"),
+            h("span", { className: "pipeline-detail-val" }, analysis.sensitive_element_count ?? 0),
+          ),
+          risks.length > 0 && h("div", { className: "pipeline-risk-tags" },
+            risks.map((r, i) => h("span", { key: i, className: "risk-tag" }, r)),
+          ),
+        ),
+
+        /* Attack plan summary */
+        !loading && plan && h("div", { className: "run-detail-section" },
+          h("h4", null, "Manipulation Plan"),
+          plan.document_threat_model?.attacker_goal && h("p", { className: "pipeline-detail-summary" },
+            h("strong", null, "Goal: "), plan.document_threat_model.attacker_goal,
+          ),
+          h("div", { className: "pipeline-attack-counts" },
+            h("div", { className: "pipeline-attack-stat" },
+              h("span", { className: "pipeline-attack-val" }, plan.text_attack_count ?? 0),
+              h("span", { className: "pipeline-attack-label" }, "Text Attacks"),
+            ),
+            h("div", { className: "pipeline-attack-stat" },
+              h("span", { className: "pipeline-attack-val" }, plan.image_attack_count ?? 0),
+              h("span", { className: "pipeline-attack-label" }, "Image Attacks"),
+            ),
+            h("div", { className: "pipeline-attack-stat" },
+              h("span", { className: "pipeline-attack-val" }, plan.structural_attack_count ?? 0),
+              h("span", { className: "pipeline-attack-label" }, "Structural Attacks"),
+            ),
+          ),
+        ),
+
+        !loading && !analysis && !plan && h("p", { className: "pipeline-detail-summary", style: { color: "var(--text-secondary)" } },
+          "No stage 2 or stage 3 output available yet for this run.",
+        ),
+      ),
     ),
   );
 }
@@ -247,9 +350,10 @@ function RunCard({ run, onClick }) {
 /* ── RunsTab ───────────────────────────────────────────────── */
 export default function RunsTab() {
   const { state, dispatch } = useAppState();
-  const evalRuns      = state.runs || [];
-  const [pipelineDocs, setPipelineDocs] = useState([]);
-  const [selected, setSelected]         = useState(null);
+  const evalRuns           = state.runs || [];
+  const [pipelineDocs, setPipelineDocs]         = useState([]);
+  const [selected, setSelected]                 = useState(null);
+  const [selectedPipeline, setSelectedPipeline] = useState(null);
 
   const refreshAll = useCallback(async () => {
     const root = encodeURIComponent(state.baseRoot || DEFAULT_PIPELINE_RUN_ROOT);
@@ -300,7 +404,7 @@ export default function RunsTab() {
           )
         : h("div", { className: "runs-grid" },
             pipelineDocs.map((doc, i) =>
-              h(PipelineRunCard, { key: doc.doc_id || i, doc }),
+              h(PipelineRunCard, { key: doc.doc_id || i, doc, onClick: () => setSelectedPipeline(doc) }),
             ),
           ),
     ),
@@ -329,6 +433,7 @@ export default function RunsTab() {
           ),
     ),
 
-    selected && h(RunDetailDrawer, { run: selected, onClose: () => setSelected(null) }),
+    selected         && h(RunDetailDrawer,      { run: selected,           onClose: () => setSelected(null) }),
+    selectedPipeline && h(PipelineDetailDrawer, { doc: selectedPipeline,   onClose: () => setSelectedPipeline(null) }),
   );
 }

@@ -192,6 +192,46 @@ def get_scenario_for_doc(doc_id: str) -> dict[str, Any] | None:
     return payload
 
 
+def resolve_scenario_for_doc(doc_id: str, base_dir: Path | None = None) -> dict[str, Any] | None:
+    """Like get_scenario_for_doc but with three fallback strategies.
+
+    1. Exact match in scenario_specs.json
+    2. Strip trailing _[hex6] collision suffix and retry
+    3. Read scenario key from stage5_eval/doc_metrics.json or agent_backend_eval/doc_metrics.json
+    """
+    import re
+
+    # 1. Exact match
+    result = get_scenario_for_doc(doc_id)
+    if result:
+        return result
+
+    # 2. Strip _[a-f0-9]{6} suffix (collision-avoidance variants)
+    stripped = re.sub(r"_[a-f0-9]{6}$", "", doc_id)
+    if stripped != doc_id:
+        result = get_scenario_for_doc(stripped)
+        if result:
+            return result
+
+    # 3. Read scenario field from doc_metrics.json on disk
+    if base_dir is not None:
+        for rel in ("agent_backend_eval/doc_metrics.json", "stage5_eval/doc_metrics.json"):
+            metrics_path = Path(base_dir) / rel
+            if metrics_path.is_file():
+                try:
+                    payload = json.loads(metrics_path.read_text(encoding="utf-8"))
+                    scenario_key = payload.get("scenario")
+                    if scenario_key:
+                        return {
+                            "scenario": scenario_key,
+                            "scenario_label": SCENARIO_LABELS.get(scenario_key, scenario_key),
+                        }
+                except Exception:
+                    pass
+
+    return None
+
+
 def get_doc_id_for_scenario(scenario: str) -> str | None:
     """Return a canonical document ID for one scenario."""
     scenario_key = str(scenario or "").strip().lower()

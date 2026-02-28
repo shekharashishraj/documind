@@ -25,6 +25,7 @@ from core.demo.service import (
     collect_stage5_doc_runs,
     get_doc_stage_status,
     get_scenario_for_doc,
+    resolve_scenario_for_doc,
     list_pdf_candidates,
     list_processed_doc_dirs,
     list_stage5_batch_reports,
@@ -231,7 +232,7 @@ def docs(base_root: str = Query(str(PIPELINE_RUN_ROOT))) -> dict[str, Any]:
         items = []
         for doc_dir in list_processed_doc_dirs(base_root):
             doc_id = doc_dir.name
-            spec = get_scenario_for_doc(doc_id)
+            spec = resolve_scenario_for_doc(doc_id, doc_dir)
             items.append(
                 {
                     "doc_id": doc_id,
@@ -244,6 +245,54 @@ def docs(base_root: str = Query(str(PIPELINE_RUN_ROOT))) -> dict[str, Any]:
     except Exception as exc:
         log.exception("Failed listing docs: %s", exc)
         raise HTTPException(status_code=500, detail=str(exc))
+
+
+@app.get("/api/doc/{doc_id}/detail")
+def doc_detail(doc_id: str, base_root: str = Query(str(PIPELINE_RUN_ROOT))) -> dict[str, Any]:
+    """Return enriched detail for a single pipeline run (for the drawer view)."""
+    import json as _json
+    base_dir = Path(base_root) / doc_id
+    if not base_dir.is_dir():
+        raise HTTPException(status_code=404, detail=f"Document directory not found: {base_dir}")
+
+    result: dict[str, Any] = {
+        "doc_id": doc_id,
+        "base_dir": str(base_dir.resolve()),
+        "stage_status": get_doc_stage_status(base_dir),
+        "scenario": resolve_scenario_for_doc(doc_id, base_dir),
+        "analysis": None,
+        "plan": None,
+    }
+
+    # Stage 2: vulnerability analysis summary
+    analysis_path = base_dir / "stage2" / "openai" / "analysis.json"
+    if analysis_path.is_file():
+        try:
+            data = _json.loads(analysis_path.read_text(encoding="utf-8"))
+            result["analysis"] = {
+                "summary": data.get("summary"),
+                "domain": data.get("domain"),
+                "sensitive_element_count": len(data.get("sensitive_elements") or []),
+                "risk_profile": data.get("risk_profile"),
+            }
+        except Exception:
+            pass
+
+    # Stage 3: manipulation plan summary
+    plan_path = base_dir / "stage3" / "openai" / "manipulation_plan.json"
+    if plan_path.is_file():
+        try:
+            data = _json.loads(plan_path.read_text(encoding="utf-8"))
+            result["plan"] = {
+                "document_threat_model": data.get("document_threat_model"),
+                "text_attack_count": len(data.get("text_attacks") or []),
+                "image_attack_count": len(data.get("image_attacks") or []),
+                "structural_attack_count": len(data.get("structural_attacks") or []),
+            }
+        except Exception:
+            pass
+
+    return result
 
 
 @app.get("/api/doc/{doc_id}/status")

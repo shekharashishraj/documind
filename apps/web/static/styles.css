@@ -2780,3 +2780,146 @@ footer code { background: var(--bg-elevated); padding: 2px 6px; border-radius: 4
 .pipeline-run-status.partial {
   color: var(--text-secondary);
 }
+
+/* ── Pipeline card footer flex ──────────────────────────────── */
+.pipeline-run-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+/* ── Pipeline Detail Drawer stage bar ──────────────────────── */
+.pipeline-drawer-stage-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.pipeline-drawer-stage-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 6px 8px;
+  border-radius: 10px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+}
+
+.pipeline-drawer-stage-step.done {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.pipeline-drawer-stage-dot {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  line-height: 1;
+}
+
+.pipeline-drawer-stage-step.done .pipeline-drawer-stage-dot { color: #10b981; }
+
+.pipeline-drawer-stage-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+.pipeline-drawer-stage-step.done .pipeline-drawer-stage-label { color: #10b981; }
+
+/* ── Pipeline Detail body sections ─────────────────────────── */
+.pipeline-detail-loading {
+  color: var(--text-secondary);
+  font-size: 13px;
+  padding: 16px 0;
+}
+
+.pipeline-detail-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.pipeline-detail-key {
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  min-width: 120px;
+}
+
+.pipeline-detail-val {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.pipeline-detail-summary {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 6px 0 0;
+}
+
+/* ── Risk tags ──────────────────────────────────────────────── */
+.pipeline-risk-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.risk-tag {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(248, 113, 113, 0.12);
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  color: #f87171;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Attack count strip ─────────────────────────────────────── */
+.pipeline-attack-counts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.pipeline-attack-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 8px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.pipeline-attack-val {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.pipeline-attack-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
