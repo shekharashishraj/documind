@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MalDoc | Adversarial PDF Manipulation & Agentic Evaluation</title>
+  <meta name="description" content="MalDoc: a multi-stage pipeline for adversarial PDF manipulation and agentic evaluation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <img class="hero-logo" src="assets/img/logo.svg" alt="MalDoc logo">
+      <h1>MalDoc: Adversarial PDF Manipulation & Agentic Evaluation</h1>
+      <p class="hero-subtitle">
+        A multi-stage pipeline that extracts PDF structure, plans adversarial edits, executes
+        injection/overlay attacks, and evaluates downstream agent behavior.
+      </p>
+      <p class="authors">
+        Ashish Raj Shekhar<sup>1</sup> · Collaborator Name<sup>1</sup> · Collaborator Name<sup>2</sup>
+      </p>
+      <p class="affiliations"><sup>1</sup>Your Lab · <sup>2</sup>University / Company</p>
+      <p class="venue">Preprint · 2026</p>
+      <div class="link-row">
+        <a class="btn" href="#">Paper</a>
+        <a class="btn" href="https://github.com/shekharashishraj/MalDoc">Code</a>
+        <a class="btn" href="#">Demo</a>
+        <a class="btn" href="#">Video</a>
+        <a class="btn" href="#">Dataset</a>
+      </div>
+      <figure class="teaser">
+        <img src="assets/img/teaser.svg" alt="Teaser figure placeholder">
+        <figcaption>
+          Overview of MalDoc: extraction → analysis → planning → injection → agentic evaluation.
+          Replace this teaser with a pipeline graphic or key result figure.
+        </figcaption>
+      </figure>
+    </header>
+
+    <section class="section" id="overview">
+      <div class="section-header">
+        <span class="section-label">Overview</span>
+        <h2>Why MalDoc?</h2>
+      </div>
+      <p>
+        MalDoc targets a practical blind spot: PDF parsers and agentic systems often see different
+        content than a human reader. MalDoc orchestrates structured extraction, vulnerability-focused
+        analysis, attack planning, and controlled injection to study how downstream systems can be
+        influenced by adversarial documents.
+      </p>
+      <div class="callout">
+        Replace each placeholder image with your final figures. The layout matches a standard
+        GitHub Pages research template (hero, figures, and compact result grids) similar to
+        the infotabs reference page.
+      </div>
+    </section>
+
+    <section class="section" id="pipeline">
+      <div class="section-header">
+        <span class="section-label">Pipeline</span>
+        <h2>Multi-Stage Adversarial Pipeline</h2>
+      </div>
+      <p>
+        The pipeline runs five stages: extraction, GPT-based analysis, manipulation planning, PDF
+        injection/overlay, and agentic vulnerability evaluation. Each stage writes structured artifacts
+        for reproducibility and ablation studies.
+      </p>
+      <figure class="figure">
+        <img src="assets/img/pipeline.svg" alt="Pipeline diagram placeholder">
+        <figcaption>
+          Stage-by-stage flow. Replace with the finalized architecture diagram.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section two-col" id="dataset">
+      <div>
+        <div class="section-header">
+          <span class="section-label">Dataset</span>
+          <h2>Documents & Attack Scenarios</h2>
+        </div>
+        <p>
+          MalDoc supports structured PDF inputs spanning reports, policies, and transactional forms.
+          Each document is paired with a scenario-driven evaluation prompt and threat model.
+        </p>
+        <ul class="bullets">
+          <li>Multi-format parsing: byte extraction, OCR, and VLM outputs.</li>
+          <li>Attack planning with explicit scopes, payloads, and consistency notes.</li>
+          <li>Agentic evaluation with multi-trial scoring and majority vote.</li>
+        </ul>
+      </div>
+      <figure class="figure">
+        <img src="assets/img/dataset.svg" alt="Dataset placeholder">
+        <figcaption>
+          Replace with a dataset snapshot or example document panel.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="examples">
+      <div class="section-header">
+        <span class="section-label">Examples</span>
+        <h2>Adversarial Document Example</h2>
+      </div>
+      <p>
+        Attack plans are executed via hidden text injection, visual overlay, or font remapping.
+        The resulting adversarial PDF looks identical to a human but induces different parser
+        outputs and agent actions.
+      </p>
+      <figure class="figure">
+        <img src="assets/img/example.svg" alt="Adversarial example placeholder">
+        <figcaption>
+          Replace with a before/after visualization or a structured attack table.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="evaluation">
+      <div class="section-header">
+        <span class="section-label">Evaluation</span>
+        <h2>Agentic Vulnerability Simulation</h2>
+      </div>
+      <p>
+        MalDoc runs clean vs adversarial trials through a multi-agent evaluator that routes
+        to domain specialists. The pipeline reports compromise verdicts, routing shifts,
+        and scenario-specific failure modes.
+      </p>
+      <figure class="figure">
+        <img src="assets/img/evaluation.svg" alt="Evaluation flow placeholder">
+        <figcaption>
+          Replace with the evaluation flowchart or agent routing diagram.
+        </figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="results">
+      <div class="section-header">
+        <span class="section-label">Results</span>
+        <h2>Experimental Results</h2>
+      </div>
+      <p>
+        Use this grid to highlight key metrics: attack success, detection rate, robustness
+        ablations, and runtime. The layout mirrors the infotabs reference page with dense figure
+        panels and short captions.
+      </p>
+      <div class="results-grid">
+        <img src="assets/img/result-1.svg" alt="Result placeholder 1">
+        <img src="assets/img/result-2.svg" alt="Result placeholder 2">
+        <img src="assets/img/result-3.svg" alt="Result placeholder 3">
+        <img src="assets/img/result-4.svg" alt="Result placeholder 4">
+      </div>
+      <figcaption>
+        Replace each placeholder with your final charts or tables.
+      </figcaption>
+    </section>
+
+    <section class="section" id="bibtex">
+      <div class="section-header">
+        <span class="section-label">Citation</span>
+        <h2>BibTeX</h2>
+      </div>
+      <pre><code>@misc{maldoc2026,
+  title   = {MalDoc: Adversarial PDF Manipulation & Agentic Evaluation},
+  author  = {Shekhar, Ashish Raj and Collaborator, Name},
+  year    = {2026},
+  note    = {Preprint},
+  url     = {https://github.com/shekharashishraj/MalDoc}
+}
+</code></pre>
+    </section>
+
+    <footer>
+      Template inspired by modern GitHub Pages research layouts. Replace placeholders with
+      final assets and update the links above.
+    </footer>
+  </main>
+</body>
+</html>
